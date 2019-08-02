@@ -11,8 +11,8 @@ express()
     .set("view engine", "pug")
     .set('views', path.join(__dirname, 'views'))
 
-//definindo a porta local a ser utilizada
-const port = 1337;
+//definindo a porta a ser utilizada
+const port = process.env.PORT || 3338;
 
 const MongoClient = require("mongodb").MongoClient;
 const ObjectId = require("mongodb").ObjectID;

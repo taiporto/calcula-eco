@@ -3,6 +3,10 @@
   "version": "1.0.0",
   "description": "conector ao banco de dados",
   "main": "script.js",
+  "engines": {
+    "node": "= 10.16.0",
+    "npm": "= 6.9.0"
+  },
   "scripts": {
     "start": "node script.js"
   },
