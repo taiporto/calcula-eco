@@ -1,0 +1,68 @@
+/*Calculadora*/
+.labels{
+    display: block;
+    text-align: center;
+}
+
+
+.labelsbig{
+    display: inline-block;
+    width: 140px;
+    font-size: 100%;
+    line-height: 15.5px;
+
+}
+
+.inputs{
+    margin-bottom: 30px;
+}
+
+.pieces{
+    width: 200px;
+}
+
+.conteudo{
+    justify-items: center;
+    margin-top: 50px;
+}
+
+#header{
+    display: flex;
+    width: inherit;
+    text-align: center;
+    height: 55px;
+    margin-top:0px;
+    justify-content:center;
+    background-color: rgb(220, 120, 0);
+}
+
+#titulo{
+    margin-top:10px;
+}
+
+.form{
+    text-align: center;
+    background-color: rgb(216, 213, 213);
+    width: 500px;
+    line-height: 35px;
+    margin: 0 auto;
+    margin-top: 40px;
+    padding:40px;
+}
+
+#formIndex{
+    text-align: center;
+    background-color: rgb(216, 213, 213);
+    width: 500px;
+    line-height: 35px;
+    margin: 0 auto;
+    margin-top: 50px;
+    padding:40px;
+}
+
+.select{
+    height:30px;
+    border-radius:3px;
+}
+
+

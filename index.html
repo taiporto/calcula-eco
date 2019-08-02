@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+    <script defer src="script.js"></script>
+    <title>Calcula ECO - Home</title>
+</head>
+
+<body>
+    <div id="header">
+        <h1 id="titulo">Calcula Eco</h1>
+    </div>
+
+    <div class="container-fluid conteudo">
+        <div id="centro">
+
+            <form id="formIndex" action="http://localhost:1337/calculadora" method="GET">
+                <div class="form-group">
+                    <label for="cursos">Curso:</label>
+                    <select class="select" name="cursos" id="curso">
+                        <option value="na" selected hidden>Escolha seu curso</option>
+                        <option value="cs">Ciclo Básico</option>
+                        <option value="j">Jornalismo</option>
+                        <option value="pp">Publicidade e Propaganda</option>
+                        <option value="rtv">Rádio e TV</option>
+                        <option value="pe">Produção Editorial</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="periodos">Período:</label>
+                    <select class="select" name="periodos" id="periodo">
+                        <option value="0" selected hidden>Escolha seu período</option>
+                        <option value="1">1º Período</option>
+                        <option value="2">2º Período</option>
+                        <option value="3">3º Período</option>
+                        <option value="4">4º Período</option>
+                        <option value="5">5º Período</option>
+                        <option value="6">6º Período</option>
+                        <option value="7">7º Período</option>
+                        <option value="8">8º Período</option>
+                        <option value="nda" disabled>Quero escolher minhas próprias matérias</option>
+                    </select>
+                </div>
+                <button class="btn" type="submit">VAI</button>
+            </form>
+        </div>
+    </div>
+</body>
+
+</html>
