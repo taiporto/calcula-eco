@@ -11,8 +11,8 @@ express()
     .set("view engine", "pug")
     .set('views', path.join(__dirname, 'views'))
 
-// //definindo a porta local a ser utilizada
-// const port = 1337;
+//definindo a porta local a ser utilizada
+const port = 1337;
 
 const MongoClient = require("mongodb").MongoClient;
 const ObjectId = require("mongodb").ObjectID;
@@ -32,10 +32,10 @@ MongoClient.connect(CONNECTION_URL, { useNewUrlParser: true }, (error, client) =
     console.log("Connected to `" + DATABASE_NAME + "`!");
 });
 
-// //conectar ao port
-// app.listen(port, () => {
-//     console.log("Running on port", port);
-// });
+//conectar ao port
+app.listen(port, () => {
+    console.log("Running on port", port);
+});
 
 //carregar a página inicial
 app.get("/", (req, res) => {
