@@ -1,0 +1,95 @@
+extends layout
+
+block content
+
+  - let i = 1;
+
+
+  div.container-fluid.conteudo.row#conteudoCalc
+    div#placeholder
+    div#centroCalc.col-md-4
+      form(id='formNotas' class='form' action='/resultado' method='POST') 
+        each d in disciplinas          
+          if d.valido != false
+            if d.nome_disciplina.length < 28
+              div(class='pieces form-group')
+                label(class='labelsCalc', for=''+d.nome_disciplina) #{d.nome_disciplina}
+                input(type='number', step='0.1', min='0', max='10', class='inputs text-center form-control' placeholder='Insira sua nota', name=''+ i id=''+ i)
+            else
+              div(class='pieces form-group')
+                label(class='labelsCalc labelsCalcBig', for=''+d.nome_disciplina) #{d.nome_disciplina}
+                input(type='number', step='0.1', min='0', max='10', class='inputs text-center form-control' placeholder='Insira sua nota', name=''+ i id=''+ i)
+            - i = i+1;
+        <br>
+        button(id='buttonCalcula', class='btn btn-custom btn-calc') Calcular!
+    div#instrucoes
+            h1 CalculaECO
+            h3 Essa é a calculadora de C.R da ECO.
+            p#paragrafo.
+                A calculadora é muito simples: você seleciona seu curso e seu período e clica OK.<br>
+                Aí coloca as notas que você recebeu e pronto! C.R calculado!
+
+    script.
+      $(document).ready( function(){
+
+        function createDivGroup(){
+          let inputs = $(".pieces");
+          let step = 3; // the step 
+
+          for (let i = 0; i < inputs.length; i += step) { // increment i with the step
+            inputs.slice(i, i + step + 1).wrapAll("<div class='inputGroup'></div>"); // slice for i to i + step + 1 and wrap
+            step++; // increment the step
+          }
+
+          let groupDivs = $('.inputGroup');
+
+          $('.inputGroup').wrapAll("<div class='row'></div>");
+
+          let lenGroup = groupDivs.length;
+
+          switch(lenGroup){
+            case 2:
+              for(let i = 0; i < lenGroup; i++) {
+                groupDivs[i].classList.add('col-sm-6', 'col-xs-12');
+              }
+              break;
+            case 3:
+              $('#centroCalc').attr('id', 'centroCalc3C');
+              $('.labelsCalc').addClass('labelsCalc3C');
+              $('.pieces').addClass('pieces3C');
+              $('.btn-calc').addClass('btn-calc-3C');
+              for(let i = 0; i < lenGroup; i++) {
+                groupDivs[i].classList.add('col-md-4');
+              }
+              break;
+          }
+        }
+
+        createDivGroup();
+
+        if($(window).size() < 768){
+          $('.inputs').addClass('input-lg');
+        }
+
+        function resizedw(){
+            if($(window).size() > 768){
+              $('.inputs').removeClass('input-lg');
+            }
+            else{
+              $('.inputs').addClass('input-lg');
+            }
+        }
+
+
+        window.onresize = function() {
+          let setter;
+          clearTimeout(setter);
+          setter = setTimeout(function() {
+            resizedw();
+          }, 100);
+        }
+      })
+
+
+
+

@@ -1,0 +1,40 @@
+extends layout
+
+block content
+    div.container-fluid.conteudo.row#conteudoIndex
+        div#placeholder
+        div#centroIndex.col-md-4
+            form#formIndex.form(action='/calculadora' method='POST')
+                div.form-group.groupIndex
+                    label.labelsIndex(for='cursos') Curso:
+                    <br/>
+                    select#curso.select.select-custom(name='cursos')
+                        option(value='na' selected='' hidden='') Escolha seu curso
+                        option(value='cs') Ciclo B&aacute;sico
+                        option(value='j') Jornalismo
+                        option(value='pp') Publicidade e Propaganda
+                        option(value='rtv') R&aacute;dio e TV
+                        option(value='pe') Produ&ccedil;&atilde;o Editorial
+                div.form-group.groupIndex
+                    label.labelsIndex(for='periodos') Per&iacute;odo:
+                    <br/>
+                    select#periodo.select.select-custom(name='periodos')
+                        option(value='0' selected='' hidden='') Escolha seu per&iacute;odo
+                        option(value='1') 1&ordm; Per&iacute;odo
+                        option(value='2') 2&ordm; Per&iacute;odo
+                        option(value='3') 3&ordm; Per&iacute;odo
+                        option(value='4') 4&ordm; Per&iacute;odo
+                        option(value='5') 5&ordm; Per&iacute;odo
+                        option(value='6') 6&ordm; Per&iacute;odo
+                        option(value='7') 7&ordm; Per&iacute;odo
+                        option(value='8') 8&ordm; Per&iacute;odo
+                        option(value='nda' disabled='') Quero escolher minhas pr&oacute;prias mat&eacute;rias
+                button.btn.btn-custom.btn-index(type='submit') OK
+        div#instrucoes
+            h1 CalculaECO
+            h3 Essa é a calculadora de C.R da ECO.
+            p#paragrafo.
+                A calculadora é muito simples: você seleciona seu curso e seu período e clica OK.<br>
+                Aí coloca as notas que você recebeu e pronto! C.R calculado!
+
+            
