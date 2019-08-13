@@ -6,7 +6,7 @@ module.exports = {
         const mongoose = require('mongoose');
         const ObjectId = require("mongodb").ObjectID;
         
-        let CONNECTION_URL = process.env.MONGO_URI || "mongodb+srv://public:HxnpHEg3OnxJgDSt@cluster0-yfisq.gcp.mongodb.net/bdcalculaeco?retryWrites=true&w=majority&authSource=admin";
+        let CONNECTION_URL = process.env.MONGO_URI || "mongodb+srv://public:HxnpHEg3OnxJgDSt@cluster0-yfisq.gcp.mongodb.net/bdcalculaeco?replicaSet=Cluster0-shard-0&retryWrites=true&w=majority&authSource=admin";
         const DATABASE_NAME = "bdcalculaeco";
 
         // MongoClient.connect(CONNECTION_URL, { useNewUrlParser: true }, (error, client) => {
