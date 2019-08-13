@@ -26,7 +26,7 @@ app.listen(port, () => {
 });
 
 app.get("/home", (req, res) => {
-    res.render('index', { root: __dirname, titulo : "Home" });
+    res.render('index', { root: __dirname, titulo: "Home" });
 })
 
 //conectar ao banco de dados
@@ -48,15 +48,15 @@ app.post("/calculadora", (req, res) => {
         "curso": cursoSelected,
         "periodo": periodoSelected
     };
-
+    
     collection.find(queryCurso).toArray((err, result) => {
         if (!err) {
             if (result.length > 0) {
                 let jsonResult = JSON.parse(JSON.stringify(result));
-                creditosArray = jsonResult.map(function(item) {
+                creditosArray = jsonResult.map(function (item) {
                     return item.creditos;
-                  });
-                res.render("calculadora", { disciplinas: jsonResult, titulo : "Calculadora"});
+                });
+                res.render("calculadora", { disciplinas: jsonResult, titulo: "Calculadora" });
             }
             else {
                 res.send("<span>Por favor insira uma combinação válida</span>");
@@ -71,22 +71,22 @@ app.post("/calculadora", (req, res) => {
 
 //Esse POST faz o display dos resultados
 app.post("/resultado", (req, res) => {
-    
+
     let notasDict = req.body;
     let creditos = creditosArray.map(Number);
 
     let notas = [];
 
-    for (nota in notasDict){
+    for (nota in notasDict) {
         notas.push(notasDict[nota]);
     }
 
     notas = notas.map(Number);
-    
+
     let crFinal = calculadora.calculoCR(notas, creditos);
 
-    res.render("resultado", {crFinal, titulo : "Resultado"});
-    
+    res.render("resultado", { crFinal, titulo: "Resultado" });
+
 })
 
 
