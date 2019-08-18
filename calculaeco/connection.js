@@ -19,22 +19,22 @@ conn.connect(function(err) {
 });
 
 module.exports = {
-    connect: function () {
-        const mongoose = require('mongoose');
+    // connect: function () {
+    //     const mongoose = require('mongoose');
 
-        let CONNECTION_URL = process.env.MONGO_URI || "mongodb+srv://public:HxnpHEg3OnxJgDSt@cluster0-yfisq.gcp.mongodb.net/bdcalculaeco?replicaSet=Cluster0-shard-0&retryWrites=true&w=majority&authSource=admin";
-        const DATABASE_NAME = "bdcalculaeco";
+    //     let CONNECTION_URL = process.env.MONGO_URI || "mongodb+srv://public:HxnpHEg3OnxJgDSt@cluster0-yfisq.gcp.mongodb.net/bdcalculaeco?replicaSet=Cluster0-shard-0&retryWrites=true&w=majority&authSource=admin";
+    //     const DATABASE_NAME = "bdcalculaeco";
 
-        mongoose.connect(CONNECTION_URL, { useNewUrlParser: true });
+    //     mongoose.connect(CONNECTION_URL, { useNewUrlParser: true });
 
-        let db = mongoose.connection;
-        db.on('error', console.error.bind(console, 'connection error:'));
-        db.once('open', function () {
-            console.log("Connected to `" + DATABASE_NAME + "`!");
+    //     let db = mongoose.connection;
+    //     db.on('error', console.error.bind(console, 'connection error:'));
+    //     db.once('open', function () {
+    //         console.log("Connected to `" + DATABASE_NAME + "`!");
 
-            collection = db.collection("disciplinas");
-        });
-    },
+    //         collection = db.collection("disciplinas");
+    //     });
+    // },
 
     search: function (querySQL, callback) {
 
