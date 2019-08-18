@@ -3,21 +3,13 @@ require('dotenv').config();
 
 
 const DATABASE_NAME = "bdcalculaeco";
-
-// const pool = mysql.createPool({
-//     connectionLimit: 10,
-//     host: 'db4free.net',
-//     port: 3306,
-//     user: 'mk23_02',
-//     password: 'Eou8HH0tv90cSqNN',
-//     database: DATABASE_NAME
-// });
+let PASSWORD = process.env.PASSWORD || 'Eou8HH0tv90cSqNN';
 
 const conn = mysql.createConnection({
     host: 'db4free.net',
     port: 3306,
     user: 'mk23_02',
-    password: 'Eou8HH0tv90cSqNN',
+    password: PASSWORD,
     database: DATABASE_NAME
 });
 

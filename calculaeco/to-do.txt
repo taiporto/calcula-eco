@@ -1,5 +1,0 @@
-Pesquisar número máximo de matérias (por horário)
-
-Implementar adição e subtração de matérias inteiras
-
-Fazer a página de escolha
