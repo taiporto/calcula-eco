@@ -77,7 +77,7 @@ body {
 }
 
 #placeholderResult{
-    width: 530px;
+    width: 510px;
 }
 
 
@@ -106,12 +106,14 @@ h3{
 
 #instrucoes{
     width: 450px;
-    padding: 60px;
+    padding: 70px;
+    padding-right: 0px;
     padding-top: 20px;
     font-size: 13pt;
     color: white;
     text-align: left;
     margin-left: 0px;
+    margin-right: 0px;
 }
 
 #paragrafo{
@@ -120,7 +122,7 @@ h3{
 
 #placeholder{
     width: 450px;
-    margin-left: 20px;
+    margin-left: 10px;
 }
 
 #centroIndex{
@@ -170,7 +172,7 @@ h3{
     margin-top: -10px;
 }
 
-#centroCalc, #centroCalc3C{
+#centroCalc, #centroCalc3C, #centroEscolha{
     background-repeat: no-repeat;
     background-position: center;
     background-size: 100%;
@@ -178,12 +180,13 @@ h3{
     display: flex;
     align-items: center;
     justify-content: center;
+    margin-top: -10px;
     
 }
 
 /* duas colunas */
 
-#centroCalc {
+#centroCalc, #centroEscolha {
     width: 600px;
     height: 650px;
     background-image: url('imgs/UI\ Pag\ 2\ border.png');

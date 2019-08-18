@@ -1,0 +1,31 @@
+extends layout
+
+block content
+  div.container-fluid.conteudo.row#conteudoCalc
+    div#placeholder
+    div#centroEscolha.col-md-4
+        form#formIndex.form(action='/escolha' method='POST')
+            div.form-group.groupIndex
+                div(class='pieces form-group')
+                    label(class='labelsCalc', for='' )   Blabla
+                        select#curso.select.select-custom(name='cursos')
+                                option(value='na' selected='' hidden='') Escolha seu curso
+                                option(value='cs') Ciclo B&aacute;sico
+                                option(value='j') Jornalismo
+                                option(value='pp') Publicidade e Propaganda
+                                option(value='rtv') R&aacute;dio e TV
+                                option(value='pe') Produ&ccedil;&atilde;o Editorial
+        <br>
+        button(id='buttonCalcula', class='btn btn-custom btn-calc') Calcular!
+    div#instrucoes
+        h1 CalculaECO
+        h3 Essa é a calculadora de C.R da ECO.
+        p#paragrafo.
+            A calculadora é muito simples: você seleciona seu curso e seu período e clica OK.<br>
+            Aí coloca as notas que você recebeu e pronto! C.R calculado!
+
+   
+
+
+
+

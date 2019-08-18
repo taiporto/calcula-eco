@@ -30,7 +30,7 @@ app.get("/home", (req, res) => {
 })
 
 //conectar ao banco de dados
-connection.connect();
+//connection.connectSQL();
 
 //array para guardar os creditos
 creditosArray = [];
@@ -44,36 +44,44 @@ app.post("/calculadora", (req, res) => {
     req.is('text/*');
 
     //query MongoDB para achar as matérias disponíveis para aquele curso naquele período
-    let queryCurso = {
-        "curso": cursoSelected,
-        "periodo": periodoSelected
-    };
+    // let queryCurso = {
+    //     "curso": cursoSelected,
+    //     "periodo": periodoSelected
+    // };
+
+    //query MySQL
+    const querySQL = "SELECT * from disciplinas WHERE curso='" + cursoSelected + "' AND periodo =" + periodoSelected + " AND valido = 1";
+
+    connection.search(querySQL, (result) => { 
+        if(result.length > 0){
+
+            jsonResult = JSON.parse(JSON.stringify(result));
+
+            creditosArray = result.map(function (item) {
+                return item.creditos;
+            });
     
-    collection.find(queryCurso).toArray((err, result) => {
-        if (!err) {
-            if (result.length > 0) {
-                let jsonResult = JSON.parse(JSON.stringify(result));
-                creditosArray = jsonResult.map(function (item) {
-                    return item.creditos;
-                });
-                res.render("calculadora", { disciplinas: jsonResult, titulo: "Calculadora" });
-            }
-            else {
-                res.send("<span>Por favor insira uma combinação válida</span>");
-            }
+            res.render("calculadora", { disciplinas: jsonResult});
         }
-        else {
-            throw (err);
+        else{
+            res.send("<span>Por favor insira uma combinação válida</span>");
         }
-    });
+      });
 
 });
+
+app.post("/escolha", (req, res) => {
+    res.render("escolha", { root: __dirname });
+})
 
 //Esse POST faz o display dos resultados
 app.post("/resultado", (req, res) => {
 
     let notasDict = req.body;
     let creditos = creditosArray.map(Number);
+
+    console.log(notasDict);
+    console.log(creditos);
 
     let notas = [];
 
@@ -82,6 +90,8 @@ app.post("/resultado", (req, res) => {
     }
 
     notas = notas.map(Number);
+
+    console.log(notas);
 
     let crFinal = calculadora.calculoCR(notas, creditos);
 
