@@ -76,8 +76,6 @@ app.post("/resultado", (req, res) => {
 
 })
 
-module.exports = app;
-
 
     //dicionário para transformar a sigla do curso no nome dele (Não sei se vai ser necessário)
     // let cursoDict = {
