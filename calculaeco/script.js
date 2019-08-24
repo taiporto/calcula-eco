@@ -18,8 +18,6 @@ app.get("/", (req, res) => {
     res.render('index', { root: __dirname, titulo: "Home" });
 })
 
-//conectar ao banco de dados
-//connection.connectSQL();
 
 //array para guardar os creditos
 creditosArray = [];
