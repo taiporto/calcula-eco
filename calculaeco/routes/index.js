@@ -1,0 +1,9 @@
+//router
+const express = require('express');
+const router = express.Router();
+
+router.get("/home", (req, res) => {
+    res.render('index', { root: __dirname, titulo: "Home" });
+})
+
+module.exports = router;

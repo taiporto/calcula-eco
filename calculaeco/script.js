@@ -1,29 +1,18 @@
-//módulo que faz a conexão com o banco de dados
-const connection = require('./connection.js');
+const search = require('./functionalities').search;
 
 //módulo que faz a conta do cr
-const calculadora = require('./calculadora.js');
+const calculoCR = require('./functionalities').calculoCR;
+const isEmpty = require('./functionalities.js').isEmpty;
 
-//router
-const express = require('express');
-
-const app = express();
-const path = require('path');
-const bodyParser = require('body-parser');
-
-//router config
-app.use(bodyParser.urlencoded({ extended: true }))
-app.use(bodyParser.json())
-app.use(express.static(path.join(__dirname, 'public')))
-app.set("view engine", "pug")
-app.set('views', path.join(__dirname, 'views'))
+const app = require('./app.js');
 
 //port
-const port = process.env.PORT || 3338;
+const port = process.env.PORT;
 
 app.listen(port, () => {
     console.log("Running on port", port);
 });
+
 
 app.get("/home", (req, res) => {
     res.render('index', { root: __dirname, titulo: "Home" });
@@ -43,25 +32,17 @@ app.post("/calculadora", (req, res) => {
     res.setHeader('content-type', 'text/html; charset=utf-8');
     req.is('text/*');
 
-    //query MongoDB para achar as matérias disponíveis para aquele curso naquele período
-    // let queryCurso = {
-    //     "curso": cursoSelected,
-    //     "periodo": periodoSelected
-    // };
-
     //query MySQL
-    const querySQL = "SELECT * from disciplinas WHERE curso='" + cursoSelected + "' AND periodo =" + periodoSelected + " AND valido = 1";
+    const querySQL = `SELECT * from disciplinas WHERE curso='${cursoSelected}' AND periodo = ${periodoSelected} AND valido = 1`;
 
-    connection.search(querySQL, (result) => { 
-        if(result.length > 0){
-
-            jsonResult = JSON.parse(JSON.stringify(result));
-
+    search(querySQL, (result) => { 
+        
+        if(!isEmpty(result)){
+            console.log(result);
             creditosArray = result.map(function (item) {
                 return item.creditos;
             });
-    
-            res.render("calculadora", { disciplinas: jsonResult});
+            res.render("calculadora", { disciplinas: result});
         }
         else{
             res.send("<span>Por favor insira uma combinação válida</span>");
@@ -79,10 +60,6 @@ app.post("/resultado", (req, res) => {
 
     let notasDict = req.body;
     let creditos = creditosArray.map(Number);
-
-    console.log(notasDict);
-    console.log(creditos);
-
     let notas = [];
 
     for (nota in notasDict) {
@@ -93,12 +70,13 @@ app.post("/resultado", (req, res) => {
 
     console.log(notas);
 
-    let crFinal = calculadora.calculoCR(notas, creditos);
+    let crFinal = calculoCR(notas, creditos);
 
     res.render("resultado", { crFinal, titulo: "Resultado" });
 
 })
 
+module.exports = app;
 
 
     //dicionário para transformar a sigla do curso no nome dele (Não sei se vai ser necessário)

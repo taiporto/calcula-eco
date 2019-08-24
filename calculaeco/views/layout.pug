@@ -5,7 +5,7 @@ html(lang='pt')
         meta(charset='utf-8')
         meta(name='viewport', content='width=device-width, initial-scale=1.0, maximum-scale=1')
         link(rel="icon" href="imgs/icon laranja.png")
-        link(rel='stylesheet', href='/style.css')
+        link(rel='stylesheet', href='stylesheets/style.css')
         link(rel="stylesheet",
         href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css",
         integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7",
@@ -21,18 +21,18 @@ html(lang='pt')
       block rodape
         div#footer(style="width: 100%; margin-bottom:0px")
             a(href="http://www.github.com/liaporto" target='blank')
-                img( id="github" src="imgs/github.png" alt="http://www.github.com/liaporto" onmouseover="hover(this);" onmouseout="unhover(this);")
+                img( id="github" src="/images/github.png" alt="http://www.github.com/liaporto" onmouseover="hover(this);" onmouseout="unhover(this);")
             a(href="mailto:liabarcellos28@gmail.com?subject=CalculaECO")
-                img( id="mail" src="imgs/mail.png" alt="E-mail" onmouseover="hover(this);"  onmouseout="unhover(this);")
+                img( id="mail" src="/images/mail.png" alt="E-mail" onmouseover="hover(this);"  onmouseout="unhover(this);")
             a(href="http://www.twitter.com/zaribiscuit" target='blank')
-                img( id="twitter" src="imgs/twitter.png" alt="http://www.twitter.com/zaribiscuit" onmouseover="hover(this);" onmouseout="unhover(this);")
+                img( id="twitter" src="/images/twitter.png" alt="http://www.twitter.com/zaribiscuit" onmouseover="hover(this);" onmouseout="unhover(this);")
             span#footerTexto @moon.koala_
         script.
             function hover(element) {
-                element.setAttribute('src', 'imgs/'+element.id+' laranja.png');
+                element.setAttribute('src', '/images/'+element.id+' laranja.png');
             }
             function unhover(element) {
-                element.setAttribute('src', 'imgs/'+element.id+'.png');
+                element.setAttribute('src', '/images/'+element.id+'.png');
             }
 
 script(src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js", integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS", crossorigin="anonymous")  

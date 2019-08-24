@@ -12,7 +12,7 @@ html {
 
 body {
     background-color: #FF701A;
-    background-image: url('imgs/Rodape\ as\ bg\ water.png');
+    background-image: url('/images/Rodape\ as\ bg\ water.png');
     background-size: auto 100%;
     background-repeat: repeat-x;
     min-height: 100%;
@@ -29,6 +29,20 @@ body {
     line-height: 35px;
     margin: 0 auto;
     padding: 0px;
+}
+
+#placeholder{
+    width: 30vw;
+}
+
+#instrucoes{
+    width: 30vw;
+    padding: 20px;
+    font-size: 13pt;
+    color: white;
+    text-align: center;
+    float: right;
+    
 }
 
 #footer{
@@ -48,12 +62,17 @@ body {
 }
 
 #footerTexto{   
-    margin-left: 38.5%;
+    margin-left: 38%;
 }
 
 /* resultado */
+.conteudoResult{
+
+    margin-top: 60px;
+}
+
 #centroResult {
-    width: 500px;
+    width: 33vw;
     height: 340px;
 }
 
@@ -67,7 +86,7 @@ body {
 }
 
 #instrucoesResult{
-    width: 450px;
+    width: 32vw;
     padding: 60px;
     padding-top: 20px;
     font-size: 13pt;
@@ -77,12 +96,12 @@ body {
 }
 
 #placeholderResult{
-    width: 510px;
+    width: 32vw;
 }
 
 
 #centroIndex, #centroResult {
-    background-image: url('imgs/UI\ Pag\ 1-3\ border.png');
+    background-image: url('/images/UI\ Pag\ 1-3\ border.png');
     background-repeat: no-repeat;
     background-position: center;
     background-size: 100%;
@@ -90,6 +109,7 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
+    
 }
 
 /* index */
@@ -104,29 +124,12 @@ h3{
 
 }
 
-#instrucoes{
-    width: 450px;
-    padding: 70px;
-    padding-right: 0px;
-    padding-top: 20px;
-    font-size: 13pt;
-    color: white;
-    text-align: left;
-    margin-left: 0px;
-    margin-right: 0px;
-}
-
 #paragrafo{
     color: black;
 }
 
-#placeholder{
-    width: 450px;
-    margin-left: 10px;
-}
-
 #centroIndex{
-    width: 600px;
+    width: 39vw;
     height: 500px;
 }
 
@@ -187,9 +190,9 @@ h3{
 /* duas colunas */
 
 #centroCalc, #centroEscolha {
-    width: 600px;
+    width: 39vw;
     height: 650px;
-    background-image: url('imgs/UI\ Pag\ 2\ border.png');
+    background-image: url('/images/UI\ Pag\ 2\ border.png');
     padding: 30px;
     padding-top: 10px;
 }
@@ -256,5 +259,5 @@ h3{
 #centroCalc3C{
     width: 850px;
     height: 700px;
-    background-image: url('imgs/UI\ Pag\ 2\ threeC.png');
+    background-image: url('/images/UI\ Pag\ 2\ threeC.png');
 }
