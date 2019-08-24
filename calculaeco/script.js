@@ -9,14 +9,14 @@ const app = require('./app.js');
 //port
 const port = process.env.PORT;
 
-// app.listen(port, () => {
-//     console.log("Running on port", port);
-// });
+app.listen(port, () => {
+    console.log("Running on port", port);
+});
 
 
-// app.get("/home", (req, res) => {
-//     res.render('index', { root: __dirname, titulo: "Home" });
-// })
+app.get("/home", (req, res) => {
+    res.render('index', { root: __dirname, titulo: "Home" });
+})
 
 //conectar ao banco de dados
 //connection.connectSQL();
