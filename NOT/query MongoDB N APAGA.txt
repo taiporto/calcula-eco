@@ -1,5 +1,0 @@
-query MongoDB para achar as matérias disponíveis para aquele curso naquele período
-    let queryCurso = {
-        "curso": cursoSelected,
-        "periodo": periodoSelected
-    };

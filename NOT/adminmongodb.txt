@@ -1,6 +1,0 @@
-﻿A: Eou8HH0tv90cSqNN
-
-P: HxnpHEg3OnxJgDSt
-
-
-JSON disciplinas source (usar ao invés do mySQL??? Considerar): https://api.myjson.com/bins/6ffa7
