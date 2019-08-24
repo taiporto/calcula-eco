@@ -3,7 +3,7 @@ extends layout
 block content
     div.container-fluid.conteudo.row#conteudoIndex
         div#placeholder
-        div#centroIndex.col-md-4
+        div#centroIndex.col-lg-4.col-md-6.col-xs-6
             form#formIndex.form(action='/calculadora' method='POST')
                 div.form-group.groupIndex
                     label.labelsIndex(for='cursos') Curso:
@@ -31,11 +31,34 @@ block content
                         option(value='8') 8&ordm; Per&iacute;odo
                         option(value='nda' disabled='') Quero escolher minhas pr&oacute;prias mat&eacute;rias
                 button.btn.btn-custom.btn-index(type='submit') OK
-        div#instrucoes
+        div#instrucoes.col-lg-4.col-md-6.col-xs-6
             h1 CalculaECO
             h3 Essa é a calculadora de C.R da ECO.
             p#paragrafo.
                 A calculadora é muito simples: você seleciona seu curso e seu período e clica OK.<br>
                 Aí coloca as notas que você recebeu e pronto! C.R calculado!
+
+        script.
+            $(document).ready( function(){
+                function resizedw(){
+                
+                    if(('#placeholder').length){
+                        if($(window).size() < 852){
+                            $('#placeholder').remove();
+                        } 
+                    }
+                    else {
+                        $("<div id='placeholder'></div>").insertBefore('#centroIndex');
+                    }
+                }
+                window.onresize = function() {
+                    let setter;
+                    clearTimeout(setter);
+                    setter = setTimeout(function() {
+                        resizedw();
+                    }, 100);
+                }
+            })
+
 
             
