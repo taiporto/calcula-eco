@@ -14,7 +14,7 @@ app.listen(port, () => {
 });
 
 
-app.get("/home", (req, res) => {
+app.get("/", (req, res) => {
     res.render('index', { root: __dirname, titulo: "Home" });
 })
 
