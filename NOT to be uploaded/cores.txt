@@ -1,0 +1,10 @@
+Cores calculaECO:
+
+Laranja principal: #ff6520
+
+Branco #fffff
+
+Preto #00000 80% opacidade
+
+
+rotação: -8.1
