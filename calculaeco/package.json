@@ -1,7 +1,7 @@
 {
   "name": "calculaeco",
   "version": "1.0.0",
-  "description": "conector ao banco de dados",
+  "description": "app para calcular o C.R dos cursos da ECO",
   "main": "script.js",
   "engines": {
     "node": "= 10.16.0",
