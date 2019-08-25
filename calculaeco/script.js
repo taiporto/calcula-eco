@@ -31,7 +31,7 @@ app.post("/calculadora", (req, res) => {
     req.is('text/*');
 
     //query MySQL
-    const querySQL = `SELECT * from disciplinas WHERE curso='${cursoSelected}' AND periodo = ${periodoSelected} AND valido = 1`;
+    const querySQL = `SELECT * from ${cursoSelected} WHERE periodo = ${periodoSelected} AND valido = 1`;
 
     search(querySQL, (result) => { 
         
@@ -40,7 +40,7 @@ app.post("/calculadora", (req, res) => {
             creditosArray = result.map(function (item) {
                 return item.creditos;
             });
-            res.render("calculadora", { disciplinas: result});
+            res.render("calculadora", { disciplinas: result, titulo: "Calculadora"});
         }
         else{
             res.send("<span>Por favor insira uma combinação válida</span>");
