@@ -18,6 +18,8 @@ body {
     min-height: 100%;
     padding: 0;
     margin: 0;
+    position: fixed;
+    
 }
 .conteudo {
     justify-items: center;
@@ -33,11 +35,26 @@ body {
 }
 
 #placeholder{
-    width: 30vw;
+    width: 70vh;
 }
 
 #instrucoes{
-    width: 30vw;
+    width: 50vw;
+    padding: 70px;
+    padding-top: 20px;
+    margin-left: -5%;
+    font-size: 13pt;
+    color: white;
+    text-align: center;
+    float: right;
+}
+
+#placeholderCalc{
+    width: 65vh;
+}
+
+#instrucoesCalc{
+    width: 60vh;
     padding: 20px;
     font-size: 13pt;
     color: white;
@@ -46,8 +63,23 @@ body {
     
 }
 
+#placeholderResult{
+    width: 32vw;
+}
+
+#instrucoesResult{
+    width: 32vw;
+    padding: 60px;
+    padding-top: 20px;
+    font-size: 13pt;
+    color: white;
+    text-align: left;
+    margin-left: 30px;
+}
+
+
 #footer{
-    position: absolute;
+    position: fixed;
     bottom: 0;
     display: block;
     margin: 0 auto;
@@ -73,7 +105,7 @@ body {
 }
 
 #centroResult {
-    width: 33vw;
+    width: 80%;
     height: 340px;
 }
 
@@ -86,21 +118,6 @@ body {
     color: var(--main-color);
 }
 
-#instrucoesResult{
-    width: 32vw;
-    padding: 60px;
-    padding-top: 20px;
-    font-size: 13pt;
-    color: white;
-    text-align: left;
-    margin-left: 30px;
-}
-
-#placeholderResult{
-    width: 32vw;
-}
-
-
 #centroIndex, #centroResult {
     background-image: url('/images/UI_Pag_1-3_border.png');
     background-repeat: no-repeat;
@@ -111,42 +128,6 @@ body {
     align-items: center;
     justify-content: center;
     
-}
-
-@media (max-width: 1300px) {
-    #centroIndex, #centroResult, #centroCalc {
-        background-size: auto;
-        border-radius: 25px;
-        width: auto;
-        margin: 0 auto;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        
-    }
-
-    .btn-custom{
-        width: 180%;
-    }
-}
-
-@media (max-width: 851px) {
-    
-    #centroIndex, #centroResult, #centroCalc {
-        width:50vw;
-        background-size: auto;
-        border-radius: 25px;
-        width: auto;
-        margin: 0 auto;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        
-    }
-
-    .btn-custom{
-        width: 180%;
-    }
 }
 
 
@@ -167,12 +148,12 @@ h3{
 }
 
 #centroIndex{
-    width: 39vw;
+    width: 60%;
     height: 500px;
 }
 
 .labelsIndex {
-    font-size: 20pt;
+    font-size: 30px;
 }
 
 .groupIndex {
@@ -188,12 +169,13 @@ h3{
     border-radius: 3px;
     margin-left: 10px;
     text-align-last: center;
+    background-color: white;
     width: auto;
 }
 
 
 .btn-custom {
-    width: 94.5%;
+    width: 94%;
     max-width: 200%;
     border: 0px !important;
     border-radius: 0px !important;
@@ -217,7 +199,14 @@ h3{
     margin-top: -10px;
 }
 
-#centroCalc, #centroCalc3C, #centroEscolha{
+/* duas colunas */
+
+#centroCalc {
+    width: auto;
+    height: 650px;
+    background-image: url('/images/UI_Pag_2_border.png');
+    padding: 40px;
+    padding-top: 10px;
     background-repeat: no-repeat;
     background-position: center;
     background-size: 100%;
@@ -226,17 +215,8 @@ h3{
     align-items: center;
     justify-content: center;
     margin-top: -10px;
+    margin-left: -40px;
     
-}
-
-/* duas colunas */
-
-#centroCalc, #centroEscolha {
-    width: 39vw;
-    height: 650px;
-    background-image: url('/images/UI_Pag_2_border.png');
-    padding: 30px;
-    padding-top: 10px;
 }
 
 
@@ -273,27 +253,22 @@ h3{
     text-align: center;
 }
 
-@media (max-width: 768px) {
-    .row {
-        margin-top: 10px;
-        display: inline-block;
-        text-align: center;
-        width: 300px;
-        font-size: 120%;
-    }
-    .inputGroup {
-        text-align: center;
-    }
-    .pieces {
-        display: inline-block;
-        text-align: center;
-    }
-}
-
 .btn-calc {
     margin-top: -10px;
-    width: 529px;
-    margin-left: 2.5px;
+    width: 35.58vw;
+    margin-left: 0.2%;
+}
+
+#centroCalc3C{
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 100%;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: -10px;
+    
 }
 
 /* três colunas */
@@ -303,3 +278,138 @@ h3{
     height: 700px;
     background-image: url('/images/UI_Pag_2_threeC.png');
 }
+
+@media (max-width: 1460px) {
+    
+    #placeholder, #placeholderResult, #placeholderCalc{
+        display: none;
+    }
+
+    #centroIndex{
+        background-size:100%;
+        width: 60vw;
+        margin: 0 auto;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-left: 10%;
+    }
+
+    #instrucoes{
+        width: 40vw;
+    }
+
+    #centroCalc{
+        margin-left: 20%;
+        background-size: 100%;
+        width: 59vw;
+    }
+
+    #instrucoesCalc{
+        width: 40vw;
+    }
+
+    #centroResult{
+        background-size: 65%;
+        width: 60vw;
+        margin: 0 auto;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+}
+
+@media (max-width: 1164px) {
+    #centroIndex, #centroCalc {
+        width: 60vw;
+        margin: 0 auto;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    #centroIndex{
+        margin-left: 10%;
+        margin-right: 5%;
+    }
+
+    #centroCalc{
+        background-size:70%;
+        padding: 40px;
+        margin-top: -30px;
+    }
+
+    #instrucoes, #instrucoesCalc, #instrucoesResult{
+        width: 30vw;
+    }
+
+    .labelsCalc{
+        font-size: 90%;
+    }
+
+    .labelsIndex{
+        font-size: 20px;
+    }
+
+    .btn-custom{
+        width: 90%;
+    }
+    
+    .btn-calc {
+        margin-top: -10px;
+        width: 35.58vw;
+        margin-left: 0.2%;
+    }
+}
+
+@media (max-width: 1164px) {
+    #centroIndex, #centroResult, #centroCalc{
+        background-image: none;
+        background-color: white;
+        border-radius: 25px;
+        margin: 0 auto;
+        width: fit-content;
+        height: fit-content;
+        align-items: center;
+        justify-content: center;
+    }
+
+    #centroCalc{
+        margin-left: 2%;
+    }
+    #centroResult{
+        width: 100vw;
+        height: 30vh;
+        margin-left: 25%;
+        margin-right: 25%;
+    }
+
+    #centroIndex{
+        margin-left: 25%;
+        margin-right: 15%;
+        margin-top: 5%;
+    }
+
+    #instrucoes{
+        width: 55vw;
+        padding-top: 0px;
+        margin-right: 20%;
+    }
+
+    #instrucoesResult{
+        display: none;
+    }
+
+    #instrucoesCalc{
+        margin-left: 5%;
+    }
+
+    
+    .btn-calc {
+        margin-top: -2%;
+        width: 35.58vw;
+        margin-left: 0.2%;
+    }
+}
+
+

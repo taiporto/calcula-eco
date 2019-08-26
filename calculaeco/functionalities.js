@@ -75,6 +75,14 @@ module.exports = {
         //cr arredondando errado?? olhar isso aí
         cr = casasDecimais(cr, 1);
 
+        function isInteger(x) {
+            return Math.round(x) === x;
+        }
+        if(!isInteger(cr)){
+            console.log("Entrou no if");
+            cr+=0.1;
+        }
+
         return cr;
 
     }
