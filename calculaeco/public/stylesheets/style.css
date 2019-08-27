@@ -37,11 +37,12 @@ h3{
 }
 
 #blockingdiv{
-    height: 120vh;
+    height: fit-content;
+    width: 100vw;
     background-color: var(--main-color);
     background-size: 100%;
     color: black;
-    padding: 30px;
+    padding: 30px 20px 30px 20px;
     align-items: center;
     justify-content: center;
     text-align: justify;
@@ -51,6 +52,7 @@ h3{
 }
 
 #titleBlock{
+    margin-top: -2%;
     color: var(--second-color);
 }
 
@@ -60,12 +62,15 @@ h3{
 }
 
 .spanBlock{
-    margin-top: 10px;
+    margin-top: 20px;
     font-size: 75%;
 }
 
 #btn-fechadiv{
-    width: 102%;
+    margin-top: 0%;
+    margin-bottom: 10%;
+    margin-left: -10%;
+    width: 103vw;
 }
 
 .conteudo {
@@ -277,7 +282,7 @@ h3{
 
 .btn-calc {
     margin-top: -10px;
-    width: 35.58vw;
+    width: 35vw;
     margin-left: 0.2%;
 }
 
@@ -399,10 +404,63 @@ h3{
     }
 }
 
-@media(max-width: 635px){
-    .conteudo{
+@media(max-width: 426px){
+    #placeholder, #placeholderResult, #placeholderCalc{
         display: none;
     }
+
+    .conteudo{
+        text-align: center;
+        width: 100vw;
+    }
+    #centroIndex{
+        margin: 0 auto;
+        display: flex;
+        height: 60vh;
+        justify-self: center;
+        justify-items: center;
+        justify-content: center;
+ 
+    }
+
+    #centroCalc{
+        margin: 0 auto;
+        width: fit-content;
+        display: flex;
+        height: fit-content;
+        justify-self: center;
+        justify-items: center;
+        justify-content: center;
+    }
+
+    .pieces{
+        font-size: 90%;
+    }
+
+    #instrucoes, #instrucoesCalc{
+        width: 100vw;
+        display: block;
+        margin: 0px;
+        margin-bottom: 10%;
+        background-color: rgba(247, 125, 49, 0.589);
+        text-align: center;
+        text-align-last: center;
+    }
+
+    .btn-index{
+        width: 110%;
+        margin-left: -5%;
+    }
+
+    .btn-calc{
+        width: 100%;
+        margin-left: -13%;
+    }
+
+    #conteudoIndex, #instrucoes{
+        display: none;
+    }
+
     #blockingdiv{
         display: block;
     }
@@ -412,6 +470,13 @@ h3{
     }
     #footer{
         position: fixed;
+        background-color: white;
+        padding-top: 1%;
+    }
+
+    #footerTexto{
+        margin-left: 0px;
+        line-height: 32px;
     }
 }
 

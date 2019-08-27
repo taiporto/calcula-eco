@@ -1,10 +1,20 @@
 extends layout
 
 block content
+    div#blockingdiv
+        h1#titleBlock Sinto muito, Ecoíne!
+        h3#subtitleBlock Infelizmente o CalculaECO ainda não funciona muito bem em dispositivos com telas menores.
+        p.paragrafo#parBlock.
+            Estamos trabalhando em um app para melhor atender as suas necessidades mas, por enquanto, se você quiser testar a incrível calculadora de C.R você tem duas opções: <br>
+                #[strong 1] - Abrir esse site maravilhoso em um computador que esteja à sua disposição.<br>Ou<br>
+                #[strong 2] - Clicar nesse botão bonito aqui embaixo para fechar este aviso e usar o site em mobile mesmo, mas meio feinho e desconfigurado. <br>
+            #[span.spanBlock *Entenda esse "estamos trabalhando" como um "isso é um hobby e o foco é me formar na hora certa, então o app deve estar disponível em algum momento entre três meses e, tipo, três anos".] <br>
+        button(id="btn-fechadiv" class="btn btn-custom") Fechar aviso
+
     div.container-fluid.conteudo.row#conteudoIndex
         div#placeholder
         div#centroIndex.col-lg-4.col-md-6
-            form#formIndex.form(action='/calculadora' method='POST')
+            form#formIndex.form(action='/calculadora', method='POST')
                 div.form-group.groupIndex
                     label.labelsIndex(for='cursos') Curso:
                     <br/>
@@ -31,34 +41,31 @@ block content
                         option(value='8') 8&ordm; Per&iacute;odo
                         option(value='nda' disabled='') Quero escolher minhas pr&oacute;prias mat&eacute;rias
                 button.btn.btn-custom.btn-index(type='submit') OK
-        div#instrucoes.col-lg-4.col-md-6.col-xs-6
+        div#instrucoes.col-lg-4.col-md-6
             h1#title CalculaECO
             h3 Essa é a calculadora de C.R da ECO.
             p#paragrafo.
                 A calculadora é muito simples: você seleciona seu curso e seu período e clica OK.<br>
                 Aí coloca as notas que você recebeu e pronto! C.R calculado!
 
-        //- script.
-        //-     $(document).ready( function(){
-        //-         function resizedw(){
-                
-        //-             if(('#placeholder').length){
-        //-                 if($(window).size() < 852){
-        //-                     $('#placeholder').remove();
-        //-                 } 
-        //-             }
-        //-             else {
-        //-                 $("<div id='placeholder'></div>").insertBefore('#centroIndex');
-        //-             }
-        //-         }
-        //-         window.onresize = function() {
-        //-             let setter;
-        //-             clearTimeout(setter);
-        //-             setter = setTimeout(function() {
-        //-                 resizedw();
-        //-             }, 100);
-        //-         }
-        //-     })
+    script.
+         $('document').ready(function(){
+                let ww = $(window).width();
+                if($(window).width() <= 426){
+                    var centro = $("#centroIndex").clone();
+                    var instrucoes = $("#instrucoes").clone();
+                    $("#conteudoIndex").children().remove();
+                    $("#conteudoIndex").append(centro);
+                    $("#conteudoIndex").after("<div class='container-fluid row instrucoes' id='instrucoesIndex' ></div>");
+                    $( "#instrucoesIndex" ).append(instrucoes);
+                }
+                $( "#btn-fechadiv" ).click(function() {     
+                    $('#blockingdiv').css('display', 'none');
+                    $('.conteudo').css('display', 'initial');
+                    $('.instrucoes').css('display', 'block');
+                });
+            })
+
 
 
             

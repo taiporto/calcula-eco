@@ -58,17 +58,23 @@ app.post("/resultado", (req, res) => {
 
     let notasDict = req.body;
     let creditos = creditosArray.map(Number);
+    let creditosAtt = [];
     let notas = [];
 
     for (nota in notasDict) {
-        notas.push(notasDict[nota]);
+        if(notasDict[nota] != 0){
+            notas.push(notasDict[nota]);
+            creditosAtt.push(creditos[nota]);
+        }
     }
 
     notas = notas.map(Number);
 
     console.log(notas);
 
-    let crFinal = calculoCR(notas, creditos);
+    console.log(creditosAtt);
+
+    let crFinal = calculoCR(notas, creditosAtt);
 
     res.render("resultado", { crFinal, titulo: "Resultado" });
 

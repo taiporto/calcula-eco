@@ -23,14 +23,27 @@ block content
         <br>
         button(id='buttonCalcula', class='btn btn-custom btn-calc') Calcular!
     div#instrucoesCalc
-            h1#title CalculaECO
-            h3 Essa é a calculadora de C.R da ECO.
-            p#paragrafo.
-                A calculadora é muito simples: você seleciona seu curso e seu período e clica OK.<br>
-                Aí coloca as notas que você recebeu e pronto! C.R calculado!
+      h1#title CalculaECO
+      h3 Essa é a calculadora de C.R da ECO.
+      p#paragrafo.
+        A calculadora é muito simples: você seleciona seu curso e seu período e clica OK.<br>
+        Aí coloca as notas que você recebeu e pronto! C.R calculado!
 
     script.
+
       $(document).ready( function(){
+
+        let ww = $(window).width();
+        if($(window).width() <= 426){
+          var centro = $("#centroCalc").clone();
+          var instrucoes = $("#instrucoesCalc").clone();
+          $("#conteudoCalc").children().remove();
+          $("#conteudoCalc").append(centro);
+          $("#conteudoCalc").after("<div class='instrucoes container-fluid row' id='instrucoesContCalc' ></div>");
+          $( "#instrucoesContCalc" ).append(instrucoes);
+
+          $('.form-control').addClass("input-sm");
+        }
 
         function createDivGroup(){
           let inputs = $(".pieces");
@@ -72,12 +85,12 @@ block content
         }
 
         function resizedw(){
-            if($(window).size() > 768){
-              $('.inputs').removeClass('input-lg');
-            }
-            else{
-              $('.inputs').addClass('input-lg');
-            }
+          if($(window).size() > 768){
+            $('.inputs').removeClass('input-lg');
+          }
+          else{
+            $('.inputs').addClass('input-lg');
+          }
         }
 
 

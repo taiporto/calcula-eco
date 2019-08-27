@@ -17,17 +17,6 @@ html(lang='pt')
         script(src="https://code.jquery.com/jquery-2.2.4.js", integrity="sha256-iT6Q9iMJYuQiMWNd9lDyBUStIq/8PuOW33aOqmvFpqI=", crossorigin="anonymous")
 
     body
-      block blockingcontent
-        div#blockingdiv
-            h1#titleBlock Sinto muito, Ecoíne!
-            h3#subtitleBlock Infelizmente o CalculaECO ainda não funciona muito bem em dispositivos com telas menores.
-            p.paragrafo#parBlock.
-                Estamos trabalhando em um app para melhor atender às suas necessidades mas, por enquanto, se você quiser testar a incrível calculadora de C.R você tem duas opções: <br>
-                    #[strong 1] - Abrir esse site maravilhoso em um computador que esteja à sua disposição. <br>
-                    #[strong 2] - Clicar nesse botão bonito aqui embaixo para fechar este aviso e usar o site em mobile mesmo, mas meio feinho e desconfigurado. <br>
-                #[span.spanBlock *Entenda esse "estamos trabalhando" como um "isso é um hobby e o foco é me formar na hora certa, então o app deve estar disponível em algum momento entre três meses e, tipo, três anos".] <br>
-            button(id="btn-fechadiv" class="btn btn-custom") Fechar aviso
-
       block content
       block rodape
         div#footer(style="width: 100%; margin-bottom:0px")
@@ -45,10 +34,10 @@ html(lang='pt')
             function unhover(element) {
                 element.setAttribute('src', '/images/'+element.id+'.png');
             }
-            $( "#btn-fechadiv" ).click(function() {     
-                $('#blockingdiv').css('display', 'none');
-                $('.conteudo').css('display', 'initial');
-            });
+            
+           
+            
+
 
 script(src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js", integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS", crossorigin="anonymous")  
 script(src='https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js')
