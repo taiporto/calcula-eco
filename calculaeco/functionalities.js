@@ -16,6 +16,8 @@ conn.connect(function(err) {
 	
 });
 
+
+
 module.exports = {
     search: function (querySQL, callback) {
 
@@ -60,30 +62,17 @@ module.exports = {
             sumNotas += nota;
         }
         
-        //sumNotas sai errado nas do ciclo basico
         console.log(sumNotas);
 
         let cr = (sumNotas / sumCredito);
 
         console.log(cr);
 
-        function casasDecimais(num, precisao) {
-            let casas = Math.pow(10, precisao);
-            return Math.floor(num * casas) / casas;
-        };
-        
-        //cr arredondando errado?? olhar isso aí
-        cr = casasDecimais(cr, 1);
+        cr = cr.toFixed(1);
 
-        function isInteger(x) {
-            return Math.round(x) === x;
-        }
-        if(!isInteger(cr)){
-            console.log("Entrou no if");
-            cr+=0.1;
-        }
+        let crFinal = parseFloat(cr);
 
-        return cr;
+        return crFinal;
 
     }
 }

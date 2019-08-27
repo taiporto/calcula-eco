@@ -4,6 +4,7 @@
 
 :root {
     --main-color: #FF701A;
+    --second-color: white;
 }
 
 html {
@@ -11,7 +12,7 @@ html {
 }
 
 body {
-    background-color: #FF701A;
+    background-color: var(--main-color);
     background-image: url('/images/Rodape_as_bg_water.png');
     background-size: auto 100%;
     background-repeat: repeat-x;
@@ -21,6 +22,52 @@ body {
     position: fixed;
     
 }
+
+#title{
+    text-decoration-line: underline;
+    text-align: center;
+}
+
+h3{
+    text-align: center;
+}
+
+.paragrafo{
+    color: black;
+}
+
+#blockingdiv{
+    height: 120vh;
+    background-color: var(--main-color);
+    background-size: 100%;
+    color: black;
+    padding: 30px;
+    align-items: center;
+    justify-content: center;
+    text-align: justify;
+    text-align-last: center;  
+    font-size: 130%;
+    display: none;
+}
+
+#titleBlock{
+    color: var(--second-color);
+}
+
+#parBlock{  
+    padding: 20px;
+    margin-top: 10px;
+}
+
+.spanBlock{
+    margin-top: 10px;
+    font-size: 75%;
+}
+
+#btn-fechadiv{
+    width: 102%;
+}
+
 .conteudo {
     justify-items: center;
     margin-top: 40px;
@@ -44,7 +91,7 @@ body {
     padding-top: 20px;
     margin-left: -5%;
     font-size: 13pt;
-    color: white;
+    color: var(--second-color);
     text-align: center;
     float: right;
 }
@@ -57,26 +104,25 @@ body {
     width: 60vh;
     padding: 20px;
     font-size: 13pt;
-    color: white;
+    color: var(--second-color);
     text-align: center;
     float: right;
     
 }
 
 #placeholderResult{
-    width: 32vw;
+    width: 34vw;
 }
 
 #instrucoesResult{
-    width: 32vw;
+    width: 30vw;
     padding: 60px;
     padding-top: 20px;
     font-size: 13pt;
-    color: white;
+    color: var(--second-color);
     text-align: left;
     margin-left: 30px;
 }
-
 
 #footer{
     position: fixed;
@@ -98,14 +144,23 @@ body {
     margin-left: 38%;
 }
 
-/* resultado */
-.conteudoResult{
+#centroIndex, #centroResult {
+    background-image: url('/images/UI_Pag_1-3_border.png');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 100%;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
 
+.conteudoResult{
     margin-top: 60px;
 }
 
 #centroResult {
-    width: 80%;
+    width: 30vw;
     height: 340px;
 }
 
@@ -116,35 +171,6 @@ body {
 #nota{
     font-weight: bold;
     color: var(--main-color);
-}
-
-#centroIndex, #centroResult {
-    background-image: url('/images/UI_Pag_1-3_border.png');
-    background-repeat: no-repeat;
-    background-position: center;
-    background-size: 100%;
-    margin: 0 auto;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    
-}
-
-
-/* index */
-
-h1{
-    text-decoration-line: underline;
-    text-align: center;
-}
-
-h3{
-    text-align: center;
-
-}
-
-#paragrafo{
-    color: black;
 }
 
 #centroIndex{
@@ -169,10 +195,9 @@ h3{
     border-radius: 3px;
     margin-left: 10px;
     text-align-last: center;
-    background-color: white;
+    background-color: var(--second-color);
     width: auto;
 }
-
 
 .btn-custom {
     width: 94%;
@@ -182,7 +207,7 @@ h3{
     margin-left: -1.5%;
     height: 40px;
     font-size: 16pt !important;
-    background-color: white;
+    background-color: var(--second-color);
     font-kerning: auto;
     font-weight: 700 !important;
     
@@ -190,10 +215,8 @@ h3{
 
 .btn-custom:hover{
     background-color: var(--main-color) !important;
-    color:white !important;
+    color:var(--second-color) !important;
 }
-
-/* cacluladora */
 
 #conteudoCalc {
     margin-top: -10px;
@@ -218,7 +241,6 @@ h3{
     margin-left: -40px;
     
 }
-
 
 .labelsCalc {
     display: block;
@@ -259,6 +281,8 @@ h3{
     margin-left: 0.2%;
 }
 
+/* três colunas */
+
 #centroCalc3C{
     background-repeat: no-repeat;
     background-position: center;
@@ -268,15 +292,10 @@ h3{
     align-items: center;
     justify-content: center;
     margin-top: -10px;
-    
-}
-
-/* três colunas */
-
-#centroCalc3C{
     width: 850px;
     height: 700px;
     background-image: url('/images/UI_Pag_2_threeC.png');
+    
 }
 
 @media (max-width: 1460px) {
@@ -320,52 +339,9 @@ h3{
 }
 
 @media (max-width: 1164px) {
-    #centroIndex, #centroCalc {
-        width: 60vw;
-        margin: 0 auto;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-    }
-
-    #centroIndex{
-        margin-left: 10%;
-        margin-right: 5%;
-    }
-
-    #centroCalc{
-        background-size:70%;
-        padding: 40px;
-        margin-top: -30px;
-    }
-
-    #instrucoes, #instrucoesCalc, #instrucoesResult{
-        width: 30vw;
-    }
-
-    .labelsCalc{
-        font-size: 90%;
-    }
-
-    .labelsIndex{
-        font-size: 20px;
-    }
-
-    .btn-custom{
-        width: 90%;
-    }
-    
-    .btn-calc {
-        margin-top: -10px;
-        width: 35.58vw;
-        margin-left: 0.2%;
-    }
-}
-
-@media (max-width: 1164px) {
     #centroIndex, #centroResult, #centroCalc{
         background-image: none;
-        background-color: white;
+        background-color: var(--second-color);
         border-radius: 25px;
         margin: 0 auto;
         width: fit-content;
@@ -404,11 +380,38 @@ h3{
         margin-left: 5%;
     }
 
-    
+    .btn-custom{
+        width: 90%;
+    }
+
     .btn-calc {
         margin-top: -2%;
         width: 35.58vw;
         margin-left: 0.2%;
+    }
+    
+    .labelsCalc{
+        font-size: 90%;
+    }
+
+    .labelsIndex{
+        font-size: 20px;
+    }
+}
+
+@media(max-width: 635px){
+    .conteudo{
+        display: none;
+    }
+    #blockingdiv{
+        display: block;
+    }
+
+    body{
+        position: relative;
+    }
+    #footer{
+        position: fixed;
     }
 }
 
