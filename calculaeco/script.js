@@ -64,7 +64,7 @@ app.post("/resultado", (req, res) => {
     for (nota in notasDict) {
         if(notasDict[nota] != 0){
             notas.push(notasDict[nota]);
-            creditosAtt.push(creditos[nota]);
+            creditosAtt.push(creditos[nota-1]);
         }
     }
 
