@@ -1,0 +1,338 @@
+//FALTA AS MEDIA QUERIES (estuda o mq-scss -- já ta instalado) (CSS Original tá em Documentos/calcECO Dump/styleVanillaCss)
+
+$text-font-size: 13pt;
+$g-label-font-size: 30px;
+$m-label-font-size: 12pt;
+$s-label-font-size: 10pt;
+$btn-font-size: 16pt;
+
+$centro-horiz-width: 40vw;
+$centro-vert-width: 38vw;
+
+$bright-orange: #ff701a;
+$white: #fff;
+$main-color: $bright-orange;
+$second-color: $white;
+$p-color: black;
+
+$mq-responsive: true !default;
+
+$screen-medium-size: 1460px;
+$screen-medium: "only screen and (max-width: #{$screen-medium-size})";
+
+@mixin childSizeDivide($parent_size, $number, $property) {
+  #{$property}: ($parent_size / $number);
+}
+
+@mixin childSizeMultiply($parent_size, $number, $property) {
+  #{$property}: ($parent_size * $number);
+}
+
+@mixin childSizeSubtract($parent_size, $number, $property) {
+  #{$property}: ($parent_size - $number);
+}
+
+@mixin childSizeSum($parent_size, $number, $property) {
+  #{$property}: ($parent_size + $number);
+}
+
+%centerStuff {
+  align-items: center;
+  justify-content: center;
+  text-align: justify;
+  text-align-last: center;
+}
+
+%conteudoHoriz {
+  @extend %centerStuff;
+  display: flex;
+  margin: 0 auto;
+  background-image: url("/images/UI_Pag_1-3_border.png");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 100%;
+}
+
+%conteudoVert {
+  @extend %centerStuff;
+  display: flex;
+  margin: 0 auto;
+  background-image: url("/images/UI_Pag_2_border.png");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 100%;
+}
+
+%instrucoes {
+  font-size: $text-font-size;
+  text-align: center;
+  float: right;
+  h1 {
+    text-decoration-line: underline;
+    text-align: center;
+    color: $second-color;
+  }
+  h3 {
+    text-align: center;
+    color: $second-color;
+  }
+  p {
+    color: $p-color;
+  }
+}
+
+.btn-custom {
+  height: 40px;
+  max-width: 200%;
+  font-size: $btn-font-size !important;
+  font-weight: 700 !important;
+  border: 0px !important;
+  border-radius: 0px !important;
+  background-color: $second-color;
+
+  &:hover {
+    background-color: $main-color !important;
+    color: $second-color !important;
+  }
+}
+
+html {
+  min-height: 100%;
+}
+
+body {
+  background-color: $main-color;
+  background-image: url("/images/Rodape_as_bg_water.png");
+  background-size: auto 100%;
+  background-repeat: repeat-x;
+  min-height: 100%;
+  padding: 0;
+  margin: 0;
+  position: fixed;
+}
+
+.conteudo {
+  width: 100vw;
+  justify-items: center;
+  margin-top: 40px;
+}
+
+#blockingdiv {
+  @extend %centerStuff;
+  height: fit-content;
+  width: 100vw;
+  padding: 30px 20px 30px 20px;
+  font-size: 130%;
+  background-color: $main-color;
+  display: none;
+  h1 {
+    margin-top: -2%;
+    color: $second-color;
+  }
+  p {
+    padding: 20px;
+    margin-top: 10px;
+  }
+  span {
+    margin-top: 20px;
+    font-size: 75%;
+  }
+  button {
+    margin-top: 0%;
+    margin-bottom: 10%;
+    margin-left: -10%;
+    width: 103vw;
+  }
+}
+
+#footer {
+  position: fixed;
+  bottom: 0;
+  display: block;
+  margin: 0 auto;
+  height: 35px;
+
+  #github,
+  #twitter,
+  #mail {
+    height: 29px;
+    width: auto;
+    float: left;
+    padding-right: 9px;
+    padding-left: 9px;
+  }
+
+  #footerTexto {
+    margin-left: 38%;
+  }
+}
+
+#conteudoIndex {
+  #placeholderIndex {
+    width: 30vw;
+  }
+  #instrucoesIndex {
+    @extend %instrucoes;
+    width: 25vw;
+    padding-top: 20px;
+    margin: 0px;
+  }
+}
+
+#centroIndex {
+  @extend %conteudoHoriz;
+  width: $centro-horiz-width;
+  height: 500px;
+
+  .labelsIndex {
+    font-size: $g-label-font-size;
+  }
+
+  .groupIndex {
+    line-height: 55px;
+    text-align: center;
+    width: auto;
+    height: auto;
+  }
+
+  .select-custom {
+    height: 40px;
+    width: auto;
+    font-size: 120%;
+    text-align-last: center;
+    margin-left: 10px;
+    border-radius: 3px;
+    background-color: $second-color;
+  }
+
+  .btn-index {
+    @include childSizeSubtract($centro-horiz-width, 4, "width");
+    margin-left: -1.5%;
+  }
+}
+
+#conteudoCalc {
+  margin-top: 1%;
+
+  #placeholderCalc {
+    width: 30vw;
+  }
+
+  #instrucoesCalc {
+    @extend %instrucoes;
+    width: 25vw;
+    padding: 20px;
+  }
+}
+
+#centroCalc {
+  @extend %conteudoVert;
+  width: $centro-vert-width;
+  height: 650px;
+  padding: 40px;
+  padding-top: 10px;
+  margin-top: -10px;
+
+  .row {
+    display: inline-flex;
+    justify-content: center;
+    text-align: center;
+  }
+
+  .inputGroup {
+    display: inline-block;
+    text-align: center;
+  }
+
+  .pieces {
+    @include childSizeDivide($centro-vert-width, 3, "width");
+
+    .labelsCalc {
+      display: block;
+      font-size: $m-label-font-size;
+    }
+
+    .labelsCalcBig {
+      display: inline-block;
+      width: 100% - 5;
+      font-size: $s-label-font-size;
+    }
+
+    .inputs {
+      margin-bottom: 30px;
+    }
+  }
+
+  .btn-calc {
+    @include childSizeSubtract($centro-vert-width, 4.5, "width");
+    margin-left: 0.2%;
+  }
+}
+
+#conteudoResult {
+  margin-top: 60px;
+
+  #placeholderResult {
+    width: 34vw;
+  }
+  #instrucoesResult {
+    @extend %instrucoes;
+    width: 30vw;
+    padding: 60px;
+    padding-top: 20px;
+    margin-left: 30px;
+  }
+}
+
+#centroResult {
+  @extend %conteudoHoriz;
+  width: 30vw;
+  height: 340px;
+  #result {
+    text-align: center;
+  }
+  #nota {
+    font-weight: bold;
+    color: $main-color;
+  }
+}
+
+@media #{$screen-medium} {
+  #placeholder,
+  #placeholderResult,
+  #placeholderCalc {
+    display: none;
+  }
+
+  #centroIndex {
+    background-size: 100%;
+    width: 60vw;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-left: 10%;
+
+    #instrucoesIndex {
+      width: 40vw;
+    }
+  }
+
+  #centroCalc {
+    margin-left: 20%;
+    background-size: 100%;
+    width: 59vw;
+    #instrucoesCalc {
+      width: 40vw;
+    }
+  }
+
+  #centroResult {
+    background-size: 65%;
+    width: 60vw;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+}

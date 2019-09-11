@@ -12,7 +12,7 @@ block content
         button(id="btn-fechadiv" class="btn btn-custom") Fechar aviso
 
     div.container-fluid.conteudo.row#conteudoIndex
-        div#placeholder
+        div#placeholderIndex.col-lg-4.col-md-6
         div#centroIndex.col-lg-4.col-md-6
             form#formIndex.form(action='/calculadora', method='POST')
                 div.form-group.groupIndex
@@ -41,7 +41,7 @@ block content
                         option(value='8') 8&ordm; Per&iacute;odo
                         option(value='nda' disabled='') Quero escolher minhas pr&oacute;prias mat&eacute;rias
                 button.btn.btn-custom.btn-index(type='submit') OK
-        div#instrucoes.col-lg-4.col-md-6
+        div#instrucoesIndex.col-lg-4.col-md-6
             h1#title CalculaECO
             h3 Essa é a calculadora de C.R da ECO.
             p#paragrafo.

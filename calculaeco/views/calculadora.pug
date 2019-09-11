@@ -6,8 +6,8 @@ block content
 
 
   div.container-fluid.conteudo.row#conteudoCalc
-    div#placeholderCalc
-    div#centroCalc.col-lg-4.col-md-6.col-sm-6
+    div#placeholderCalc.col-lg-4.col-md-6
+    div#centroCalc.col-lg-4.col-md-6
       form(id='formNotas' class='form' action='/resultado' method='POST') 
         each d in disciplinas          
           if d.valido != false
@@ -22,7 +22,7 @@ block content
             - i = i+1;
         <br>
         button(id='buttonCalcula', class='btn btn-custom btn-calc') Calcular!
-    div#instrucoesCalc
+    div#instrucoesCalc.col-lg-4.col-md-6
       h1#title CalculaECO
       h3 Essa é a calculadora de C.R da ECO.
       p#paragrafo.

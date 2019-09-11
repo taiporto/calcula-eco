@@ -5,14 +5,14 @@ block content
       //- h1#titulo #{titulo}
 
     div.container-fluid.conteudo.row#conteudoResult
-      div#placeholderResult
-      div#centroResult.resultado.col-md-4
+      div#placeholderResult.col-lg-4.col-md-6
+      div#centroResult.resultado.col-lg-4.col-md-6
         - let cr = "<span id='nota'>"+crFinal+"</span>";
         div#result
           h3 O seu C.R é !{cr} !
           <br/>
           a(href="/") Tentar novamente
-      div#instrucoesResult
+      div#instrucoesResult.col-lg-4.col-md-6
             h1#title CalculaECO
             h3 Essa é a calculadora de C.R da ECO.
             p#paragrafo.
