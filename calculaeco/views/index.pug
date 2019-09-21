@@ -1,24 +1,16 @@
-extends layout
+﻿extends layout
 
 block content
-    div#blockingdiv
-        h1#titleBlock Sinto muito, Ecoíne!
-        h3#subtitleBlock Infelizmente o CalculaECO ainda não funciona muito bem em dispositivos com telas menores.
-        p.paragrafo#parBlock.
-            Estamos trabalhando em um app para melhor atender as suas necessidades mas, por enquanto, se você quiser testar a incrível calculadora de C.R você tem duas opções: <br>
-                #[strong 1] - Abrir esse site maravilhoso em um computador que esteja à sua disposição.<br>Ou<br>
-                #[strong 2] - Clicar nesse botão bonito aqui embaixo para fechar este aviso e usar o site em mobile mesmo, mas meio feinho e desconfigurado. <br>
-            #[span.spanBlock *Entenda esse "estamos trabalhando" como um "isso é um hobby e o foco é me formar na hora certa, então o app deve estar disponível em algum momento entre três meses e, tipo, três anos".] <br>
-        button(id="btn-fechadiv" class="btn btn-custom") Fechar aviso
-
+    - let curso;
+    - let periodo;
     div.container-fluid.conteudo.row#conteudoIndex
-        div#placeholderIndex.col-lg-4.col-md-6
+        div.placeholder#placeholderIndex.col-lg-4.col-md-6
         div#centroIndex.col-lg-4.col-md-6
-            form#formIndex.form(action='/calculadora', method='POST')
+            form#formIndex.form(action="/calculadora", method='GET')
                 div.form-group.groupIndex
-                    label.labelsIndex(for='cursos') Curso:
+                    label#labelCursos.labelsIndex(for='cursos') Curso:
                     <br/>
-                    select#curso.select.select-custom(name='cursos')
+                    select#curso.select.select-custom(name='curso')
                         option(value='na' selected='' hidden='') Escolha seu curso
                         option(value='cs') Ciclo B&aacute;sico
                         option(value='j') Jornalismo
@@ -27,9 +19,9 @@ block content
                         option(value='pe') Produ&ccedil;&atilde;o Editorial
                         option(value='dt') Direção Teatral
                 div.form-group.groupIndex
-                    label.labelsIndex(for='periodos') Per&iacute;odo:
+                    label#labelPeriodos.labelsIndex(for='periodos') Per&iacute;odo:
                     <br/>
-                    select#periodo.select.select-custom(name='periodos')
+                    select#periodo.select.select-custom(name='periodo')
                         option(value='0' selected='' hidden='') Escolha seu per&iacute;odo
                         option(value='1') 1&ordm; Per&iacute;odo
                         option(value='2') 2&ordm; Per&iacute;odo
@@ -41,15 +33,23 @@ block content
                         option(value='8') 8&ordm; Per&iacute;odo
                         option(value='nda' disabled='') Quero escolher minhas pr&oacute;prias mat&eacute;rias
                 button.btn.btn-custom.btn-index(type='submit') OK
-        div#instrucoesIndex.col-lg-4.col-md-6
-            h1#title CalculaECO
+        div.instrucoes#instrucoesIndex.col-lg-4.col-md-6
             h3 Essa é a calculadora de C.R da ECO.
             p#paragrafo.
                 A calculadora é muito simples: você seleciona seu curso e seu período e clica OK.<br>
                 Aí coloca as notas que você recebeu e pronto! C.R calculado!
 
+
+
     script.
-         $('document').ready(function(){
+        $('form').submit(function(){
+            let curso = $("#curso option:selected").val();
+            let periodo = $("#periodo option:selected").val();
+            let url = "/calculadora?curso="+curso+"&periodo="+periodo;
+            $(this).attr('action', url);
+            $(this).submit();
+        });
+        $('document').ready(function(){
                 let ww = $(window).width();
                 if($(window).width() <= 426){
                     var centro = $("#centroIndex").clone();
@@ -64,7 +64,7 @@ block content
                     $('.conteudo').css('display', 'initial');
                     $('.instrucoes').css('display', 'block');
                 });
-            })
+            })  
 
 
 

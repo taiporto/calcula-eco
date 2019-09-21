@@ -6,6 +6,8 @@ const isEmpty = require('./functionalities.js').isEmpty;
 
 const app = require('./app.js');
 
+require('sass-loader');
+
 //port
 const port = process.env.PORT;
 
@@ -23,18 +25,23 @@ app.get("/", (req, res) => {
 creditosArray = [];
 
 //Esse POST pesquisa quais cursos estão disponíveis em determinado período
-app.post("/calculadora", (req, res) => {
+app.get("/calculadora", (req, res) => {
 
-    let cursoSelected = req.body.cursos;
-    let periodoSelected = req.body.periodos;
+    // let cursoSelected = req.body.cursos;
+    // let periodoSelected = req.body.periodos;
+    let cursoSelected = req.query.curso;
+    let periodoSelected = req.query.periodo;
+
+    console.log(req.query.periodo);
+    
     res.setHeader('content-type', 'text/html; charset=utf-8');
     req.is('text/*');
 
     //query MySQL
     const querySQL = `SELECT * from ${cursoSelected} WHERE periodo = ${periodoSelected} AND valido = 1`;
 
-    search(querySQL, (result) => { 
-        
+    if(cursoSelected != "na" || periodoSelected != "0"){
+    search(querySQL, (result) => {      
         if(!isEmpty(result)){
             console.log(result);
             creditosArray = result.map(function (item) {
@@ -46,6 +53,10 @@ app.post("/calculadora", (req, res) => {
             res.send("<span>Por favor insira uma combinação válida</span>");
         }
       });
+    }
+    else{
+        res.send("<span>Por favor insira uma combinação válida</span>");
+    }
 
 });
 

@@ -1,0 +1,293 @@
+﻿@import 'effects/shutter-out-horizontal';
+
+$text-font-size: 13pt;
+$g-label-font-size: 30px;
+$m-label-font-size: 12pt;
+$s-label-font-size: 10pt;
+$xs-label-font-size: 8pt;
+$btn-font-size: 14pt;
+
+
+$centro-horiz-width: 50vw;
+$centro-vert-width: 45vw;
+
+$bright-orange: #ff701a;
+$dark-orange: #cc4e00;
+$white: #fff;
+$main-color: $bright-orange;
+$second-color: $white;
+$shadow-color: $dark-orange;
+$p-color: black;
+
+$mq-responsive: true !default;
+
+
+@mixin childSizeDivide($parent_size, $number, $property) {
+  #{$property}: ($parent_size / $number);
+}
+
+@mixin childSizeMultiply($parent_size, $number, $property) {
+  #{$property}: ($parent_size * $number);
+}
+
+@mixin childSizeSubtract($parent_size, $number, $property) {
+  #{$property}: ($parent_size - $number);
+}
+
+@mixin childSizeSum($parent_size, $number, $property) {
+  #{$property}: ($parent_size + $number);
+}
+
+%centerStuffDesktop {
+  align-items: center;
+  justify-content: center;
+  text-align: justify;
+  text-align-last: center;
+}
+
+%conteudoHorizDesktop {
+  @extend %centerStuffDesktop;
+  display: flex;
+  margin: 0 auto;
+  background-image: url("/images/UI_Pag_1-3_border.png");
+  background-color: transparent;
+  box-shadow: initial;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 100%;
+}
+
+%conteudoVertDesktop {
+  @extend %centerStuffDesktop;
+  display: flex;
+  margin: 0 auto;
+  background-image: url("/images/UI_Pag_2_border.png");
+  background-color: transparent;
+  box-shadow: initial;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 100%;
+}
+
+%instrucoes {
+  font-size: $text-font-size;
+  text-align: center;
+  float: right;
+  h1 {
+    text-decoration-line: underline;
+    text-align: center;
+    color: $second-color;
+  }
+  h3 {
+    text-align: center;
+    color: $second-color;
+  }
+  p {
+    color: $p-color;
+  }
+}
+
+.btn-custom {
+  @include shutter-out-horizontal;
+  @include childSizeDivide($centro-horiz-width, 15, "height");
+  width: 130%;
+  max-width: 200%;
+  font-size: $btn-font-size !important;
+  font-weight: 700 !important;
+  border: 0px !important;
+  border-radius: 0px !important;
+}
+
+html {
+  min-height: 100%;
+}
+
+body {
+
+  background-image: url("/images/Rodape_as_bg_water.png");
+  background-size: auto 100%;
+  background-repeat: repeat-x;
+  min-height: 100%;
+  padding: 0;
+  margin: 0;
+  position: fixed;
+}
+
+.conteudo {
+  width: 100vw;
+  justify-items: center;
+  margin-top: 5%;
+}
+
+#titulo{
+  height: 10vh;
+  padding: 1%;
+}
+
+#footer {
+  position: fixed;
+  bottom: 0;
+  margin: 0 auto;
+  height: 30px;
+  padding-top: 0px;
+  box-shadow: none;
+
+  #github,
+  #twitter,
+  #mail {
+    height: 90%;
+    width: auto;
+    float: left;
+    padding-right: 9px;
+    padding-left: 9px;
+  }
+
+  #footerTexto {
+    margin-left: 38%;
+  }
+}
+
+#conteudoIndex {
+  #placeholderIndex {
+    width: 25vw;
+  }
+  #instrucoesIndex {
+    @extend %instrucoes;
+    width: 20vw;
+    padding-top: 20px;
+    margin: 0px;
+  }
+}
+
+#centroIndex {
+  @extend %conteudoHorizDesktop;
+  width: $centro-horiz-width;
+  height: 500px;
+  margin-top: -8%;
+
+  #formIndex{
+    padding: 0px;
+    margin-top: -3%;
+  }
+  .labelsIndex {
+    display: initial;
+    @include childSizeDivide($centro-horiz-width, 28,"font-size");
+  }
+
+  .groupIndex {
+    line-height: 50px;
+    margin-bottom: 2px;
+    text-align: center;
+    width: auto;
+    height: auto;
+  }
+
+  .select-custom {
+    height: 40px;
+    width: auto;
+    font-size: 120%;
+    text-align-last: center;
+    margin-left: 10px;
+    border-radius: 3px;
+    background-color: $second-color;
+  }
+
+  .btn-index {
+    @include childSizeSubtract($centro-horiz-width, 5, "width");
+    margin-top: 0px;
+  }
+}
+
+#conteudoCalc {
+  padding: 0px;
+  margin-top: 0px;
+
+  #placeholderCalc {
+    width: 30vw;
+  }
+
+  #instrucoesCalc {
+    @extend %instrucoes;
+    width: 25vw;
+    padding: 20px;
+    display: none;
+  }
+}
+
+#centroCalc {
+  @extend %conteudoVertDesktop;
+  width: $centro-vert-width;
+  height: 80vh;
+
+  #formNotas{
+    padding-top: 0px;
+    margin-top: 0px;
+  }
+
+  .row {
+    display: inline-flex;
+    justify-content: center;
+    text-align: center;
+    width: 95%;
+  }
+
+  .inputGroup {
+    display: inline-block;
+    text-align: center;
+  }
+
+  .pieces {
+    @include childSizeDivide($centro-vert-width, 3, "width");
+
+    .labelsCalc {
+      display: block;
+      font-size: $m-label-font-size;
+    }
+
+    .labelsCalcBig {
+      display: inline-block;
+      width: 100% - 5;
+      font-size: $s-label-font-size;
+    }
+
+    .inputs {
+      margin-bottom: 0px;
+    }
+  }
+
+  .btn-calc {
+    @include childSizeSubtract($centro-vert-width, 5.3, "width");
+    margin-left: 0.2%;
+    margin-top: 3%;
+  }
+}
+
+#conteudoResult {
+  margin-top: 60px;
+
+  #placeholderResult {
+    width: 30vw;
+  }
+  #instrucoesResult {
+    @extend %instrucoes;
+    width: 30vw;
+    padding: 60px;
+    padding-top: 20px;
+    margin-left: 30px;
+    display: none;
+  }
+}
+
+#centroResult {
+  @extend %conteudoHorizDesktop;
+  width: 40vw;
+  height: 340px;
+  margin-top: -4%;
+  #result {
+    text-align: center;
+  }
+  #nota {
+    font-weight: bold;
+    color: $main-color;
+  }
+}

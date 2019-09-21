@@ -13,10 +13,7 @@ const conn = mysql.createConnection({
 
 conn.connect(function(err) {
 	if (err) throw err
-	
 });
-
-
 
 module.exports = {
     search: function (querySQL, callback) {

@@ -1,4 +1,4 @@
-extends layout
+﻿extends layout
 
 block content
 
@@ -6,7 +6,7 @@ block content
 
 
   div.container-fluid.conteudo.row#conteudoCalc
-    div#placeholderCalc.col-lg-4.col-md-6
+    div.placeholder#placeholderCalc.col-lg-4.col-md-6
     div#centroCalc.col-lg-4.col-md-6
       form(id='formNotas' class='form' action='/resultado' method='POST') 
         each d in disciplinas          
@@ -22,8 +22,7 @@ block content
             - i = i+1;
         <br>
         button(id='buttonCalcula', class='btn btn-custom btn-calc') Calcular!
-    div#instrucoesCalc.col-lg-4.col-md-6
-      h1#title CalculaECO
+    div.instrucoes#instrucoesCalc.col-lg-4.col-md-6
       h3 Essa é a calculadora de C.R da ECO.
       p#paragrafo.
         A calculadora é muito simples: você seleciona seu curso e seu período e clica OK.<br>
@@ -31,7 +30,8 @@ block content
 
     script.
 
-      $(document).ready( function(){
+      if($(document).width() >= 768){
+        $(document).ready( function(){
 
         let ww = $(window).width();
         if($(window).width() <= 426){
@@ -47,7 +47,7 @@ block content
 
         function createDivGroup(){
           let inputs = $(".pieces");
-          let step = 3; // the step 
+          let step = 2; // the step 
 
           for (let i = 0; i < inputs.length; i += step) { // increment i with the step
             inputs.slice(i, i + step + 1).wrapAll("<div class='inputGroup'></div>"); // slice for i to i + step + 1 and wrap
@@ -80,6 +80,12 @@ block content
 
         createDivGroup();
 
+          if($(".pieces").length >= 7){
+              console.log("entrou");
+              $("#formNotas").css('margin-top', '8%');
+              $(".btn-calc").css('margin-top', '-1%');
+            }
+
         if($(window).size() < 768){
           $('.inputs').addClass('input-lg');
         }
@@ -102,6 +108,7 @@ block content
           }, 100);
         }
       })
+      }
 
 
 
