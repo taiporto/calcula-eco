@@ -45,12 +45,6 @@ html(lang='pt')
                 $('.instrucoes').css('display', 'initial');
                 }
             }
-            if($(document).width() <= 768){
-                if(window.innerWidth > window.innerHeight){
-                let blockingdiv = "<div id='blockingdiv'><h1>Vire o telefone por favor</h1></div>"
-                $("body").append(blockingdiv);
-                }
-            }
             
             function hover(element) {
                 element.setAttribute('src', '/images/'+element.id+'_laranja.png');
