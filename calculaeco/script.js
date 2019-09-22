@@ -6,8 +6,6 @@ const isEmpty = require('./functionalities.js').isEmpty;
 
 const app = require('./app.js');
 
-require('sass-loader');
-
 //port
 const port = process.env.PORT;
 
