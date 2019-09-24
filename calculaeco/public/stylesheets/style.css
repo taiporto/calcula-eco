@@ -519,6 +519,7 @@
   #centroIndex .btn-index {
     width: 45vw;
     margin-top: 0px;
+    margin-left: -1.5%;
   }
 
   #conteudoCalc {
@@ -780,6 +781,7 @@
   #centroIndex .btn-index {
     width: 36vw;
     margin-top: 3%;
+    margin-left: -1.5%;
   }
 
   #conteudoCalc {
