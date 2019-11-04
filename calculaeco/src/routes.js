@@ -1,4 +1,7 @@
-//TODO: Resolver a questão de passar tudo do script.js para o routes e o server
+﻿//TODO: Resolver a questão de passar tudo do script.js para o routes e o server
+
+const express = require('express');
+const routes = express.Router()
 
 const search = require('./functionalities').search;
 
@@ -6,29 +9,17 @@ const search = require('./functionalities').search;
 const calculoCR = require('./functionalities').calculoCR;
 const isEmpty = require('./functionalities').isEmpty;
 
-const app = require('./app.js');
+let creditosArray = [];
 
-//port
-const port = process.env.PORT;
-
-app.listen(port, () => {
-    console.log("Running on port", port);
-});
-
-
-app.get("/", (req, res) => {
+//GET para abrir a página inicial
+routes.get("/", (req, res) => {
     res.render('index', { root: __dirname, titulo: "Home" });
 })
 
 
-//array para guardar os creditos
-creditosArray = [];
+//GET matérias que obedecem à relação curso/período e retorna a página da calculadora
+routes.get("/calculadora", (req, res) => {
 
-//Esse POST pesquisa quais cursos estão disponíveis em determinado período
-app.get("/calculadora", (req, res) => {
-
-    // let cursoSelected = req.body.cursos;
-    // let periodoSelected = req.body.periodos;
     let cursoSelected = req.query.curso;
     let periodoSelected = req.query.periodo;
 
@@ -60,12 +51,12 @@ app.get("/calculadora", (req, res) => {
 
 });
 
-app.post("/escolha", (req, res) => {
+routes.post("/escolha", (req, res) => {
     res.render("escolha", { root: __dirname });
 })
 
-//Esse POST faz o display dos resultados
-app.post("/resultado", (req, res) => {
+//POST faz o display dos resultados
+routes.post("/resultado", (req, res) => {
 
     let notasDict = req.body;
     let creditos = creditosArray.map(Number);
@@ -91,9 +82,4 @@ app.post("/resultado", (req, res) => {
 
 })
 
-
-
-
-
-
-
+module.exports = routes;
