@@ -13,7 +13,7 @@ let creditosArray = [];
 
 //GET para abrir a página inicial
 routes.get("/", (req, res) => {
-    res.render('index', { root: __dirname, titulo: "Home" });
+    res.render('index', { root: __dirname, titulo: "Calculadora de C.R." });
 })
 
 

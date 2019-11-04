@@ -195,6 +195,7 @@ body {
   .btn-index {
     @include childSizeSubtract($centro-horiz-width, 5, "width");
     margin-top: 0px;
+    margin-left: -1.5%;
   }
 }
 
