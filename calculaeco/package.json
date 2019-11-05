@@ -8,7 +8,8 @@
     "npm": "= 6.9.0"
   },
   "scripts": {
-    "start": "node script.js"
+    "start": "node scr/server.js",
+    "dev": "nodemon src/server.js"
   },
   "author": "moonkoala",
   "license": "ISC",
