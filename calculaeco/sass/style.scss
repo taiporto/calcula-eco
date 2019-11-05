@@ -14,19 +14,30 @@ $screen-wide: "only screen and (min-width: #{$wide})";
 
 $screen-ipadpro: "only screen and (min-width: 1024px) and (max-height: 1366px) and (-webkit-min-device-pixel-ratio: 1.5)";
 
+
+@font-face {
+  font-family: "Helvetica Neue";
+  src: url("fonts/helvetica-neue.ttf");
+}
+
+body{
+  font-family: 'Helvetica Neue', monospace !important;
+}
+
+
 /*iPad Pro*/
 @media #{$screen-ipadpro} {
-    @import "style-ipadpro";
+  @import "_style-ipadpro.scss";
 }
 
 @media #{$screen-extra-small} {
-    @import "style-mobile";
-  }
+  @import "_style-mobile.scss";
+}
 
 @media #{$screen-large} {
-  @import "style-desktop";
+  @import "_style-desktop.scss";
 }
 
 @media #{$screen-wide} {
-  @import "style-desktop-large";
+  @import "_style-desktop-large.scss";
 }
