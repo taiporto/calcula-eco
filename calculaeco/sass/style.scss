@@ -17,11 +17,11 @@ $screen-ipadpro: "only screen and (min-width: 1024px) and (max-height: 1366px) a
 
 @font-face {
   font-family: "Helvetica Neue";
-  src: url("fonts/helvetica-neue.ttf");
+  src: url("public/fonts/helvetica-neue.ttf");
 }
 
 body{
-  font-family: 'Helvetica Neue', monospace !important;
+  font-family: 'Helvetica Neue', helvetica !important;
 }
 
 

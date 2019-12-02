@@ -1,9 +1,9 @@
 @font-face {
   font-family: "Helvetica Neue";
-  src: url("fonts/helvetica-neue.ttf");
+  src: url("public/fonts/helvetica-neue.ttf");
 }
 body {
-  font-family: "Helvetica Neue", monospace !important;
+  font-family: "Helvetica Neue", helvetica !important;
 }
 
 /*iPad Pro*/
