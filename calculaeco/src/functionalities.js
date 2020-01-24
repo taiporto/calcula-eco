@@ -1,7 +1,24 @@
 //Requerimento do módulo do MySQL
 const mysql = require('mysql');
 
-require('dotenv').config();
+//Requerimento do módulo do MongoDB
+const mongoose = require('mongoose');
+
+require('dotenv').config()
+
+const uri = 'mongodb+srv://mk23_02:'+process.env.PASSWORD+'@calculaeco-lapzp.mongodb.net/calculaeco?retryWrites=true&w=majority/'
+
+mongoose.connect(uri, {
+    useNewUrlParser: true,
+    useUnifiedTopology: true,
+})
+.then(function(){
+    console.log('mongoDB connected');
+})
+.catch(function(){
+    console.log('Error :');
+}) 
+
 
 const conn = mysql.createConnection({
     host: process.env.HOST,
@@ -15,7 +32,7 @@ conn.connect(function(err) {
 	if (err) throw err
 });
 
-module.exports = {
+module.exports = {  
     
     search: function (querySQL, callback) {
 

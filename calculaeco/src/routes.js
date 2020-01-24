@@ -1,6 +1,8 @@
 ﻿//TODO: Resolver a questão de passar tudo do script.js para o routes e o server
 
 const express = require('express');
+const MateriaController = require('./controllers/MateriaController')
+
 const routes = express.Router()
 
 const search = require('./functionalities').search;
@@ -16,40 +18,43 @@ routes.get("/", (req, res) => {
     res.render('index', { root: __dirname, titulo: "Calculadora de C.R." });
 })
 
+//GET teste mongoDB
+routes.get("/calculadoramongo", MateriaController.search);
 
-//GET matérias que obedecem à relação curso/período e retorna a página da calculadora
-routes.get("/calculadora", (req, res) => {
 
-    let cursoSelected = req.query.curso;
-    let periodoSelected = req.query.periodo;
+// //GET matérias que obedecem à relação curso/período e retorna a página da calculadora
+// routes.get("/calculadora", (req, res) => {
 
-    console.log(req.query.periodo);
+//     let cursoSelected = req.query.curso;
+//     let periodoSelected = req.query.periodo;
 
-    res.setHeader('content-type', 'text/html; charset=utf-8');
-    req.is('text/*');
+//     console.log(req.query.periodo);
 
-    //query MySQL
-    const querySQL = `SELECT * from ${cursoSelected} WHERE periodo = ${periodoSelected} AND valido = 1`;
+//     res.setHeader('content-type', 'text/html; charset=utf-8');
+//     req.is('text/*');
 
-    if (cursoSelected != "na" || periodoSelected != "0") {
-        search(querySQL, (result) => {
-            if (!isEmpty(result)) {
-                console.log(result);
-                creditosArray = result.map(function (item) {
-                    return item.creditos;
-                });
-                res.render("calculadora", { disciplinas: result, titulo: "Calculadora" });
-            }
-            else {
-                res.send("<span>Por favor insira uma combinação válida</span>");
-            }
-        });
-    }
-    else {
-        res.send("<span>Por favor insira uma combinação válida</span>");
-    }
+//     //query MySQL
+//     const querySQL = `SELECT * from ${cursoSelected} WHERE periodo = ${periodoSelected} AND valido = 1`;
 
-});
+//     if (cursoSelected != "na" || periodoSelected != "0") {
+//         search(querySQL, (result) => {
+//             if (!isEmpty(result)) {
+//                 console.log(result);
+//                 creditosArray = result.map(function (item) {
+//                     return item.creditos;
+//                 });
+//                 res.render("calculadora", { disciplinas: result, titulo: "Calculadora" });
+//             }
+//             else {
+//                 res.send("<span>Por favor insira uma combinação válida</span>");
+//             }
+//         });
+//     }
+//     else {
+//         res.send("<span>Por favor insira uma combinação válida</span>");
+//     }
+
+// });
 
 routes.post("/escolha", (req, res) => {
     res.render("escolha", { root: __dirname });
