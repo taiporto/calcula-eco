@@ -1,66 +1,78 @@
-﻿//TODO: Resolver a questão de passar tudo do script.js para o routes e o server
+﻿const express = require('express');
+const mongoose = require('mongoose');
 
-const express = require('express');
-const MateriaController = require('./controllers/MateriaController')
+const routes = express.Router();
 
-const routes = express.Router()
-
-const search = require('./functionalities').search;
 
 //módulo que faz a conta do cr
 const calculoCR = require('./functionalities').calculoCR;
+
+//módulo que verifica se o objeto está vazio
 const isEmpty = require('./functionalities').isEmpty;
+
+//Model do MongoDB para as matérias
+const Materia = require("./models/Materia");
 
 let creditosArray = [];
 
+
 //GET para abrir a página inicial
 routes.get("/", (req, res) => {
-    res.render('index', { root: __dirname, titulo: "Calculadora de C.R." });
+    res.render('index', {
+        root: __dirname,
+        titulo: "Calculadora de C.R."
+    });
 })
 
 //GET teste mongoDB
-routes.get("/calculadoramongo", MateriaController.search);
+routes.get("/calculadora", (req, res) => {
+
+    let cursoSelected = req.query.curso;
+    let periodoSelected = req.query.periodo;
+
+    if (cursoSelected != "na" || periodoSelected != "0") {
+
+        run().catch(error => console.log(error.stack));
+        
+        async function run() {
+            const uri = `mongodb+srv://${process.env.USER}:${process.env.PASSWORD}@calculaeco-lapzp.mongodb.net/bdcalculaeco?retryWrites=true&w=majority/`
+
+            await mongoose.connect(uri, {
+                    useNewUrlParser: true,
+                    useUnifiedTopology: true,
+                })
+                .then(function () {
+                    console.log('mongoDB connected');
+                })
+                .catch(error => console.log(error))
+
+            // Acha a matéria
+            const docs = await Materia.find({
+                curso: cursoSelected,
+                periodo: parseInt(periodoSelected)
+            });
+
+            
+            const result = JSON.parse(JSON.stringify(docs))
+            
+            if(!isEmpty(result)){
+                for (item in result){
+                    creditosArray.push(result[item]['creditos'])
+                }
+                res.render("calculadora", { disciplinas: result, titulo: "Calculadora" });
+            } 
+            else{
+                res.send("<span>Por favor insira uma combinação válida</span>");
+            }
+        }
+    }
+    else{
+        res.send("<span>Por favor insira uma combinação válida</span>");
+    }
+});
 
 
-// //GET matérias que obedecem à relação curso/período e retorna a página da calculadora
-// routes.get("/calculadora", (req, res) => {
-
-//     let cursoSelected = req.query.curso;
-//     let periodoSelected = req.query.periodo;
-
-//     console.log(req.query.periodo);
-
-//     res.setHeader('content-type', 'text/html; charset=utf-8');
-//     req.is('text/*');
-
-//     //query MySQL
-//     const querySQL = `SELECT * from ${cursoSelected} WHERE periodo = ${periodoSelected} AND valido = 1`;
-
-//     if (cursoSelected != "na" || periodoSelected != "0") {
-//         search(querySQL, (result) => {
-//             if (!isEmpty(result)) {
-//                 console.log(result);
-//                 creditosArray = result.map(function (item) {
-//                     return item.creditos;
-//                 });
-//                 res.render("calculadora", { disciplinas: result, titulo: "Calculadora" });
-//             }
-//             else {
-//                 res.send("<span>Por favor insira uma combinação válida</span>");
-//             }
-//         });
-//     }
-//     else {
-//         res.send("<span>Por favor insira uma combinação válida</span>");
-//     }
-
-// });
-
-routes.post("/escolha", (req, res) => {
-    res.render("escolha", { root: __dirname });
-})
-
-//POST faz o display dos resultados
+//POST que faz o display dos resultados
 routes.post("/resultado", (req, res) => {
 
     let notasDict = req.body;
@@ -83,7 +95,10 @@ routes.post("/resultado", (req, res) => {
 
     let crFinal = calculoCR(notas, creditosAtt);
 
-    res.render("resultado", { crFinal, titulo: "Resultado" });
+    res.render("resultado", {
+        crFinal,
+        titulo: "Resultado"
+    });
 
 })
 

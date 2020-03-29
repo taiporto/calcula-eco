@@ -43,12 +43,17 @@ block content
 
     script.
         $('form').submit(function(){
+
             let curso = $("#curso option:selected").val();
             let periodo = $("#periodo option:selected").val();
+
             let url = "/calculadora?curso="+curso+"&periodo="+periodo;
+            
             $(this).attr('action', url);
             $(this).submit();
+
         });
+
         $('document').ready(function(){
                 let ww = $(window).width();
                 if($(window).width() <= 426){

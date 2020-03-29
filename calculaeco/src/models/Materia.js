@@ -2,29 +2,25 @@
 
 const MateriaSchema = new mongoose.Schema({
     id_disciplina: {
-        type: Number,
-        required: true
+        type: String
     },
     nome_disciplina: {
-        type: String,
-        required: true
+        type: String
     },
     creditos: {
-        type: Number,
-        required: true
+        type: String
     },
     periodo: {
-        type: Number,
-        required: true
+        type: String
     },
     curso: {
-        type: String,
-        required: true
+        type: String
     },
     valido: {
-        type: Number,
-        required: true
+        type: String
     }
-}, {collection: "materias"});
+}, {collection: 'materias'});
+
+MateriaSchema.set('toObject', { virtuals: true })
 
 module.exports = mongoose.model('Materia', MateriaSchema);
