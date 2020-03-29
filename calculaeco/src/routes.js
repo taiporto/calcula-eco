@@ -35,7 +35,7 @@ routes.get("/calculadora", (req, res) => {
         run().catch(error => console.log(error.stack));
         
         async function run() {
-            const uri = `mongodb+srv://${process.env.USER}:${process.env.PASSWORD}@calculaeco-lapzp.mongodb.net/bdcalculaeco?retryWrites=true&w=majority/`
+            const uri = `mongodb+srv://${process.env.USER}:${process.env.PASSWORD}@calculaeco-lapzp.mongodb.net/${process.env.DATABASE_NAME}?retryWrites=true&w=majority/`
 
             await mongoose.connect(uri, {
                     useNewUrlParser: true,
