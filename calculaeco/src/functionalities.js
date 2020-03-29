@@ -1,41 +1,5 @@
-//Requerimento do módulo do MySQL
-const mysql = require('mysql');
-
-require('dotenv').config();
-
-const conn = mysql.createConnection({
-    host: process.env.HOST,
-    port: process.env.PORTSQL,
-    user: process.env.USER,
-    password: process.env.PASSWORD,
-    database: process.env.DATABASE_NAME
-});
-
-conn.connect(function(err) {
-	if (err) throw err
-});
-
-module.exports = {
+module.exports = {  
     
-    search: function (querySQL, callback) {
-
-        let resultFinal = {};
-
-        conn.query(querySQL, (error, results) => { 
-            if (error){
-                callback(error, null);
-            }
-            else if(results){
-                if(results.length > 0){
-                    resultFinal = JSON.parse(JSON.stringify(results));
-                }
-                callback(resultFinal);
-                
-            }
-        })
-        
-    },
-
     isEmpty: function(obj){
         return Object.keys(obj).length === 0;
     },
