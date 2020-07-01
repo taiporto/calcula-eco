@@ -262,6 +262,19 @@ body {
   }
 }
 
+#centroCalc3C{
+  @extend %conteudoHorizDesktop;
+  width: fit-content;
+  background-size: 100% 120%;
+  padding: 30px 60px 60px 60px;
+  margin-left: calc(100vw/4);
+
+  .btn-calc{
+    width: 106%;
+    margin-left: -4%;
+  }
+}
+
 #conteudoResult {
   margin-top: 60px;
 
