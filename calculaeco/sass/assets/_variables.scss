@@ -1,0 +1,27 @@
+/* Screen sizes and breakpoints */
+$mobile: 640px;
+$tablet: 768px;
+$desktop-980: 980px;
+$desktop-1200: 1200px;
+$desktop-1400: 1400px;
+$desktop-1600: 1600px;
+$desktop-1800: 1800px;
+$wide: 1300px;
+
+$screen-small: "only screen and (max-width: #{$mobile})";
+$screen-tablet: "only screen and (min-width: #{$tablet})";
+$screen-desktop-small: "only screen and (min-width: #{$desktop-980})";
+$screen-wide: "only screen and (min-width: #{$wide})";
+
+$screen-ipadpro: "only screen and (min-width: 1024px) and (max-height: 1366px) and (-webkit-min-device-pixel-ratio: 1.5)";
+
+/* Colors */
+$bright-orange: #ff701a;
+$dark-orange: #cc4e00;
+$white: #fff;
+$main-color: $bright-orange;
+$second-color: $white;
+$shadow-color: $dark-orange;
+$p-color: black;
+
+$mq-responsive: true !default;

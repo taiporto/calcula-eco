@@ -1,0 +1,12 @@
+@mixin childSizeDivide($parent_size, $number, $property) {
+  #{$property}: ($parent_size / $number);
+}
+@mixin childSizeMultiply($parent_size, $number, $property) {
+  #{$property}: ($parent_size * $number);
+}
+@mixin childSizeSubtract($parent_size, $number, $property) {
+  #{$property}: ($parent_size - $number);
+}
+@mixin childSizeSum($parent_size, $number, $property) {
+  #{$property}: ($parent_size + $number);
+}

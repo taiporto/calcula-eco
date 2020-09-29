@@ -9,39 +9,6 @@ $desktop-btn-font-size: 16pt;
 
 $desktop-background: 'url("/images/Rodape_as_bg_water.png")';
 
-$bright-orange: #ff701a;
-$dark-orange: #cc4e00;
-$white: #fff;
-$main-color: $bright-orange;
-$second-color: $white;
-$shadow-color: $dark-orange;
-$p-color: black;
-
-$small-mobile: 320px;
-$mobile: 600px;
-$tablet: 768px;
-$desktop: 980px;
-$wide: 1300px;
-
-$screen-extra-small: "only screen and (min-width: #{$small-mobile})";
-$screen-small: "only screen and (min-width: #{$mobile})";
-$screen-medium: "only screen and (min-width: #{$tablet})";
-$screen-large: "only screen and (min-width: #{$desktop})";
-$screen-wide: "only screen and (min-width: #{$wide})";
-
-@mixin childSizeDivide($parent_size, $number, $property) {
-  #{$property}: ($parent_size / $number);
-}
-@mixin childSizeMultiply($parent_size, $number, $property) {
-  #{$property}: ($parent_size * $number);
-}
-@mixin childSizeSubtract($parent_size, $number, $property) {
-  #{$property}: ($parent_size - $number);
-}
-@mixin childSizeSum($parent_size, $number, $property) {
-  #{$property}: ($parent_size + $number);
-}
-
 %centerStuffTablet {
   align-items: center;
   justify-content: center;
@@ -141,10 +108,13 @@ body {
   }
 }
 
-#centroIndex {
+.center-box--horizontal{
   @extend %conteudoTablet;
   height: 50vh;
   margin-top: 5%;
+}
+
+#centroIndex {
 
   .groupIndex {
     line-height: initial;

@@ -1,4 +1,6 @@
-﻿@import 'effects/shutter-out-horizontal';
+﻿@import "effects/shutter-out-horizontal";
+@import "assets/_variables.scss";
+@import "assets/_mixins.scss";
 
 $text-font-size: 13pt;
 $g-label-font-size: 30px;
@@ -7,273 +9,134 @@ $s-label-font-size: 10pt;
 $xs-label-font-size: 8pt;
 $btn-font-size: 14pt;
 
+$horizontal-box-height: 40vh;
+$horizontal-box-width: 50vw;
+$vertical-box-height: 80vh;
+$vertical-box-width: 400px;
 
-$centro-horiz-width: 50vw;
-$centro-vert-width: 45vw;
-
-$bright-orange: #ff701a;
-$dark-orange: #cc4e00;
-$white: #fff;
-$main-color: $bright-orange;
-$second-color: $white;
-$shadow-color: $dark-orange;
-$p-color: black;
-
-$mq-responsive: true !default;
-
-
-@mixin childSizeDivide($parent_size, $number, $property) {
-  #{$property}: ($parent_size / $number);
+header h1 {
+  margin-top: 3vh;
 }
 
-@mixin childSizeMultiply($parent_size, $number, $property) {
-  #{$property}: ($parent_size * $number);
+.center-box,
+.center-box__rotated-background {
+  margin: 0 auto;
+  border: 2.5px solid #000;
+  border-radius: 20px;
+  box-shadow: none;
 }
 
-@mixin childSizeSubtract($parent_size, $number, $property) {
-  #{$property}: ($parent_size - $number);
+.center-box {
+  background-color: #fff;
+  padding: 50px 60px !important;
 }
 
-@mixin childSizeSum($parent_size, $number, $property) {
-  #{$property}: ($parent_size + $number);
+.center-box__rotated-background {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  z-index: -9999;
+  background-color: rgba(0, 0, 0, 0.7);
+  transform: rotate(-8deg) translate(-60px, -55px);
 }
 
-%centerStuffDesktop {
+.center-box--horizontal {
+  height: $horizontal-box-height;
+}
+
+.center-box--vertical {
+  height: $vertical-box-height;
+}
+
+.center-box .index-form{
+  height: 100%;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
   align-items: center;
-  justify-content: center;
-  text-align: justify;
-  text-align-last: center;
 }
 
-%conteudoHorizDesktop {
-  @extend %centerStuffDesktop;
-  display: flex;
-  margin: 0 auto;
-  background-image: url("/images/UI_Pag_1-3_border.png");
-  background-color: transparent;
-  box-shadow: none;
-  background-repeat: no-repeat;
-  background-position: center;
-  background-size: 100%;
-}
-
-%conteudoVertDesktop {
-  @extend %centerStuffDesktop;
-  display: flex;
-  margin: 0 auto;
-  background-image: url("/images/UI_Pag_2_border.png");
-  background-color: transparent;
-  box-shadow: none;
-  background-repeat: no-repeat;
-  background-position: center;
-  background-size: 100%;
-}
-
-%instrucoes {
-  font-size: $text-font-size;
+.form-group {
+  margin-bottom: 2px;
   text-align: center;
-  float: right;
-  h1 {
-    text-decoration-line: underline;
-    text-align: center;
-    color: $second-color;
-  }
-  h3 {
-    text-align: center;
-    color: $second-color;
-  }
-  p {
-    color: $p-color;
-  }
-}
+  width: auto;
+  height: auto;
 
-.btn-custom {
-  @include shutter-out-horizontal;
-  @include childSizeDivide($centro-horiz-width, 15, "height");
-  width: 130%;
-  max-width: 200%;
-  font-size: $btn-font-size !important;
-  font-weight: 700 !important;
-  border: 0px !important;
-  border-radius: 0px !important;
-}
-
-html {
-  min-height: 100%;
-}
-
-body {
-  background-image: url("/images/Rodape_as_bg_water.png");
-  background-size: auto 100%;
-  background-repeat: repeat-x;
-  min-height: 100%;
-  padding: 0;
-  margin: 0;
-  position: fixed;
-}
-
-.conteudo {
-  width: 100vw;
-  justify-items: center;
-  margin-top: 5%;
-}
-
-#titulo{
-  height: 10vh;
-  padding: 1%;
-}
-
-#footer {
-  position: fixed;
-  bottom: 0;
-  margin: 0 auto;
-  height: 30px;
-  padding-top: 0px;
-  box-shadow: none;
-
-  #github,
-  #twitter,
-  #mail {
-    height: 90%;
-    width: auto;
-    float: left;
-    padding-right: 9px;
-    padding-left: 9px;
-  }
-
-  #footerTexto {
-    margin-left: 38%;
-  }
-}
-
-#conteudoIndex {
-  #placeholderIndex {
-    width: 25vw;
-  }
-  #instrucoesIndex {
-    @extend %instrucoes;
-    width: 20vw;
-    padding-top: 20px;
-    margin: 0px;
-  }
-}
-
-#centroIndex {
-  @extend %conteudoHorizDesktop;
-  width: $centro-horiz-width;
-  height: 500px;
-  margin-top: -8%;
-
-  #formIndex{
-    padding: 0px;
-    margin-top: -3%;
-  }
-  .labelsIndex {
+  label {
     display: initial;
-    @include childSizeDivide($centro-horiz-width, 28,"font-size");
+    @include childSizeDivide($horizontal-box-height, 18, "font-size");
   }
-
-  .groupIndex {
-    line-height: 50px;
-    margin-bottom: 2px;
-    text-align: center;
-    width: auto;
-    height: auto;
-  }
-
-  .select-custom {
+  select {
     height: 40px;
     width: auto;
-    font-size: 120%;
+    font-size: 0.8em;
     text-align-last: center;
     margin-left: 10px;
     border-radius: 3px;
     background-color: $second-color;
   }
+}
 
-  .btn-index {
-    @include childSizeSubtract($centro-horiz-width, 5, "width");
-    margin-top: 0px;
-    margin-left: -1.5%;
+.btn-custom {
+  @include shutter-out-horizontal;
+  @include childSizeDivide($horizontal-box-height, 10, "height");
+  width: 125%;
+  font-size: $btn-font-size !important;
+  font-weight: 700 !important;
+  border: 0px !important;
+  border-radius: 0px !important;
+
+  &:hover{
+    color: #fff !important;
   }
 }
 
 #conteudoCalc {
-  padding: 0px;
-  margin-top: 0px;
-
-  #placeholderCalc {
-    width: 30vw;
-  }
-
-  #instrucoesCalc {
-    @extend %instrucoes;
-    width: 25vw;
-    padding: 20px;
-    display: none;
-  }
 }
 
 #centroCalc {
-  @extend %conteudoVertDesktop;
-  width: $centro-vert-width;
-  height: 80vh;
+  // .inputGroup {
+  //   display: inline-block;
+  //   text-align: center;
+  // }
 
-  #formNotas{
-    padding-top: 0px;
-    margin-top: 0px;
-  }
+  // .pieces {
+  //   @include childSizeDivide($vertical-box-width, 3, "width");
 
-  .row {
-    display: inline-flex;
-    justify-content: center;
-    text-align: center;
-    width: 95%;
-  }
+  //   .labelsCalc {
+  //     display: block;
+  //     font-size: $m-label-font-size;
+  //   }
 
-  .inputGroup {
-    display: inline-block;
-    text-align: center;
-  }
+  //   .labelsCalcBig {
+  //     display: inline-block;
+  //     width: 100% - 5;
+  //     font-size: $s-label-font-size;
+  //   }
 
-  .pieces {
-    @include childSizeDivide($centro-vert-width, 3, "width");
+  //   .inputs {
+  //     margin-bottom: 0px;
+  //   }
+  // }
 
-    .labelsCalc {
-      display: block;
-      font-size: $m-label-font-size;
-    }
-
-    .labelsCalcBig {
-      display: inline-block;
-      width: 100% - 5;
-      font-size: $s-label-font-size;
-    }
-
-    .inputs {
-      margin-bottom: 0px;
-    }
-  }
-
-  .btn-calc {
-    @include childSizeSubtract($centro-vert-width, 5.3, "width");
-    margin-left: 0.2%;
-    margin-top: 3%;
-  }
+  // .btn-calc {
+  //   @include childSizeSubtract($vertical-box-width, 5.3, "width");
+  //   margin-left: 0.2%;
+  //   margin-top: 3%;
+  // }
 }
 
-#centroCalc3C{
-  @extend %conteudoHorizDesktop;
-  width: fit-content;
-  background-size: 100% 120%;
-  padding: 30px 60px 60px 60px;
-  margin-left: calc(100vw/4);
+// #centroCalc3C {
+//   width: fit-content;
+//   padding: 30px 60px 60px 60px;
+//   margin-left: calc(100vw / 4);
 
-  .btn-calc{
-    width: 106%;
-    margin-left: -4%;
-  }
-}
+//   .btn-calc {
+//     width: 106%;
+//     margin-left: -4%;
+//   }
+// }
 
 #conteudoResult {
   margin-top: 60px;
@@ -282,7 +145,6 @@ body {
     width: 30vw;
   }
   #instrucoesResult {
-    @extend %instrucoes;
     width: 30vw;
     padding: 60px;
     padding-top: 20px;
@@ -292,7 +154,6 @@ body {
 }
 
 #centroResult {
-  @extend %conteudoHorizDesktop;
   width: 40vw;
   height: 340px;
   margin-top: -4%;
@@ -302,5 +163,18 @@ body {
   #nota {
     font-weight: bold;
     color: $main-color;
+  }
+}
+
+.instrucoes {
+  margin: 0px;
+  font-size: $text-font-size;
+  text-align: center;
+  h2 {
+    text-align: center;
+    color: $second-color;
+  }
+  p {
+    color: $p-color;
   }
 }

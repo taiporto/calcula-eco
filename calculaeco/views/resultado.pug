@@ -3,7 +3,8 @@
 block content
     div.container-fluid.conteudo.row#conteudoResult
       div.placeholder#placeholderResult.col-lg-4.col-md-6
-      div#centroResult.resultado.col-lg-4.col-md-6
+      div#centroResult.resultado.col-md-6.center-box.center-box--horizontal
+        div.center-box__rotated-background
         - let cr = "<span id='nota'>"+crFinal+"</span>";
         div#result
           h3 O seu C.R é !{cr}!
