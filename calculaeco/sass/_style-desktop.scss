@@ -2,179 +2,179 @@
 @import "assets/_variables.scss";
 @import "assets/_mixins.scss";
 
-$text-font-size: 13pt;
-$g-label-font-size: 30px;
-$m-label-font-size: 12pt;
-$s-label-font-size: 10pt;
-$xs-label-font-size: 8pt;
-$btn-font-size: 14pt;
-
 $horizontal-box-height: 40vh;
-$horizontal-box-width: 50vw;
-$vertical-box-height: 80vh;
-$vertical-box-width: 400px;
+$vertical-box-height: 70vh;
+$center-box-border-radius: 20px;
 
-header h1 {
-  margin-top: 3vh;
+
+.row {
+  width: 100% !important;
+  margin: 5vh 0 0 0 !important;
 }
 
-.center-box,
-.center-box__rotated-background {
-  margin: 0 auto;
-  border: 2.5px solid #000;
-  border-radius: 20px;
-  box-shadow: none;
+.placeholder,
+.instrucoes {
+  padding: 0 2vw !important;
+  margin: 20px 0px 0px 0px !important;
+}
+
+.instrucoes {
+  margin-right: 20px;
+  text-align: center;
+  font-size: 0.9em;
+}
+
+@media (max-width: 1024px) {
+  .center-box {
+    margin: 0 auto;
+  }
 }
 
 .center-box {
   background-color: #fff;
-  padding: 50px 60px !important;
-}
+  border: 2.5px solid #000;
+  border-radius: $center-box-border-radius;
 
-.center-box__rotated-background {
-  width: 100%;
-  height: 100%;
-  position: absolute;
-  z-index: -9999;
-  background-color: rgba(0, 0, 0, 0.7);
-  transform: rotate(-8deg) translate(-60px, -55px);
+  .center-box__rotated-background {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    z-index: -1;
+    background-color: rgba(0, 0, 0, 0.7);
+    border: inherit;
+    border-radius: inherit;
+  }
+
+  fieldset{
+    margin-bottom: $horizontal-box-height/8;
+  }
+
+  .center-box__form,
+  .center-box__resultado {
+    height: 100%;
+    width: 100%;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .center-box__form {
+    font-weight: 600 !important;
+    justify-content: space-evenly;
+  }
+
+  .center-box__resultado {
+    justify-content: center;
+  }
+
+  .center-box__submit-btn {
+    // @include shutter-out-horizontal;
+    width: 100%;
+    height: max-content;
+    font-weight: 600 !important;
+    font-size: 80%;
+    border: 0px !important;
+    border-radius: 0px !important;
+
+    position: absolute;
+
+    &:hover {
+      background-color: $main-color;
+      color: #fff !important;
+    }
+  }
 }
 
 .center-box--horizontal {
   height: $horizontal-box-height;
+  padding: $horizontal-box-height/10 60px !important;
+
+  .center-box__rotated-background {
+    transform: rotate(-8deg) translate(-60px, (-$horizontal-box-height/9));
+  }
+
+  .form-group {
+    margin-bottom: 2px;
+    text-align: center;
+    width: auto;
+    height: auto;
+
+    label {
+      // font-size
+      @include childSizeDivide($horizontal-box-height, 14, "font-size");
+    }
+
+    select {
+      @include childSizeDivide($horizontal-box-height, 8, "height");
+      width: auto;
+      // font-size
+      @include childSizeDivide($horizontal-box-height, 25, "font-size");
+      text-align-last: center;
+      border-radius: 3px;
+      background-color: $second-color;
+    }
+    .center-box__submit-btn{
+      bottom: 10% !important;
+    }
+  }
 }
 
 .center-box--vertical {
   height: $vertical-box-height;
-}
+  padding: 40px 20px !important;
 
-.center-box .index-form{
-  height: 100%;
-
-  display: flex;
-  flex-direction: column;
-  justify-content: space-around;
-  align-items: center;
-}
-
-.form-group {
-  margin-bottom: 2px;
-  text-align: center;
-  width: auto;
-  height: auto;
-
-  label {
-    display: initial;
-    @include childSizeDivide($horizontal-box-height, 18, "font-size");
+  .center-box__rotated-background {
+    transform: rotate(-8deg) translate(-20px, -45px);
   }
-  select {
-    height: 40px;
-    width: auto;
-    font-size: 0.8em;
-    text-align-last: center;
-    margin-left: 10px;
-    border-radius: 3px;
-    background-color: $second-color;
+
+  fieldset {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
   }
-}
 
-.btn-custom {
-  @include shutter-out-horizontal;
-  @include childSizeDivide($horizontal-box-height, 10, "height");
-  width: 125%;
-  font-size: $btn-font-size !important;
-  font-weight: 700 !important;
-  border: 0px !important;
-  border-radius: 0px !important;
+  .form-group {
+    width: 40% !important;
+    max-width: 40%;
+    text-align: center;
+    word-wrap: break-word;
+    padding-bottom: 15px;
+    margin: 0 auto;
 
-  &:hover{
-    color: #fff !important;
+    label{
+      margin: 0;
+      // font-size
+      @include childSizeDivide($horizontal-box-height, 20, "font-size");
+      word-wrap: break-word;
+    }
+
+    input {
+      // height
+      @include childSizeDivide($horizontal-box-height, 7, "height");
+      margin: 0 auto;
+      // font-size
+      @include childSizeDivide($horizontal-box-height, 15, "font-size");
+      text-align: center;
+      border-radius: 3px;
+      background-color: $second-color;
+    }
   }
-}
 
-#conteudoCalc {
-}
-
-#centroCalc {
-  // .inputGroup {
-  //   display: inline-block;
-  //   text-align: center;
-  // }
-
-  // .pieces {
-  //   @include childSizeDivide($vertical-box-width, 3, "width");
-
-  //   .labelsCalc {
-  //     display: block;
-  //     font-size: $m-label-font-size;
-  //   }
-
-  //   .labelsCalcBig {
-  //     display: inline-block;
-  //     width: 100% - 5;
-  //     font-size: $s-label-font-size;
-  //   }
-
-  //   .inputs {
-  //     margin-bottom: 0px;
-  //   }
-  // }
-
-  // .btn-calc {
-  //   @include childSizeSubtract($vertical-box-width, 5.3, "width");
-  //   margin-left: 0.2%;
-  //   margin-top: 3%;
-  // }
-}
-
-// #centroCalc3C {
-//   width: fit-content;
-//   padding: 30px 60px 60px 60px;
-//   margin-left: calc(100vw / 4);
-
-//   .btn-calc {
-//     width: 106%;
-//     margin-left: -4%;
-//   }
-// }
-
-#conteudoResult {
-  margin-top: 60px;
-
-  #placeholderResult {
-    width: 30vw;
-  }
-  #instrucoesResult {
-    width: 30vw;
-    padding: 60px;
-    padding-top: 20px;
-    margin-left: 30px;
-    display: none;
+  .center-box__submit-btn {
+    bottom: 14%;
   }
 }
 
-#centroResult {
-  width: 40vw;
-  height: 340px;
-  margin-top: -4%;
-  #result {
+.center-box--resultado {
+  #resultado {
     text-align: center;
   }
   #nota {
     font-weight: bold;
     color: $main-color;
-  }
-}
-
-.instrucoes {
-  margin: 0px;
-  font-size: $text-font-size;
-  text-align: center;
-  h2 {
-    text-align: center;
-    color: $second-color;
-  }
-  p {
-    color: $p-color;
+    margin-left: 3px;
   }
 }

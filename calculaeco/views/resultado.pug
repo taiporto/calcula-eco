@@ -1,18 +1,11 @@
-﻿extends layout
+﻿extends subLayout
 
 block content
-    div.container-fluid.conteudo.row#conteudoResult
-      div.placeholder#placeholderResult.col-lg-4.col-md-6
-      div#centroResult.resultado.col-md-6.center-box.center-box--horizontal
-        div.center-box__rotated-background
-        - let cr = "<span id='nota'>"+crFinal+"</span>";
-        div#result
-          h3 O seu C.R é !{cr}!
-          <br/>
-          a(href="/") Tentar novamente
-      div.instrucoes#instrucoesResult.col-lg-4.col-md-6
-            h3 Essa é a calculadora de C.R da ECO.
-            p#paragrafo.
-                A calculadora é muito simples: você seleciona seu curso e seu período e clica OK.<br>
-                Aí coloca as notas que você recebeu e pronto! C.R calculado!
+  div.col-md-5.col-xl-4.center-box.center-box--horizontal.center-box--resultado
+    div.center-box__rotated-background
+    - let cr = "<span id='nota'>"+crFinal+"</span>";
+    div#resultado.center-box__resultado
+      h3 O seu C.R é !{cr}!
+      <br/>
+      a(href="/") Tentar novamente
           

@@ -1,115 +1,108 @@
-﻿extends layout
+﻿extends subLayout
 
 block content
 
   - let i = 1;
 
-
-  div.container-fluid.conteudo.row#conteudoCalc
-    div.placeholder#placeholderCalc.col-lg-4.col-md-6
-    div#centroCalc.col-md-6.center-box.center-box--vertical
+    div.col-md-6.col-xl-4.center-box.center-box--vertical.center-box--calculadora
       div.center-box__rotated-background
-      form(id='formNotas' class='form' action='/resultado' method='POST') 
-        each d in disciplinas          
-          if d.valido != false
-            if d.nome_disciplina.length < 28
-              div(class='pieces form-group')
-                label(class='labelsCalc', for=''+d.nome_disciplina) #{d.nome_disciplina}
-                input(type='number', step='0.1', min='0', max='10', class='inputs text-center form-control' placeholder='Insira sua nota', name=''+ i id=''+ i)
-            else
-              div(class='pieces form-group')
-                label(class='labelsCalc labelsCalcBig', for=''+d.nome_disciplina) #{d.nome_disciplina}
-                input(type='number', step='0.1', min='0', max='10', class='inputs text-center form-control' placeholder='Insira sua nota', name=''+ i id=''+ i)
-            - i = i+1;
+      form#formCalculadora.form.center-box__form(class='form' action='/resultado' method='POST')
+        fieldset.center-box__fieldset
+          each d in disciplinas          
+            if d.valido != false
+              //- if d.nome_disciplina.length < 28
+              div.form-group
+                label.calc-label(for=''+d.nome_disciplina) #{d.nome_disciplina}
+                input.inputs.form-control(type='number', step='0.1', min='0', max='10', placeholder='Nota', name=''+ i id=''+ i)
+              //- else
+              //-   label.pieces.calc-label--big(for=''+d.nome_disciplina) #{d.nome_disciplina}
+              //-     input(type='number', step='0.1', min='0', max='10', class='inputs text-center form-control' placeholder='Insira sua nota', name=''+ i id=''+ i)
+              - i = i+1;
         <br>
-        button(id='buttonCalcula', class='btn btn-custom btn-calc') Calcular!
-    div.instrucoes#instrucoesCalc.col-lg-4.col-md-6
-      h3 Essa é a calculadora de C.R da ECO.
-      p#paragrafo.
-        A calculadora é muito simples: você seleciona seu curso e seu período e clica OK.<br>
-        Aí coloca as notas que você recebeu e pronto! C.R calculado!
+        button#buttonCalcula.btn.center-box__submit-btn Calcular!
 
-    script.
+    //- script.
+    //-   if($(document).width() >= 768){
+    //-     $(document).ready( function(){
 
-      if($(document).width() >= 768){
-        $(document).ready( function(){
+    //-     let ww = $(window).width();
 
-        let ww = $(window).width();
-        if($(window).width() <= 426){
-          var centro = $("#centroCalc").clone();
-          var instrucoes = $("#instrucoesCalc").clone();
-          $("#conteudoCalc").children().remove();
-          $("#conteudoCalc").append(centro);
-          $("#conteudoCalc").after("<div class='instrucoes container-fluid row' id='instrucoesContCalc' ></div>");
-          $( "#instrucoesContCalc" ).append(instrucoes);
+    //-     if($(window).width() <= 426){
 
-          $('.form-control').addClass("input-sm");
-        }
+    //-       var centro = $("#centroCalc").clone();
+    //-       var instrucoes = $("#instrucoesCalc").clone();
+    //-       $("#conteudoCalc").children().remove();
+    //-       $("#conteudoCalc").append(centro);
+    //-       $("#conteudoCalc").after("<div class='instrucoes container-fluid row' id='instrucoesContCalc' ></div>");
+    //-       $( "#instrucoesContCalc" ).append(instrucoes);
 
-        function createDivGroup(){
-          let inputs = $(".pieces");
-          let step = 2; // the step 
+    //-       $('.form-control').addClass("input-sm");
+    //-     }
 
-          for (let i = 0; i < inputs.length; i += step) { // increment i with the step
-            inputs.slice(i, i + step + 1).wrapAll("<div class='inputGroup'></div>"); // slice for i to i + step + 1 and wrap
-            step++; // increment the step
-          }
+    //-     function createDivGroup(){
+    //-       let inputs = $(".pieces");
+    //-       let step = 2; // the step 
 
-          let groupDivs = $('.inputGroup');
+    //-       for (let i = 0; i < inputs.length; i += step) { // increment i with the step
+    //-         inputs.slice(i, i + step + 1).wrapAll("<div class='inputGroup'></div>"); // slice for i to i + step + 1 and wrap
+    //-         step++; // increment the step
+    //-       }
 
-          $('.inputGroup').wrapAll("<div class='row'></div>");
+    //-       let groupDivs = $('.inputGroup');
 
-          let lenGroup = groupDivs.length;
+    //-       $('.inputGroup').wrapAll("<div class='row'></div>");
 
-          switch(lenGroup){
-            case 2:
-              for(let i = 0; i < lenGroup; i++) {
-                groupDivs[i].classList.add('col-sm-6', 'col-xs-12');
-              }
-              break;
-            case 3:
-              $('#centroCalc').attr('id', 'centroCalc3C');
-              $('.labelsCalc').addClass('labelsCalc3C');
-              $('.pieces').addClass('pieces3C');
-              $('.btn-calc').addClass('btn-calc-3C');
-              for(let i = 0; i < lenGroup; i++) {
-                groupDivs[i].classList.add('col-md-4');
-              }
-              break;
-          }
-        }
+    //-       let lenGroup = groupDivs.length;
 
-        createDivGroup();
+    //-       switch(lenGroup){
+    //-         case 2:
+    //-           for(let i = 0; i < lenGroup; i++) {
+    //-             groupDivs[i].classList.add('col-sm-6', 'col-xs-12');
+    //-           }
+    //-           break;
+    //-         case 3:
+    //-           $('#centroCalc').attr('id', 'centroCalc3C');
+    //-           $('.labelsCalc').addClass('labelsCalc3C');
+    //-           $('.pieces').addClass('pieces3C');
+    //-           $('.btn-calc').addClass('btn-calc-3C');
+    //-           for(let i = 0; i < lenGroup; i++) {
+    //-             groupDivs[i].classList.add('col-md-4');
+    //-           }
+    //-           break;
+    //-       }
+    //-     }
 
-          if($(".pieces").length >= 7){
-              console.log("entrou");
-              $("#formNotas").css('margin-top', '8%');
-              $(".btn-calc").css('margin-top', '-1%');
-            }
+    //-     createDivGroup();
 
-        if($(window).size() < 768){
-          $('.inputs').addClass('input-lg');
-        }
+    //-       if($(".pieces").length >= 7){
+    //-           console.log("entrou");
+    //-           $("#formNotas").css('margin-top', '8%');
+    //-           $(".btn-calc").css('margin-top', '-1%');
+    //-         }
 
-        function resizedw(){
-          if($(window).size() > 768){
-            $('.inputs').removeClass('input-lg');
-          }
-          else{
-            $('.inputs').addClass('input-lg');
-          }
-        }
+    //-     if($(window).size() < 768){
+    //-       $('.inputs').addClass('input-lg');
+    //-     }
+
+    //-     function resizedw(){
+    //-       if($(window).size() > 768){
+    //-         $('.inputs').removeClass('input-lg');
+    //-       }
+    //-       else{
+    //-         $('.inputs').addClass('input-lg');
+    //-       }
+    //-     }
 
 
-        window.onresize = function() {
-          let setter;
-          clearTimeout(setter);
-          setter = setTimeout(function() {
-            resizedw();
-          }, 100);
-        }
-      })
-      }
+    //-     window.onresize = function() {
+    //-       let setter;
+    //-       clearTimeout(setter);
+    //-       setter = setTimeout(function() {
+    //-         resizedw();
+    //-       }, 100);
+    //-     }
+    //-   })
+    //-   }
 
 
 

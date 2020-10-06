@@ -35,23 +35,26 @@ html(lang='pt')
 
     link(rel="icon" href="images/icon_laranja.png")
     link(rel='stylesheet', href='stylesheets/style.css')
-    link(rel="stylesheet", href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css", integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7", crossorigin="anonymous")
-    script(src="https://code.jquery.com/jquery-2.2.4.js", integrity="sha256-iT6Q9iMJYuQiMWNd9lDyBUStIq/8PuOW33aOqmvFpqI=", crossorigin="anonymous")
+    link(rel="stylesheet", href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css", integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z", crossorigin="anonymous")
 
   body
     block header
       header
         h1 CalculaECO
-    block content
+      
+    block subLayout
+    
     block rodape
       footer
-        a(href="http://www.github.com/liaporto" target='blank')
-          img( id="github" src="/images/github.png" alt="Ir para o perfil do GitHub de Lia Porto" onmouseover="hover(this);" onmouseout="unhover(this);")
-        a(href="mailto:liabarcellos28@gmail.com?subject=CalculaECO")
-          img( id="mail" src="/images/mail.png" alt="Abrir envio de e-mail para liabarcellos28@gmail.com" onmouseover="hover(this);"  onmouseout="unhover(this);")
-        a(href="http://www.twitter.com/zaribiscuit" target='blank')
-          img( id="twitter" src="/images/twitter.png" alt="Ir para o perfil do Twitter de arroba zari biscuit" onmouseover="hover(this);" onmouseout="unhover(this);")
-        span#footerTexto @moon.koala_
+        div.footer-content
+          a(href="http://www.github.com/liaporto" target='blank')
+            img(id="github" src="/images/github.png" alt="Ir para o perfil do GitHub de Lia Porto" onmouseover="hover(this);" onmouseout="unhover(this);")
+          a(href="mailto:liabarcellos28@gmail.com?subject=CalculaECO")
+            img(id="mail" src="/images/mail.png" alt="Abrir envio de e-mail para liabarcellos28@gmail.com" onmouseover="hover(this);"  onmouseout="unhover(this);")
+          a(href="http://www.twitter.com/zaribiscuit" target='blank')
+            img(id="twitter" src="/images/twitter.png" alt="Ir para o perfil do Twitter de arroba zari biscuit" onmouseover="hover(this);" onmouseout="unhover(this);")
+          span#footerTexto @moon.koala_
+        img.d-none.d-md-block.footer-img(src="/images/shark-water.svg" alt="Rodapé do site. Ilustração de água simplificada na cor branca.")
       script.
         if($(location).attr('pathname') == "/calculadora"){
           if($(document).width() < 768){
@@ -78,6 +81,6 @@ html(lang='pt')
 
 
 
-
-script(src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js", integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS", crossorigin="anonymous")  
+script(src="https://code.jquery.com/jquery-2.2.4.js", integrity="sha256-iT6Q9iMJYuQiMWNd9lDyBUStIq/8PuOW33aOqmvFpqI=", crossorigin="anonymous")
+script(src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js", integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV", crossorigin="anonymous")
 script(src='https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js')
