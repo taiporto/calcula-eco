@@ -149,7 +149,6 @@ footer #footerTexto {
     width: 100%;
     height: max-content;
     font-weight: 600 !important;
-    font-size: 80%;
     border: 0px !important;
     border-radius: 0px !important;
     position: absolute;
@@ -184,13 +183,14 @@ footer #footerTexto {
     border-radius: 3px;
     background-color: #fff;
   }
-  .center-box--horizontal .form-group .center-box__submit-btn {
-    bottom: 10% !important;
+  .center-box--horizontal .center-box__submit-btn {
+    font-size: 80%;
+    bottom: 12% !important;
   }
 }
 @media only screen and (min-width: 980px) {
   .center-box--vertical {
-    height: 70vh;
+    min-height: 70vh;
     padding: 40px 20px !important;
   }
   .center-box--vertical .center-box__rotated-background {
@@ -208,24 +208,18 @@ footer #footerTexto {
     max-width: 40%;
     text-align: center;
     word-wrap: break-word;
-    padding-bottom: 15px;
     margin: 0 auto;
-  }
-  .center-box--vertical .form-group label {
-    margin: 0;
-    font-size: 2vh;
-    word-wrap: break-word;
+    padding-bottom: 25px;
   }
   .center-box--vertical .form-group input {
     height: 5.7142857143vh;
     margin: 0 auto;
-    font-size: 2.6666666667vh;
     text-align: center;
     border-radius: 3px;
     background-color: #fff;
   }
   .center-box--vertical .center-box__submit-btn {
-    bottom: 14%;
+    top: 88%;
   }
 }
 @media only screen and (min-width: 980px) {

@@ -6,7 +6,6 @@ $horizontal-box-height: 40vh;
 $vertical-box-height: 70vh;
 $center-box-border-radius: 20px;
 
-
 .row {
   width: 100% !important;
   margin: 5vh 0 0 0 !important;
@@ -45,7 +44,7 @@ $center-box-border-radius: 20px;
     border-radius: inherit;
   }
 
-  fieldset{
+  fieldset {
     margin-bottom: $horizontal-box-height/8;
   }
 
@@ -73,7 +72,6 @@ $center-box-border-radius: 20px;
     width: 100%;
     height: max-content;
     font-weight: 600 !important;
-    font-size: 80%;
     border: 0px !important;
     border-radius: 0px !important;
 
@@ -114,14 +112,15 @@ $center-box-border-radius: 20px;
       border-radius: 3px;
       background-color: $second-color;
     }
-    .center-box__submit-btn{
-      bottom: 10% !important;
-    }
+  }
+  .center-box__submit-btn {
+    font-size: 80%;
+    bottom: 12% !important;
   }
 }
 
 .center-box--vertical {
-  height: $vertical-box-height;
+  min-height: $vertical-box-height;
   padding: 40px 20px !important;
 
   .center-box__rotated-background {
@@ -139,24 +138,16 @@ $center-box-border-radius: 20px;
   .form-group {
     width: 40% !important;
     max-width: 40%;
+
     text-align: center;
     word-wrap: break-word;
-    padding-bottom: 15px;
-    margin: 0 auto;
 
-    label{
-      margin: 0;
-      // font-size
-      @include childSizeDivide($horizontal-box-height, 20, "font-size");
-      word-wrap: break-word;
-    }
+    margin: 0 auto;
+    padding-bottom: 25px;
 
     input {
-      // height
-      @include childSizeDivide($horizontal-box-height, 7, "height");
+      height: $horizontal-box-height/7;
       margin: 0 auto;
-      // font-size
-      @include childSizeDivide($horizontal-box-height, 15, "font-size");
       text-align: center;
       border-radius: 3px;
       background-color: $second-color;
@@ -164,7 +155,7 @@ $center-box-border-radius: 20px;
   }
 
   .center-box__submit-btn {
-    bottom: 14%;
+    top: 88%;
   }
 }
 
