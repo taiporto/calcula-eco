@@ -2,7 +2,7 @@
 @import "assets/_mixins.scss";
 
 $horizontal-box-height: 40vh;
-$vertical-box-height: 70vh;
+$vertical-box-min-height: 70vh;
 $center-box-border-radius: 20px;
 
 .row {
@@ -13,13 +13,17 @@ $center-box-border-radius: 20px;
 .placeholder,
 .instrucoes {
   padding: 0 2vw !important;
-  margin: 20px 0px 0px 0px !important;
+  margin: 2vw 0 0 0 !important;
 }
 
 .instrucoes {
   margin-right: 20px;
-  text-align: center;
-  font-size: 0.9em;
+  text-align: justify;
+  text-align-last: center;
+  
+  p{
+    padding: 0 0.2vw;
+  }
 }
 
 @media (max-width: 1024px) {
@@ -29,8 +33,8 @@ $center-box-border-radius: 20px;
 }
 
 .center-box {
-  background-color: #fff;
-  border: 2.5px solid #000;
+  background-color: $white;
+  border: 2.5px solid $black;
   border-radius: $center-box-border-radius;
 
   .center-box__rotated-background {
@@ -43,11 +47,7 @@ $center-box-border-radius: 20px;
     border-radius: inherit;
   }
 
-  fieldset {
-    margin-bottom: $horizontal-box-height/8;
-  }
-
-  .center-box__form,
+  fieldset,
   .center-box__resultado {
     height: 100%;
     width: 100%;
@@ -55,29 +55,25 @@ $center-box-border-radius: 20px;
     display: flex;
     flex-direction: column;
     align-items: center;
-  }
-
-  .center-box__form {
-    font-weight: 600 !important;
-    justify-content: space-evenly;
-  }
-
-  .center-box__resultado {
     justify-content: center;
+  }
+
+  label {
+    font-weight: 500;
   }
 
   .center-box__submit-btn {
     width: 100%;
-    height: max-content;
     font-weight: 600 !important;
     border: 0px !important;
     border-radius: 0px !important;
 
     position: absolute;
+    left: 0;
 
     &:hover {
       background-color: $main-color;
-      color: #fff !important;
+      color: $white !important;
     }
   }
 }
@@ -87,7 +83,17 @@ $center-box-border-radius: 20px;
   padding: $horizontal-box-height/10 60px !important;
 
   .center-box__rotated-background {
-    transform: rotate(-8deg) translate(-60px, (-$horizontal-box-height/9));
+    transform: rotate(-8deg) translate(-60px, -$horizontal-box-height/9);
+  }
+
+  form {
+    height: 100%;
+  }
+
+  fieldset {
+    height: inherit;
+    padding-bottom: 12%;
+    justify-content: space-evenly;
   }
 
   .form-group {
@@ -95,22 +101,21 @@ $center-box-border-radius: 20px;
     text-align: center;
     width: auto;
     height: auto;
-
+    
     label {
-      // font-size
-      @include childSizeDivide($horizontal-box-height, 14, "font-size");
+      font-size: $horizontal-box-height/18;
     }
 
     select {
-      @include childSizeDivide($horizontal-box-height, 8, "height");
+      height: $horizontal-box-height/8;
       width: auto;
-      // font-size
-      @include childSizeDivide($horizontal-box-height, 25, "font-size");
+      font-size: $horizontal-box-height/25;
       text-align-last: center;
       border-radius: 3px;
       background-color: $second-color;
     }
   }
+
   .center-box__submit-btn {
     font-size: 80%;
     bottom: 12% !important;
@@ -118,18 +123,15 @@ $center-box-border-radius: 20px;
 }
 
 .center-box--vertical {
-  min-height: $vertical-box-height;
-  padding: 40px 20px !important;
+  min-height: $vertical-box-min-height;
+  padding: $vertical-box-min-height/12 20px !important;
 
   .center-box__rotated-background {
-    transform: rotate(-8deg) translate(-20px, -45px);
+    transform: rotate(-8deg) translate(-20px, -$vertical-box-min-height/12);
   }
 
   fieldset {
-    display: flex;
     flex-direction: row;
-    align-items: center;
-    justify-content: center;
     flex-wrap: wrap;
   }
 
@@ -153,7 +155,7 @@ $center-box-border-radius: 20px;
   }
 
   .center-box__submit-btn {
-    top: 88%;
+    bottom: $vertical-box-min-height/15;
   }
 }
 
@@ -165,5 +167,9 @@ $center-box-border-radius: 20px;
     font-weight: bold;
     color: $main-color;
     margin-left: 3px;
+  }
+  #tentarnovamente{
+    margin-top: 30px;
+    text-decoration-color: $darkest-orange;
   }
 }
