@@ -23,8 +23,10 @@ $light-orange: #fb7c2e;
 $mid-orange: #f87523;
 $main-orange: #ec7023;
 $bright-orange: #ff701a;
-$dark-orange: #cc4e00;
+$mid-dark-orange: #cc4e00;
+$dark-orange: #692800;
 $darkest-orange: #351400;
+$off-white: #fff3eb;
 $white: #fff;
 $black: #000;
 
@@ -32,8 +34,8 @@ $black: #000;
 /* Variables */
 $main-color: $bright-orange;
 $second-color: $white;
-$shadow-color: $dark-orange;
+$shadow-color: $mid-dark-orange;
 
-$p-color: $darkest-orange;
+$p-color: $dark-orange;
 
 $mq-responsive: true !default;
