@@ -1,5 +1,4 @@
-﻿@import "effects/shutter-out-horizontal";
-@import "assets/_variables.scss";
+﻿@import "assets/_variables.scss";
 @import "assets/_mixins.scss";
 
 $horizontal-box-height: 40vh;
@@ -68,7 +67,6 @@ $center-box-border-radius: 20px;
   }
 
   .center-box__submit-btn {
-    // @include shutter-out-horizontal;
     width: 100%;
     height: max-content;
     font-weight: 600 !important;
