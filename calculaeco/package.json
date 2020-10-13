@@ -9,9 +9,9 @@
   },
   "scripts": {
     "start": "node src/server.js",
-    "nodemon": "nodemon src/server.js",
+    "server-run": "nodemon src/server.js",
     "sass-watch": "sass --watch sass/style.scss:public/stylesheets/style.css",
-    "dev": "run-p nodemon sass-watch"
+    "dev": "run-p server-run sass-watch"
   },
   "author": "moonkoala",
   "license": "ISC",

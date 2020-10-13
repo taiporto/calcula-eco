@@ -1,22 +1,8 @@
-@import 'assets/_variables.scss';
+@import "assets/_variables.scss";
 
-html{
+html {
   min-height: 100%;
-}
-
-%centerStuff {
-  align-items: center;
-  justify-content: center;
-  text-align: justify;
-  text-align-last: center;
-}
-
-%conteudoMobile {
-  @extend %centerStuff;
-  display: flex;
-  width: 100%;
-  background-color: $second-color;
-  box-shadow: 0 0.5em 0.9em $shadow-color;
+  max-width: 100%;
 }
 
 .btn-custom {
@@ -56,28 +42,44 @@ footer {
   }
 }
 
-.center-box{
-  @extend %conteudoMobile;
-  height: 50vh;
-  margin-top: 5%;
+.center-box {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 100%;
+  padding: 0px 10px !important;
+  
+  background-color: $second-color;
+  box-shadow: 0 0.5em 0.9em $shadow-color;
+
+  text-align: justify;
+  text-align-last: center;
 }
 
-.center-box--horizontal{
+.center-box--horizontal {
   height: 50vh;
   margin-top: 5%;
 
-  #result {
-    text-align: center;
+  .center-box__form{
+    width: 80%;
+
+    label{
+      width: inherit;
+    }
+    select{
+      width: inherit;
+    }
   }
+
   #nota {
     font-weight: bold;
     color: $main-color;
   }
 }
 
-.center-box--vertical{
+.center-box--vertical {
   height: auto;
   margin: 5% 0 20% 0;
   padding: 5% 0px;
 }
-

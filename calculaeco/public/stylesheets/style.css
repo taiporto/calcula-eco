@@ -23,8 +23,8 @@ body {
   background-color: #fb7c2e !important;
   background: radial-gradient(ellipse, #ec7023 20%, #f87523 30%, #fb7c2e 80%) 100% no-repeat;
   -webkit-text-stroke: 0.45px rgba(0, 0, 0, 0.1);
-  -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
   color: #692800;
   font-size: 16pt;
   font-family: "Fira Sans", "Helvetica Neue", Helvetica, Arial, sans-serif !important;
@@ -69,23 +69,31 @@ footer {
   width: 100%;
   z-index: -999999;
 }
+footer img {
+  width: 110%;
+  margin-left: -1%;
+  height: auto;
+}
 footer .footer-content {
   position: absolute;
+  display: inline-flex;
   bottom: 0;
-  height: 25px;
-  background-color: #fff;
+  width: 100%;
+  height: 20%;
 }
-footer #github,
-footer #twitter,
-footer #mail {
-  height: 90%;
+footer .footer-content .social-media-strip {
+  width: 100%;
+  padding-left: 10px;
+}
+footer .footer-content .social-icon {
+  height: 100%;
   width: auto;
-  float: left;
-  padding-right: 9px;
-  padding-left: 9px;
+  padding: 0 1% 0.5% 1%;
 }
-footer #footerTexto {
-  margin-left: 38%;
+footer .footer-content .footer-text {
+  position: absolute;
+  width: 100%;
+  text-align: center;
 }
 
 /*iPad Pro*/
@@ -249,20 +257,7 @@ footer #footerTexto {
   /* Variables */
   html {
     min-height: 100%;
-  }
-
-  .center-box {
-    align-items: center;
-    justify-content: center;
-    text-align: justify;
-    text-align-last: center;
-  }
-
-  .center-box {
-    display: flex;
-    width: 100%;
-    background-color: #fff;
-    box-shadow: 0 0.5em 0.9em #cc4e00;
+    max-width: 100%;
   }
 
   .btn-custom {
@@ -300,16 +295,29 @@ footer #mail {
   }
 
   .center-box {
-    height: 50vh;
-    margin-top: 5%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    padding: 0px 10px !important;
+    background-color: #fff;
+    box-shadow: 0 0.5em 0.9em #cc4e00;
+    text-align: justify;
+    text-align-last: center;
   }
 
   .center-box--horizontal {
     height: 50vh;
     margin-top: 5%;
   }
-  .center-box--horizontal #result {
-    text-align: center;
+  .center-box--horizontal .center-box__form {
+    width: 80%;
+  }
+  .center-box--horizontal .center-box__form label {
+    width: inherit;
+  }
+  .center-box--horizontal .center-box__form select {
+    width: inherit;
   }
   .center-box--horizontal #nota {
     font-weight: bold;

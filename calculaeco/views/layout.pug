@@ -1,11 +1,10 @@
 //-TODO: Conferir acessibilidade e SEO de todas as páginas
 
 doctype html
-html(lang='pt')
+html(lang='pt-br')
   head 
     <!-- Global site tag (gtag.js) - Google Analytics -->
     script(async src="https://www.googletagmanager.com/gtag/js?id=UA-161834654-1")
-
     script.
       window.dataLayer = window.dataLayer || [];
       function gtag(){dataLayer.push(arguments);}
@@ -20,6 +19,7 @@ html(lang='pt')
     meta(name="description" content="O CalculaECO é a calculadora de C.R para os cursos da Escola de Comunicação da UFRJ!")
     meta(name="url" content="calcula-eco.herokuapp.com")
     meta(name="keywords" content="CR, calcular cr, eco, ufrj")
+
     <!-- Open Graph / Facebook -->
     meta(property="og:type" content="website")
     meta(property="og:url" content="http://calcula-eco.herokuapp.com/")
@@ -47,13 +47,19 @@ html(lang='pt')
     block rodape
       footer
         div.footer-content
-          a(href="http://www.github.com/liaporto" target='blank')
-            img(id="github" src="/images/github.png" alt="Ir para o perfil do GitHub de Lia Porto" onmouseover="hover(this);" onmouseout="unhover(this);")
-          a(href="mailto:liabarcellos28@gmail.com?subject=CalculaECO")
-            img(id="mail" src="/images/mail.png" alt="Abrir envio de e-mail para liabarcellos28@gmail.com" onmouseover="hover(this);"  onmouseout="unhover(this);")
-          a(href="http://www.twitter.com/zaribiscuit" target='blank')
-            img(id="twitter" src="/images/twitter.png" alt="Ir para o perfil do Twitter de arroba zari biscuit" onmouseover="hover(this);" onmouseout="unhover(this);")
-          span#footerTexto @moon.koala_
+          div.social-media-strip
+            a(href="http://www.github.com/liaporto" target='blank')
+              img.social-icon#github(src="/images/github.png" alt="Ir para o perfil do GitHub de Lia Porto" onmouseover="hover(this);" onmouseout="unhover(this);")
+            a(href="mailto:liabarcellos28@gmail.com?subject=CalculaECO")
+              img.social-icon#mail(src="/images/mail.png" alt="Abrir envio de e-mail para liabarcellos28@gmail.com" onmouseover="hover(this);"  onmouseout="unhover(this);")
+            a(href="http://www.twitter.com/moonkoala_" target='blank')
+              img.social-icon#twitter(src="/images/twitter.png" alt="Ir para o perfil do Twitter de @ moon koala_" onmouseover="hover(this);" onmouseout="unhover(this);")
+          div.footer-text
+            - function formatDate(){
+              - const todaysDate = new Date();
+              - return todaysDate.getFullYear().toString();
+            - }
+            #{formatDate()}  
         img.d-none.d-md-block.footer-img(src="/images/shark-water.svg" alt="Rodapé do site. Ilustração de água simplificada na cor branca.")
       script.
         if($(location).attr('pathname') == "/calculadora"){
