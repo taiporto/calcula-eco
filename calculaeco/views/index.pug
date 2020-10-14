@@ -1,76 +1,50 @@
-﻿//-TODO: Conferir acessibilidade e SEO de todas as páginas
-
-extends layout
+﻿extends subLayout
 
 block content
-    div.container-fluid.conteudo.row#conteudoIndex
-        div.placeholder#placeholderIndex.col-lg-4.col-md-6
-        div#centroIndex.col-lg-4.col-md-6
-            form#formIndex.form(action="/calculadora", method='GET')
-                div.form-group.groupIndex
-                    label#labelCursos.labelsIndex(for='cursos') Curso:
-                    <br/>
-                    select#curso.select.select-custom(name='curso')
-                        option(value='na' selected='' hidden='') Escolha seu curso
-                        option(value='cs') Ciclo B&aacute;sico
-                        option(value='j') Jornalismo
-                        option(value='pp') Publicidade e Propaganda
-                        option(value='rtv') R&aacute;dio e TV
-                        option(value='pe') Produ&ccedil;&atilde;o Editorial
-                        option(value='dt') Direção Teatral
-                div.form-group.groupIndex
-                    label#labelPeriodos.labelsIndex(for='periodos') Per&iacute;odo:
-                    <br/>
-                    select#periodo.select.select-custom(name='periodo')
-                        option(value='0' selected='' hidden='') Escolha seu per&iacute;odo
-                        option(value='1') 1&ordm; Per&iacute;odo
-                        option(value='2') 2&ordm; Per&iacute;odo
-                        option(value='3') 3&ordm; Per&iacute;odo
-                        option(value='4') 4&ordm; Per&iacute;odo
-                        option(value='5') 5&ordm; Per&iacute;odo
-                        option(value='6') 6&ordm; Per&iacute;odo
-                        option(value='7') 7&ordm; Per&iacute;odo
-                        option(value='8') 8&ordm; Per&iacute;odo
-                        option(value='nda' disabled='') Quero escolher minhas pr&oacute;prias mat&eacute;rias
-                button.btn.btn-custom.btn-index(type='submit') OK
-        div.instrucoes#instrucoesIndex.col-lg-4.col-md-6
-            h3 Essa é a calculadora de C.R da ECO
-            p#paragrafo.
-                A calculadora é muito simples: você seleciona seu curso e seu período e clica OK.<br>
-                Aí coloca as notas que você recebeu e pronto! C.R calculado!
+  div.col-12.col-md-8.col-lg-5.col-xl-4.center-box.center-box--horizontal.center-box--index
+    div.center-box__rotated-background
+    form#formIndex.form.center-box__form(action="/calculadora", method='GET')
+      fieldset
+        div.form-group
+          label#labelCursos(for='cursos') Curso: <br>
+            select#curso.select(name='curso')
+              option(value='na' selected='' hidden='') Escolha seu curso
+              option(value='cs') Ciclo B&aacute;sico
+              option(value='j') Jornalismo
+              option(value='pp') Publicidade e Propaganda
+              option(value='rtv') R&aacute;dio e TV
+              option(value='pe') Produ&ccedil;&atilde;o Editorial
+              option(value='dt') Direção Teatral
+        div.form-group
+          label#labelPeriodos(for='periodos') Per&iacute;odo: <br>
+            select#periodo.select(name='periodo')
+              option(value='0' selected='' hidden='') Escolha seu per&iacute;odo
+              option(value='1') 1&ordm; Per&iacute;odo
+              option(value='2') 2&ordm; Per&iacute;odo
+              option(value='3') 3&ordm; Per&iacute;odo
+              option(value='4') 4&ordm; Per&iacute;odo
+              option(value='5') 5&ordm; Per&iacute;odo
+              option(value='6') 6&ordm; Per&iacute;odo
+              option(value='7') 7&ordm; Per&iacute;odo
+              option(value='8') 8&ordm; Per&iacute;odo
+              option(value='nda' disabled='') Quero escolher minhas pr&oacute;prias mat&eacute;rias
+      button.btn.center-box__submit-btn(type='submit') OK
 
 
 
-    script.
-        $('form').submit(function(){
+  script.
+    $('form').submit(function(){
 
-            let curso = $("#curso option:selected").val();
-            let periodo = $("#periodo option:selected").val();
+      let curso = $("#curso option:selected").val();
+      let periodo = $("#periodo option:selected").val();
 
-            let url = "/calculadora?curso="+curso+"&periodo="+periodo;
-            
-            $(this).attr('action', url);
-            $(this).submit();
+      let url = "/calculadora?curso="+curso+"&periodo="+periodo;
 
-        });
+      $(this).attr('action', url);
+      $(this).submit();
 
-        $('document').ready(function(){
-                let ww = $(window).width();
-                if($(window).width() <= 426){
-                    var centro = $("#centroIndex").clone();
-                    var instrucoes = $("#instrucoes").clone();
-                    $("#conteudoIndex").children().remove();
-                    $("#conteudoIndex").append(centro);
-                    $("#conteudoIndex").after("<div class='container-fluid row instrucoes' id='instrucoesIndex' ></div>");
-                    $( "#instrucoesIndex" ).append(instrucoes);
-                }
-                $( "#btn-fechadiv" ).click(function() {     
-                    $('#blockingdiv').css('display', 'none');
-                    $('.conteudo').css('display', 'initial');
-                    $('.instrucoes').css('display', 'block');
-                });
-            })  
+    });
 
 
 
-            
+

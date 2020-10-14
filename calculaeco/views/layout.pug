@@ -1,11 +1,10 @@
 //-TODO: Conferir acessibilidade e SEO de todas as páginas
 
 doctype html
-html(lang='pt')
+html(lang='pt-br')
   head 
     <!-- Global site tag (gtag.js) - Google Analytics -->
     script(async src="https://www.googletagmanager.com/gtag/js?id=UA-161834654-1")
-
     script.
       window.dataLayer = window.dataLayer || [];
       function gtag(){dataLayer.push(arguments);}
@@ -17,57 +16,59 @@ html(lang='pt')
     meta(charset='utf-8')
     meta(name='viewport', content='width=device-width, initial-scale=1.0, maximum-scale=1')
     meta(name="title" content="CalculaECO | Calculadora de C.R")
-    meta(name="description" content="O CalculaECO é a calculadora de C.R para os cursos da Escola de Comunicação da UFRJ!")
+    meta(name="description" content="Calculadora de C.R para os cursos da Escola de Comunicação da UFRJ!")
     meta(name="url" content="calcula-eco.herokuapp.com")
-    meta(name="keywords" content="CR, calcular cr, eco, ufrj")
+    meta(name="keywords" content="CR, calcular cr, eco, ufrj, calculadora de cr, calculadora de coeficiente de rendimento, calcular cr eco")
+
     <!-- Open Graph / Facebook -->
     meta(property="og:type" content="website")
     meta(property="og:url" content="http://calcula-eco.herokuapp.com/")
     meta(property="og:title" content="CalculaECO | Calculadora de C.R")
-    meta(property="og:description" content="O CalculaECO é a calculadora de C.R para os cursos da Escola de Comunicação da UFRJ!")
+    meta(property="og:description" content="Calculadora de C.R para os cursos da Escola de Comunicação da UFRJ!")
     meta(property="og:image" content="//calcula-eco.herokuapp.com/images/og_image.png")
+
     <!-- Twitter -->
     meta(property="twitter:card" content="summary_large_image")
     meta(property="twitter:url" content="http://calcula-eco.herokuapp.com/")
     meta(property="twitter:title" content="CalculaECO | Calculadora de C.R")
-    meta(property="twitter:description" content="O CalculaECO é a calculadora de C.R para os cursos da Escola de Comunicação da UFRJ!")
+    meta(property="twitter:description" content="Calculadora de C.R para os cursos da Escola de Comunicação da UFRJ!")
     meta(property="twitter:image" content="http://calcula-eco.herokuapp.com/images/twitter_image.png")
 
     link(rel="icon" href="images/icon_laranja.png")
     link(rel='stylesheet', href='stylesheets/style.css')
-    link(rel="stylesheet", href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css", integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7", crossorigin="anonymous")
-    script(src="https://code.jquery.com/jquery-2.2.4.js", integrity="sha256-iT6Q9iMJYuQiMWNd9lDyBUStIq/8PuOW33aOqmvFpqI=", crossorigin="anonymous")
+
+    <!-- Bootstrap -->
+    link(rel="stylesheet", href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css", integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z", crossorigin="anonymous")
+
+    <!-- Google fonts -->
+    link(rel="stylesheet", href="https://fonts.googleapis.com/css2?family=Fira+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&family=Source+Sans+Pro:ital,wght@0,400;0,600;1,600&display=swap")
 
   body
     block header
-      div#titulo
-        h1#title CalculaECO
-    block content
+      header
+        h1 CalculaECO
+      
+    block subLayout
+    
     block rodape
-      div#footer(style="width: 100%; margin-bottom:0px")
-        a(href="http://www.github.com/liaporto" target='blank')
-          img( id="github" src="/images/github.png" alt="Ir para o perfil do GitHub de Lia Porto" onmouseover="hover(this);" onmouseout="unhover(this);")
-        a(href="mailto:liabarcellos28@gmail.com?subject=CalculaECO")
-          img( id="mail" src="/images/mail.png" alt="Abrir envio de e-mail para liabarcellos28@gmail.com" onmouseover="hover(this);"  onmouseout="unhover(this);")
-        a(href="http://www.twitter.com/zaribiscuit" target='blank')
-          img( id="twitter" src="/images/twitter.png" alt="Ir para o perfil do Twitter de arroba zari biscuit" onmouseover="hover(this);" onmouseout="unhover(this);")
-        span#footerTexto @moon.koala_
+      footer
+        div.footer-content
+          div.social-media-strip
+            a(href="http://www.github.com/liaporto" target='blank')
+              img.social-icon#github(src="/images/github.png" alt="Ir para o perfil do GitHub de Lia Porto" onmouseover="hover(this);" onmouseout="unhover(this);")
+            a(href="mailto:liabarcellos28@gmail.com?subject=CalculaECO")
+              img.social-icon#mail(src="/images/mail.png" alt="Abrir envio de e-mail para liabarcellos28@gmail.com" onmouseover="hover(this);"  onmouseout="unhover(this);")
+            a(href="http://www.twitter.com/moonkoala_" target='blank')
+              img.social-icon#twitter(src="/images/twitter.png" alt="Ir para o perfil do Twitter de @ moon koala_" onmouseover="hover(this);" onmouseout="unhover(this);")
+          div.footer-text
+            - function formatDate(){
+              - const todaysDate = new Date();
+              - return todaysDate.getFullYear().toString();
+            - }
+            #{formatDate()}  
+        img.d-none.d-md-block.footer-img(src="/images/shark-water.svg" alt="Rodapé do site. Ilustração de água simplificada na cor branca.")
+      
       script.
-        if($(location).attr('pathname') == "/calculadora"){
-          if($(document).width() < 768){
-            $('body')
-              .css('background-image', 'none')
-              .css('background-color', '#ff701a')
-              .css('height', '150%')
-              }
-        }
-        if($(document).width() >= 980){
-          $('.placeholder').css('display', 'initial');
-          if($(document).width() >= 1300){
-          $('.instrucoes').css('display', 'initial');
-          }
-        }
-
         function hover(element) {
           element.setAttribute('src', '/images/'+element.id+'_laranja.png');
         }
@@ -75,9 +76,7 @@ html(lang='pt')
           element.setAttribute('src', '/images/'+element.id+'.png');
         }
 
-
-
-
-
-script(src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js", integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS", crossorigin="anonymous")  
-script(src='https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js')
+    <!-- Embeded scripts -->
+    script(src="https://code.jquery.com/jquery-2.2.4.js", integrity="sha256-iT6Q9iMJYuQiMWNd9lDyBUStIq/8PuOW33aOqmvFpqI=", crossorigin="anonymous")
+    script(src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js", integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV", crossorigin="anonymous")
+    script(src='https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js')

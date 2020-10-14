@@ -9,27 +9,6 @@ $desktop-btn-font-size: 16pt;
 
 $desktop-background: 'url("/images/Rodape_as_bg_water.png")';
 
-$bright-orange: #ff701a;
-$dark-orange: #cc4e00;
-$white: #fff;
-$main-color: $bright-orange;
-$second-color: $white;
-$shadow-color: $dark-orange;
-$p-color: black;
-
-@mixin childSizeDivide($parent_size, $number, $property) {
-  #{$property}: ($parent_size / $number);
-}
-@mixin childSizeMultiply($parent_size, $number, $property) {
-  #{$property}: ($parent_size * $number);
-}
-@mixin childSizeSubtract($parent_size, $number, $property) {
-  #{$property}: ($parent_size - $number);
-}
-@mixin childSizeSum($parent_size, $number, $property) {
-  #{$property}: ($parent_size + $number);
-}
-
 %centerStuffIpad {
   align-items: center;
   justify-content: center;
@@ -129,11 +108,14 @@ body {
   }
 }
 
-#centroIndex {
+.center-box{
   @extend %conteudoIpad;
   height: 50vh;
   margin-top: 5%;
 
+}
+
+#centroIndex {
   .groupIndex {
     line-height: initial;
     text-align: center;
