@@ -45,23 +45,6 @@ block content
 
     });
 
-    $('document').ready(function(){
-      let ww = $(window).width();
-      if($(window).width() <= 426){
-        var centro = $("#centroIndex").clone();
-        var instrucoes = $("#instrucoes").clone();
-        $("#conteudoIndex").children().remove();
-        $("#conteudoIndex").append(centro);
-        $("#conteudoIndex").after("<div class='container-fluid row instrucoes' id='instrucoesIndex' ></div>");
-        $( "#instrucoesIndex" ).append(instrucoes);
-      }
-      $( "#btn-fechadiv" ).click(function() {     
-        $('#blockingdiv').css('display', 'none');
-        $('.conteudo').css('display', 'initial');
-        $('.instrucoes').css('display', 'block');
-      });
-      })  
-
 
 
 
