@@ -16,25 +16,28 @@ html(lang='pt-br')
     meta(charset='utf-8')
     meta(name='viewport', content='width=device-width, initial-scale=1.0, maximum-scale=1')
     meta(name="title" content="CalculaECO | Calculadora de C.R")
-    meta(name="description" content="O CalculaECO é a calculadora de C.R para os cursos da Escola de Comunicação da UFRJ!")
+    meta(name="description" content="Calculadora de C.R para os cursos da Escola de Comunicação da UFRJ!")
     meta(name="url" content="calcula-eco.herokuapp.com")
-    meta(name="keywords" content="CR, calcular cr, eco, ufrj")
+    meta(name="keywords" content="CR, calcular cr, eco, ufrj, calculadora de cr, calculadora de coeficiente de rendimento, calcular cr eco")
 
     <!-- Open Graph / Facebook -->
     meta(property="og:type" content="website")
     meta(property="og:url" content="http://calcula-eco.herokuapp.com/")
     meta(property="og:title" content="CalculaECO | Calculadora de C.R")
-    meta(property="og:description" content="O CalculaECO é a calculadora de C.R para os cursos da Escola de Comunicação da UFRJ!")
+    meta(property="og:description" content="Calculadora de C.R para os cursos da Escola de Comunicação da UFRJ!")
     meta(property="og:image" content="//calcula-eco.herokuapp.com/images/og_image.png")
+
     <!-- Twitter -->
     meta(property="twitter:card" content="summary_large_image")
     meta(property="twitter:url" content="http://calcula-eco.herokuapp.com/")
     meta(property="twitter:title" content="CalculaECO | Calculadora de C.R")
-    meta(property="twitter:description" content="O CalculaECO é a calculadora de C.R para os cursos da Escola de Comunicação da UFRJ!")
+    meta(property="twitter:description" content="Calculadora de C.R para os cursos da Escola de Comunicação da UFRJ!")
     meta(property="twitter:image" content="http://calcula-eco.herokuapp.com/images/twitter_image.png")
 
     link(rel="icon" href="images/icon_laranja.png")
     link(rel='stylesheet', href='stylesheets/style.css')
+
+    <!-- Bootstrap -->
     link(rel="stylesheet", href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css", integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z", crossorigin="anonymous")
 
   body
@@ -61,22 +64,8 @@ html(lang='pt-br')
             - }
             #{formatDate()}  
         img.d-none.d-md-block.footer-img(src="/images/shark-water.svg" alt="Rodapé do site. Ilustração de água simplificada na cor branca.")
+      
       script.
-        if($(location).attr('pathname') == "/calculadora"){
-          if($(document).width() < 768){
-            $('body')
-              .css('background-image', 'none')
-              .css('background-color', '#ff701a')
-              .css('height', '150%')
-              }
-        }
-        if($(document).width() >= 980){
-          $('.placeholder').css('display', 'initial');
-          if($(document).width() >= 1300){
-          $('.instrucoes').css('display', 'initial');
-          }
-        }
-
         function hover(element) {
           element.setAttribute('src', '/images/'+element.id+'_laranja.png');
         }
@@ -84,9 +73,7 @@ html(lang='pt-br')
           element.setAttribute('src', '/images/'+element.id+'.png');
         }
 
-
-
-
-script(src="https://code.jquery.com/jquery-2.2.4.js", integrity="sha256-iT6Q9iMJYuQiMWNd9lDyBUStIq/8PuOW33aOqmvFpqI=", crossorigin="anonymous")
-script(src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js", integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV", crossorigin="anonymous")
-script(src='https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js')
+    <!-- Embeded scripts -->
+    script(src="https://code.jquery.com/jquery-2.2.4.js", integrity="sha256-iT6Q9iMJYuQiMWNd9lDyBUStIq/8PuOW33aOqmvFpqI=", crossorigin="anonymous")
+    script(src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js", integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV", crossorigin="anonymous")
+    script(src='https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js')

@@ -1,5 +1,5 @@
 /* Screen sizes and breakpoints */
-/* Colors */
+/** Colors **/
 /* Tones */
 /* Variables */
 /* Font settings */
@@ -39,7 +39,7 @@ h4 {
   text-align: center;
   font-family: "Fira Sans", "Helvetica Neue", Helvetica, Arial, sans-serif !important;
   font-weight: 600;
-  color: #fff3eb !important;
+  color: #fff !important;
 }
 
 h1 {
@@ -61,6 +61,11 @@ p {
 
 a {
   color: #351400 !important;
+}
+
+.row {
+  width: 100% !important;
+  margin: 5vh 0 0 0 !important;
 }
 
 footer {
@@ -96,10 +101,106 @@ footer .footer-content .footer-text {
   text-align: center;
 }
 
-/*iPad Pro*/
+@media only screen and (max-width: 640px) {
+  /* Screen sizes and breakpoints */
+  /** Colors **/
+  /* Tones */
+  /* Variables */
+  html {
+    max-width: 100%;
+    max-height: none !important;
+  }
+
+  footer {
+    position: fixed;
+    z-index: 0;
+    width: 100%;
+    height: 5vh;
+    background-color: #fff;
+    box-shadow: 0 0 0.3em #cc4e00;
+  }
+  footer .footer-content {
+    height: 80%;
+  }
+  footer .footer-content .social-icon {
+    padding: 0 1.5% 1.5% 1.5%;
+  }
+  footer .footer-text {
+    text-align: center;
+    margin-right: 10%;
+  }
+
+  .center-box {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    background-color: #fff;
+    box-shadow: 0 0.5em 0.9em #cc4e00;
+    text-align: justify;
+    text-align-last: center;
+  }
+  .center-box .center-box__form {
+    width: 85%;
+    height: 100% !important;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .center-box .center-box__form fieldset {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: top;
+  }
+  .center-box .center-box__form label {
+    text-align: center;
+  }
+  .center-box .center-box__form select {
+    width: 100%;
+  }
+  .center-box .center-box__submit-btn {
+    height: 40px;
+    width: 80%;
+    color: #fff;
+    font-weight: 600 !important;
+    border-radius: 0;
+    border: 2px solid #ec7023;
+    background-color: #f87523;
+  }
+  .center-box .center-box__submit-btn.pressed {
+    background-color: #cc4e00;
+  }
+
+  .center-box--horizontal {
+    height: 50vh;
+    padding: 7.1428571429vh 10px !important;
+  }
+  .center-box--horizontal select {
+    margin-top: 5px;
+    height: 5vh;
+  }
+  .center-box--horizontal #nota {
+    font-weight: bold;
+    color: #ff701a;
+  }
+
+  .center-box--vertical {
+    height: auto;
+    margin-bottom: 20%;
+    padding: 8% 0 15% 0;
+  }
+  .center-box--vertical .form-group {
+    margin-bottom: 30px;
+  }
+  .center-box--vertical .center-box__submit-btn {
+    justify-self: flex-end;
+  }
+}
 @media only screen and (min-width: 980px) {
   /* Screen sizes and breakpoints */
-  /* Colors */
+  /** Colors **/
   /* Tones */
   /* Variables */
   .row {
@@ -250,85 +351,6 @@ footer .footer-content .footer-text {
     text-decoration-color: #351400;
   }
 }
-@media only screen and (max-width: 640px) {
-  /* Screen sizes and breakpoints */
-  /* Colors */
-  /* Tones */
-  /* Variables */
-  html {
-    min-height: 100%;
-    max-width: 100%;
-  }
-
-  .btn-custom {
-    height: 40px;
-    width: 100%;
-    font-weight: 700 !important;
-    border: 0px !important;
-    border-radius: 0px !important;
-    background-color: #fff;
-  }
-  .btn-custom:hover {
-    color: #fff !important;
-  }
-
-  footer {
-    position: fixed;
-    bottom: 0;
-    z-index: 0;
-    width: 100%;
-    background-color: #fff;
-    box-shadow: 0 0 0.3em #cc4e00;
-  }
-  footer #github,
-footer #twitter,
-footer #mail {
-    height: 85%;
-    width: auto;
-    float: left;
-    padding-right: 9px;
-    padding-left: 9px;
-  }
-  footer #footerTexto {
-    text-align: center;
-    margin-right: 10%;
-  }
-
-  .center-box {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 100%;
-    padding: 0px 10px !important;
-    background-color: #fff;
-    box-shadow: 0 0.5em 0.9em #cc4e00;
-    text-align: justify;
-    text-align-last: center;
-  }
-
-  .center-box--horizontal {
-    height: 50vh;
-    margin-top: 5%;
-  }
-  .center-box--horizontal .center-box__form {
-    width: 80%;
-  }
-  .center-box--horizontal .center-box__form label {
-    width: inherit;
-  }
-  .center-box--horizontal .center-box__form select {
-    width: inherit;
-  }
-  .center-box--horizontal #nota {
-    font-weight: bold;
-    color: #ff701a;
-  }
-
-  .center-box--vertical {
-    height: auto;
-    margin: 5% 0 20% 0;
-    padding: 5% 0px;
-  }
-}
+/*iPad Pro*/
 
 /*# sourceMappingURL=style.css.map */

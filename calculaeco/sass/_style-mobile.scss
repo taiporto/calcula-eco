@@ -1,42 +1,28 @@
 @import "assets/_variables.scss";
 
+$horizontal-box-height: 50vh;
+
 html {
-  min-height: 100%;
   max-width: 100%;
-}
-
-.btn-custom {
-  height: 40px;
-  width: 100%;
-  font-weight: 700 !important;
-  border: 0px !important;
-  border-radius: 0px !important;
-  background-color: $second-color;
-
-  &:hover {
-    color: $second-color !important;
-  }
+  max-height: none !important;
 }
 
 footer {
   position: fixed;
-  bottom: 0;
   z-index: 0;
   width: 100%;
-  background-color: $second-color;
+  height: 5vh;
+  background-color: $white;
   box-shadow: 0 0 0.3em $shadow-color;
 
-  #github,
-  #twitter,
-  #mail {
-    height: 85%;
-    width: auto;
-    float: left;
-    padding-right: 9px;
-    padding-left: 9px;
-  }
+  .footer-content {
+    height: 80%;
 
-  #footerTexto {
+    .social-icon{
+      padding: 0 1.5% 1.5% 1.5%;
+    }
+  }
+  .footer-text {
     text-align: center;
     margin-right: 10%;
   }
@@ -48,28 +34,57 @@ footer {
   justify-content: center;
 
   width: 100%;
-  padding: 0px 10px !important;
-  
-  background-color: $second-color;
+
+  background-color: $white;
   box-shadow: 0 0.5em 0.9em $shadow-color;
 
   text-align: justify;
   text-align-last: center;
+
+  .center-box__form {
+    width: 85%;
+    height: 100% !important;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    fieldset {
+      height: 100%;
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: top;
+    }
+    label {
+      text-align: center;
+    }
+    select {
+      width: 100%;
+    }
+  }
+
+  .center-box__submit-btn {
+    height: 40px;
+    width: 80%;
+    color: $white;
+    font-weight: 600 !important;
+    border-radius: 0;
+    border: 2px solid $main-orange;
+    background-color: $mid-orange;
+
+    &.pressed{
+      background-color: $mid-dark-orange;
+    }
+  }
 }
 
 .center-box--horizontal {
-  height: 50vh;
-  margin-top: 5%;
+  height: $horizontal-box-height;
+  padding: $horizontal-box-height/7 10px !important;
 
-  .center-box__form{
-    width: 80%;
-
-    label{
-      width: inherit;
-    }
-    select{
-      width: inherit;
-    }
+  select{
+    margin-top: 5px;
+    height: $horizontal-box-height/10;
   }
 
   #nota {
@@ -80,6 +95,14 @@ footer {
 
 .center-box--vertical {
   height: auto;
-  margin: 5% 0 20% 0;
-  padding: 5% 0px;
+  margin-bottom: 20%;
+  padding: 8% 0 15% 0;
+
+  .form-group {
+    margin-bottom: 30px;
+  }
+
+  .center-box__submit-btn {
+    justify-self: flex-end;
+  }
 }

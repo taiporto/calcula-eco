@@ -48,7 +48,7 @@ h4 {
   text-align: center;
   font-family: "Fira Sans", "Helvetica Neue", Helvetica, Arial, sans-serif !important;
   font-weight: 600;
-  color: $off-white !important;
+  color: $white !important;
 }
 
 h1 {
@@ -70,6 +70,11 @@ p {
 
 a {
   color: $darkest-orange !important;
+}
+
+.row {
+  width: 100% !important;
+  margin: 5vh 0 0 0 !important;
 }
 
 footer {
@@ -111,18 +116,18 @@ footer {
   }
 }
 
+@media #{$width-mobile-and-down} {
+  @import "_style-mobile.scss";
+}
+
+@media #{$width-small-desktop-and-up} {
+  @import "_style-desktop.scss";
+}
+
 /*iPad Pro*/
 // @media #{$screen-ipadpro} {
 //   @import "_style-ipadpro.scss";
 // }
-
-@media #{$screen-desktop-small} {
-  @import "_style-desktop.scss";
-}
-
-@media #{$screen-small} {
-  @import "_style-mobile.scss";
-}
 
 // @media #{$screen-tablet} {
 //   @import "_style-tablet.scss";

@@ -6,16 +6,15 @@ $desktop-1200: 1200px;
 $desktop-1400: 1400px;
 $desktop-1600: 1600px;
 $desktop-1800: 1800px;
-$wide: 1300px;
 
-$screen-small: "only screen and (max-width: #{$mobile})";
-$screen-tablet: "only screen and (min-width: #{$tablet})";
-$screen-desktop-small: "only screen and (min-width: #{$desktop-980})";
-$screen-wide: "only screen and (min-width: #{$wide})";
 
-$screen-ipadpro: "only screen and (min-width: 1024px) and (max-height: 1366px) and (-webkit-min-device-pixel-ratio: 1.5)";
+$width-mobile-and-down: "only screen and (max-width: #{$mobile})";
+$width-tablet-and-up: "only screen and (min-width: #{$tablet})";
+$width-small-desktop-and-up: "only screen and (min-width: #{$desktop-980})";
 
-/* Colors */
+$ipadpro: "only screen and (min-width: 1024px) and (max-height: 1366px) and (-webkit-min-device-pixel-ratio: 1.5)";
+
+/** Colors **/
 
 /* Tones */
 $lightest-orange: #f68945;
@@ -28,6 +27,7 @@ $dark-orange: #692800;
 $darkest-orange: #351400;
 $off-white: #fff3eb;
 $white: #fff;
+$gray: #9c9c9c;
 $black: #000;
 
 
