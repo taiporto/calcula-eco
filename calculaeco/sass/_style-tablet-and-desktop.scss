@@ -1,31 +1,26 @@
-﻿@import "assets/_variables.scss";
-
-$horizontal-box-height: 40vh;
+﻿$horizontal-box-height: 40vh;
 $vertical-box-min-height: 70vh;
 $center-box-border-radius: 20px;
 
-.row {
-  width: 100% !important;
-  margin: 5vh 0 0 0 !important;
-}
-
-.placeholder,
-.instrucoes {
-  padding: 0 2vw !important;
-  margin: 2vw 0 0 0 !important;
-}
-
-.instrucoes {
-  margin-right: 20px;
-  text-align: justify;
-  text-align-last: center;
+@media #{$width-small-desktop-and-up} {
+  .placeholder,
+  .instrucoes {
+    padding: 0 2vw !important;
+    margin: 2vw 0 0 0 !important;
+  }
   
-  p{
-    padding: 0 0.2vw;
+  .instrucoes {
+    margin-right: 20px;
+    text-align: justify;
+    text-align-last: center;
+    
+    p{
+      padding: 0 0.2vw;
+    }
   }
 }
 
-@media (max-width: 1024px) {
+@media #{$width-small-desktop-and-down} {
   .center-box {
     margin: 0 auto;
   }
