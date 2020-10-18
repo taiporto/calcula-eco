@@ -275,9 +275,11 @@ footer .footer-content .footer-text {
     width: 40%;
     padding: 0 1.5% 1.5% 1.5%;
   }
-  footer .footer-content .social-media-strip img {
+  footer .footer-content .social-media-strip .social-icon {
     height: 100%;
-    width: auto;
+  }
+  footer .footer-content .social-media-strip img {
+    max-width: 100% !important;
   }
   footer .footer-text {
     width: 20%;

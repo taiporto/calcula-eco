@@ -22,9 +22,11 @@ footer {
       width: 40%;
       padding: 0 1.5% 1.5% 1.5%;
 
-      img {
+      .social-icon{
         height: 100%;
-        width: auto;
+      }
+      img{
+        max-width: 100% !important;
       }
     }
   }
