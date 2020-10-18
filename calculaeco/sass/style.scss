@@ -2,7 +2,7 @@
 
 @import "_global.scss";
 
-@media #{$width-mobile-and-down} {
+@media #{$width-mobile-and-up} {
   @import "_style-mobile.scss";
 }
 

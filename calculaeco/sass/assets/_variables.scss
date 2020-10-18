@@ -8,7 +8,7 @@ $desktop-1400: 1400px;
 $desktop-1600: 1600px;
 $desktop-1800: 1800px;
 
-
+$width-mobile-and-down: "only screen and (min-width: #{$mobile})";
 $width-mobile-and-down: "only screen and (max-width: #{$mobile})";
 $width-tablet-and-up: "only screen and (min-width: #{$tablet})";
 $width-tablet-and-down: "only screen and (max-width: #{$big-tablet})";
