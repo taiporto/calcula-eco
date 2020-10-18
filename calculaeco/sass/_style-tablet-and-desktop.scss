@@ -54,6 +54,7 @@ footer {
   background-color: $white;
   border: 2.5px solid $black;
   border-radius: $center-box-border-radius;
+  margin: 0 auto;
 
   .center-box__rotated-background {
     width: 100%;
@@ -122,13 +123,13 @@ footer {
     height: auto;
 
     label {
-      font-size: $horizontal-box-height/18;
+      font-size: 90%;
     }
 
     select {
       height: $horizontal-box-height/8;
       width: auto;
-      font-size: $horizontal-box-height/25;
+      font-size: 80%;
       text-align-last: center;
       border-radius: 3px;
       background-color: $second-color;
