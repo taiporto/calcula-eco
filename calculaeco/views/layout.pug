@@ -54,12 +54,12 @@ html(lang='pt-br')
       footer
         div.footer-content
           div.social-media-strip
-            a(href="http://www.github.com/liaporto" target='blank')
-              img.social-icon#github(src="/images/github.png" alt="Ir para o perfil do GitHub de Lia Porto" onmouseover="hover(this);" onmouseout="unhover(this);")
-            a(href="mailto:liabarcellos28@gmail.com?subject=CalculaECO")
-              img.social-icon#mail(src="/images/mail.png" alt="Abrir envio de e-mail para liabarcellos28@gmail.com" onmouseover="hover(this);"  onmouseout="unhover(this);")
-            a(href="http://www.twitter.com/moonkoala_" target='blank')
-              img.social-icon#twitter(src="/images/twitter.png" alt="Ir para o perfil do Twitter de @ moon koala_" onmouseover="hover(this);" onmouseout="unhover(this);")
+            a.social-icon(href="http://www.github.com/liaporto" target='blank')
+              img#github(src="/images/github.png" alt="Ir para o perfil do GitHub de Lia Porto" onmouseover="hover(this);" onmouseout="unhover(this);")
+            a.social-icon(href="mailto:liabarcellos28@gmail.com?subject=CalculaECO")
+              img#mail(src="/images/mail.png" alt="Abrir envio de e-mail para liabarcellos28@gmail.com" onmouseover="hover(this);"  onmouseout="unhover(this);")
+            a.social-icon(href="http://www.twitter.com/moonkoala_" target='blank')
+              img#twitter(src="/images/twitter.png" alt="Ir para o perfil do Twitter de @ moon koala_" onmouseover="hover(this);" onmouseout="unhover(this);")
           div.footer-text
             - function formatDate(){
               - const todaysDate = new Date();

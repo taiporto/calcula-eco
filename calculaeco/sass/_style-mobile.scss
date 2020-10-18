@@ -18,13 +18,19 @@ footer {
   .footer-content {
     height: 80%;
 
-    .social-icon{
+    .social-media-strip {
+      width: 40%;
       padding: 0 1.5% 1.5% 1.5%;
+
+      img {
+        height: 100%;
+        width: auto;
+      }
     }
   }
   .footer-text {
-    text-align: center;
-    margin-right: 10%;
+    width: 20%;
+    text-align: left;
   }
 }
 
@@ -36,10 +42,17 @@ footer {
   width: 100%;
 
   background-color: $white;
+  border: none;
+  border-radius: 0;
+
   box-shadow: 0 0.5em 0.9em $shadow-color;
 
   text-align: justify;
   text-align-last: center;
+
+  .center-box__rotated-background{
+    display: none;
+  }
 
   .center-box__form {
     width: 85%;
@@ -47,13 +60,14 @@ footer {
     display: flex;
     flex-direction: column;
     align-items: center;
+    justify-content: center;
 
     fieldset {
       height: 100%;
       width: 100%;
+      padding: 0;
       display: flex;
       flex-direction: column;
-      justify-content: top;
     }
     label {
       text-align: center;
@@ -66,13 +80,16 @@ footer {
   .center-box__submit-btn {
     height: 40px;
     width: 80%;
+    
+    position: initial;
+
     color: $white;
     font-weight: 600 !important;
     border-radius: 0;
     border: 2px solid $main-orange;
     background-color: $mid-orange;
 
-    &.pressed{
+    &.pressed {
       background-color: $mid-dark-orange;
     }
   }
@@ -82,7 +99,11 @@ footer {
   height: $horizontal-box-height;
   padding: $horizontal-box-height/7 10px !important;
 
-  select{
+  .form-group{
+    margin-bottom: 1rem;
+  }
+
+  select {
     margin-top: 5px;
     height: $horizontal-box-height/10;
   }
@@ -99,6 +120,10 @@ footer {
   padding: 8% 0 15% 0;
 
   .form-group {
+    margin: 0;
+    width: 100% !important;
+    max-width: none;
+    padding: 0;
     margin-bottom: 30px;
   }
 

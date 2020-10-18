@@ -2,19 +2,43 @@
 $vertical-box-min-height: 70vh;
 $center-box-border-radius: 20px;
 
+footer {
+  z-index: -999999;
+
+  img {
+    width: 110%;
+    margin-left: -1%;
+    height: auto;
+  }
+
+  .footer-content {
+    height: 20%;
+
+    .social-media-strip {
+      width: 10%;
+      margin: 0 0 0.5% 1.2%;
+    }
+
+    .footer-text {
+      width: 80%;
+      text-align: center;
+    }
+  }
+}
+
 @media #{$width-small-desktop-and-up} {
   .placeholder,
   .instrucoes {
     padding: 0 2vw !important;
     margin: 2vw 0 0 0 !important;
   }
-  
+
   .instrucoes {
     margin-right: 20px;
     text-align: justify;
     text-align-last: center;
-    
-    p{
+
+    p {
       padding: 0 0.2vw;
     }
   }
@@ -58,6 +82,7 @@ $center-box-border-radius: 20px;
 
   .center-box__submit-btn {
     width: 100%;
+    background-color: $white;
     font-weight: 600 !important;
     border: 0px !important;
     border-radius: 0px !important;
@@ -95,7 +120,7 @@ $center-box-border-radius: 20px;
     text-align: center;
     width: auto;
     height: auto;
-    
+
     label {
       font-size: $horizontal-box-height/18;
     }
@@ -162,7 +187,7 @@ $center-box-border-radius: 20px;
     color: $main-color;
     margin-left: 3px;
   }
-  #tentarnovamente{
+  #tentarnovamente {
     margin-top: 30px;
     text-decoration-color: $darkest-orange;
   }
