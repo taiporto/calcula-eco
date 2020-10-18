@@ -101,11 +101,19 @@ footer {
 
   .form-group{
     margin-bottom: 1rem;
+
+    label{
+      font-size: 100%;
+    }
+    select {
+      margin-top: 5px;
+      height: $horizontal-box-height/10;
+      font-size: 100%;
+    }
   }
 
-  select {
-    margin-top: 5px;
-    height: $horizontal-box-height/10;
+  .center-box__submit-btn{
+    font-size: 100%;
   }
 
   #nota {
@@ -129,5 +137,6 @@ footer {
 
   .center-box__submit-btn {
     justify-self: flex-end;
+    font-size: 100%;
   }
 }

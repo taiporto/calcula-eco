@@ -341,9 +341,16 @@ footer .footer-content .footer-text {
   .center-box--horizontal .form-group {
     margin-bottom: 1rem;
   }
-  .center-box--horizontal select {
+  .center-box--horizontal .form-group label {
+    font-size: 100%;
+  }
+  .center-box--horizontal .form-group select {
     margin-top: 5px;
     height: 5vh;
+    font-size: 100%;
+  }
+  .center-box--horizontal .center-box__submit-btn {
+    font-size: 100%;
   }
   .center-box--horizontal #nota {
     font-weight: bold;
@@ -364,6 +371,7 @@ footer .footer-content .footer-text {
   }
   .center-box--vertical .center-box__submit-btn {
     justify-self: flex-end;
+    font-size: 100%;
   }
 }
 
