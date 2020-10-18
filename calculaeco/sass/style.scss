@@ -2,14 +2,16 @@
 
 @import "_global.scss";
 
-@media #{$width-mobile-and-up} {
+@media #{$width-max-mobile-and-down} {
   @import "_style-mobile.scss";
+}
+
+@media #{$width-tablet-and-up} {
+  @import "_style-tablet-and-desktop.scss";
 }
 
 /*iPad Pro*/
 @media #{$ipadpro} {
   @import "_style-mobile.scss";
 }
-
-@import "_style-tablet-and-desktop.scss";
 

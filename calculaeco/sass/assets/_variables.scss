@@ -1,6 +1,7 @@
 /* Screen sizes and breakpoints */
-$mobile: 640px;
-$tablet: 768px;
+$min-mobile: 320px;
+$max-mobile: 740px;
+$min-tablet: 768px;
 $big-tablet: 980px;
 $small-desktop: 1024px;
 $desktop-1200: 1200px;
@@ -8,10 +9,11 @@ $desktop-1400: 1400px;
 $desktop-1600: 1600px;
 $desktop-1800: 1800px;
 
-$width-mobile-and-down: "only screen and (min-width: #{$mobile})";
-$width-mobile-and-down: "only screen and (max-width: #{$mobile})";
-$width-tablet-and-up: "only screen and (min-width: #{$tablet})";
-$width-tablet-and-down: "only screen and (max-width: #{$big-tablet})";
+
+$width-min-mobile-and-up: "only screen and (min-width: #{$min-mobile})";
+$width-max-mobile-and-down: "only screen and (max-width: #{$max-mobile})";
+$width-tablet-and-up: "only screen and (min-width: #{$min-tablet})";
+$width-tablet-and-down: "only screen and (max-width: #{$min-tablet})";
 $width-small-desktop-and-up: "only screen and (min-width: #{$small-desktop})";
 $width-small-desktop-and-down: "only screen and (max-width: #{$small-desktop})";
 
