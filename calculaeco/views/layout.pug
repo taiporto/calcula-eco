@@ -11,27 +11,26 @@ html(lang='pt-br')
       gtag('js', new Date());
       gtag('config', 'UA-161834654-1');
         
-    title #{titulo} | CalculaECO
+    title Calculadora de CR | #{titulo}
 
     meta(charset='utf-8')
     meta(name='viewport', content='width=device-width, initial-scale=1.0, maximum-scale=1')
-    meta(name="title" content="CalculaECO | Calculadora de C.R")
-    meta(name="description" content="Calculadora de C.R para os cursos da Escola de Comunicação da UFRJ!")
+    meta(name="title" content="Calculadora de CR | CalculaECO")
+    meta(name="description" content="O CalculaECO é uma calculadora de CR para os cursos da Escola de Comunicação da UFRJ. Calcule o seu CR inserindo suas notas para as matérias de todos os cursos e períodos da ECO.")
     meta(name="url" content="calcula-eco.herokuapp.com")
-    meta(name="keywords" content="CR, calcular cr, eco, ufrj, calculadora de cr, calculadora de coeficiente de rendimento, calcular cr eco")
 
     <!-- Open Graph / Facebook -->
     meta(property="og:type" content="website")
     meta(property="og:url" content="http://calcula-eco.herokuapp.com/")
-    meta(property="og:title" content="CalculaECO | Calculadora de C.R")
-    meta(property="og:description" content="Calculadora de C.R para os cursos da Escola de Comunicação da UFRJ!")
+    meta(property="og:title" content="Calculadora de CR | CalculaECO")
+    meta(property="og:description" content="Calculadora de CR para os cursos da Escola de Comunicação da UFRJ!")
     meta(property="og:image" content="//calcula-eco.herokuapp.com/images/og_image.png")
 
     <!-- Twitter -->
     meta(property="twitter:card" content="summary_large_image")
     meta(property="twitter:url" content="http://calcula-eco.herokuapp.com/")
-    meta(property="twitter:title" content="CalculaECO | Calculadora de C.R")
-    meta(property="twitter:description" content="Calculadora de C.R para os cursos da Escola de Comunicação da UFRJ!")
+    meta(property="twitter:title" content="Calculadora de CR | CalculaECO")
+    meta(property="twitter:description" content="Calculadora de CR para os cursos da Escola de Comunicação da UFRJ!")
     meta(property="twitter:image" content="http://calcula-eco.herokuapp.com/images/twitter_image.png")
 
     link(rel="icon" href="images/icon_laranja.png")
@@ -55,18 +54,18 @@ html(lang='pt-br')
         div.footer-content
           div.social-media-strip
             a.social-icon(href="http://www.github.com/liaporto" target='blank')
-              img#github(src="/images/github.png" alt="Ir para o perfil do GitHub de Lia Porto" onmouseover="hover(this);" onmouseout="unhover(this);")
+              img#github(src="/images/github.png" alt="Ícone do Github" onmouseover="hover(this);" onmouseout="unhover(this);")
             a.social-icon(href="mailto:liabarcellos28@gmail.com?subject=CalculaECO")
-              img#mail(src="/images/mail.png" alt="Abrir envio de e-mail para liabarcellos28@gmail.com" onmouseover="hover(this);"  onmouseout="unhover(this);")
+              img#mail(src="/images/mail.png" alt="Ícone de e-mail" onmouseover="hover(this);"  onmouseout="unhover(this);")
             a.social-icon(href="http://www.twitter.com/moonkoala_" target='blank')
-              img#twitter(src="/images/twitter.png" alt="Ir para o perfil do Twitter de @ moon koala_" onmouseover="hover(this);" onmouseout="unhover(this);")
+              img#twitter(src="/images/twitter.png" alt="Ícone do Twitter" onmouseover="hover(this);" onmouseout="unhover(this);")
           div.footer-text
             - function formatDate(){
               - const todaysDate = new Date();
               - return todaysDate.getFullYear().toString();
             - }
             #{formatDate()}  
-        img.d-none.d-md-block.footer-img(src="/images/shark-water.svg" alt="Rodapé do site. Ilustração de água simplificada na cor branca.")
+        img.d-none.d-md-block.footer-img(src="/images/footer-shark-water.svg" alt="Rodapé do site. Ilustração de água simplificada na cor branca.")
       
       script.
         function hover(element) {
