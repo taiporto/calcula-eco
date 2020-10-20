@@ -205,9 +205,6 @@ footer .footer-content .footer-text {
   width: auto;
   height: auto;
 }
-.center-box--horizontal .form-group label {
-  font-size: 90%;
-}
 .center-box--horizontal .form-group select {
   height: 5vh;
   width: auto;
