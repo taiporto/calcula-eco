@@ -83,18 +83,32 @@ footer {
     bottom: 0;
     width: 100%;
 
-    .social-media-strip{
+    .social-media-strip {
       display: flex;
       flex-direction: row;
 
       .social-icon {
         width: 30%;
-      }
-
-      img{
         height: 100%;
-        width: auto;
+        filter: brightness(0) saturate(100%) invert(8%) sepia(24%) saturate(7204%) hue-rotate(23deg) brightness(98%) contrast(101%);
+
+        &#github{
+          background: center/contain no-repeat url("../images/github.svg");
+        }
+        &#email{
+          background: center/contain no-repeat url("../images/email.svg");
+        }
+        &#twitter{
+          background: center/contain no-repeat url("../images/twitter.svg");
+        }
+        &:hover{
+          filter: invert(50%) sepia(48%) saturate(3076%) hue-rotate(349deg) brightness(105%) contrast(101%);
+        }
       }
+    }
+
+    .footer-text {
+      color: $darkest-orange;
     }
   }
 }

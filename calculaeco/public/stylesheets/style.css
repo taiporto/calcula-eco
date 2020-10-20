@@ -83,26 +83,39 @@ footer .footer-content .social-media-strip {
 }
 footer .footer-content .social-media-strip .social-icon {
   width: 30%;
-}
-footer .footer-content .social-media-strip img {
   height: 100%;
-  width: auto;
+  filter: brightness(0) saturate(100%) invert(8%) sepia(24%) saturate(7204%) hue-rotate(23deg) brightness(98%) contrast(101%);
+}
+footer .footer-content .social-media-strip .social-icon#github {
+  background: center/contain no-repeat url("../images/github.svg");
+}
+footer .footer-content .social-media-strip .social-icon#email {
+  background: center/contain no-repeat url("../images/email.svg");
+}
+footer .footer-content .social-media-strip .social-icon#twitter {
+  background: center/contain no-repeat url("../images/twitter.svg");
+}
+footer .footer-content .social-media-strip .social-icon:hover {
+  filter: invert(50%) sepia(48%) saturate(3076%) hue-rotate(349deg) brightness(105%) contrast(101%);
+}
+footer .footer-content .footer-text {
+  color: #351400;
 }
 
 footer {
   z-index: -999999;
 }
-footer img {
+footer .footer-img {
   width: 110%;
   margin-left: -1%;
   height: auto;
 }
 footer .footer-content {
-  height: 20%;
+  height: 18%;
 }
 footer .footer-content .social-media-strip {
   width: 10%;
-  margin: 0 0 0.5% 1.2%;
+  margin: 0 0 0.5% 1%;
 }
 footer .footer-content .footer-text {
   width: 80%;

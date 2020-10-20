@@ -10,7 +10,7 @@ html(lang='pt-br')
       function gtag(){dataLayer.push(arguments);}
       gtag('js', new Date());
       gtag('config', 'UA-161834654-1');
-        
+
     title Calculadora de CR | #{titulo}
 
     meta(charset='utf-8')
@@ -46,19 +46,16 @@ html(lang='pt-br')
     block header
       header
         h1 CalculaECO
-      
+
     block subLayout
-    
+
     block rodape
       footer
         div.footer-content
           div.social-media-strip
-            a.social-icon(href="http://www.github.com/liaporto" target='blank')
-              img#github(src="/images/github.png" alt="Ícone do Github" onmouseover="hover(this);" onmouseout="unhover(this);")
-            a.social-icon(href="mailto:liabarcellos28@gmail.com?subject=CalculaECO")
-              img#mail(src="/images/mail.png" alt="Ícone de e-mail" onmouseover="hover(this);"  onmouseout="unhover(this);")
-            a.social-icon(href="http://www.twitter.com/moonkoala_" target='blank')
-              img#twitter(src="/images/twitter.png" alt="Ícone do Twitter" onmouseover="hover(this);" onmouseout="unhover(this);")
+            a.social-icon#github(href="http://www.github.com/liaporto" target='blank' title="Github" rel="noopener")
+            a.social-icon#email(href="mailto:liabarcellos28@gmail.com?subject=CalculaECO" title="Email")
+            a.social-icon#twitter(href="http://www.twitter.com/moonkoala_" target='blank' title="Twitter" rel="noopener")
           div.footer-text
             - function formatDate(){
               - const todaysDate = new Date();
@@ -66,14 +63,6 @@ html(lang='pt-br')
             - }
             #{formatDate()}  
         img.d-none.d-md-block.footer-img(src="/images/footer-shark-water.svg" alt="Rodapé do site. Ilustração de água simplificada na cor branca.")
-      
-      script.
-        function hover(element) {
-          element.setAttribute('src', '/images/'+element.id+'_laranja.png');
-        }
-        function unhover(element) {
-          element.setAttribute('src', '/images/'+element.id+'.png');
-        }
 
     <!-- Embeded scripts -->
     script(src="https://code.jquery.com/jquery-2.2.4.js", integrity="sha256-iT6Q9iMJYuQiMWNd9lDyBUStIq/8PuOW33aOqmvFpqI=", crossorigin="anonymous")
