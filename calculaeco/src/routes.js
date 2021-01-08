@@ -14,6 +14,7 @@ const isEmpty = require('./functionalities').isEmpty;
 const Materia = require("./models/Materia");
 
 let creditosArray = [];
+let creditosEncontrados = {};
 
 
 //GET para abrir a página inicial
@@ -46,23 +47,26 @@ routes.get("/calculadora", (req, res) => {
                 })
                 .catch(error => console.log(error))
 
-            // Acha a matéria
-            const docs = await Materia.find({
+            // Acha as disciplinas correspondentes ao período e curso
+            const mongoResponse = await Materia.find({
                 curso: cursoSelected,
-                periodo: parseInt(periodoSelected)
+                periodo: Number(periodoSelected)
             });
+            
+            const disciplinasEncontradas = JSON.parse(JSON.stringify(mongoResponse));
 
-            
-            const result = JSON.parse(JSON.stringify(docs))
-            
-            if(!isEmpty(result)){
-                for (item in result){
-                    creditosArray.push(result[item]['creditos'])
-                }
-                res.render("calculadora", { disciplinas: result, titulo: "Calculadora" });
+            if(!isEmpty(disciplinasEncontradas)){
+
+                disciplinasEncontradas.forEach(disciplina => {
+                    const id_disciplina = disciplina.id_disciplina;
+                    const creditos_disciplina = +disciplina.creditos;
+                    creditosEncontrados[id_disciplina] = creditos_disciplina;
+                })
+
+                res.render("calculadora", { disciplinas: disciplinasEncontradas, titulo: "Calculadora" });
             } 
             else{
-                res.send("<span>Por favor insira uma combinação válida</span>");
+                res.send("<span>Por favor insira uma combinação válida.</span>");
             }
         }
     }
@@ -72,34 +76,31 @@ routes.get("/calculadora", (req, res) => {
 });
 
 
-//POST que faz o display dos resultados
+//POST que calcula e faz o display dos resultados
 routes.post("/resultado", (req, res) => {
 
-    let notasDict = req.body;
-    let creditos = creditosArray.map(Number);
-    let creditosAtt = [];
-    let notas = [];
+    let notas = req.body;
+    let somatorioNotas = 0,
+        somatorioCreditos = 0;
 
-    for (nota in notasDict) {
-        if (notasDict[nota] != 0) {
-            notas.push(notasDict[nota]);
-            creditosAtt.push(creditos[nota - 1]);
+    for (const disciplina in notas){
+        const nota = notas[disciplina];
+        if(nota !== ''){
+            const creditosDisciplina = creditosEncontrados[disciplina];
+    
+            const crDisciplina = nota * creditosDisciplina;
+    
+            somatorioNotas+=crDisciplina;
+            somatorioCreditos+=creditosDisciplina;
         }
     }
 
-    notas = notas.map(Number);
-
-    console.log(notas);
-
-    console.log(creditosAtt);
-
-    let crFinal = calculoCR(notas, creditosAtt);
+    const crFinal = (somatorioNotas/somatorioCreditos).toFixed(1);
 
     res.render("resultado", {
         crFinal,
         titulo: "Resultado"
     });
-
 })
 
 module.exports = routes;
